@@ -23,10 +23,15 @@
          <td>
            <?php foreach ($hryy as $zanryProHru) {
             if($hra["id_hry"]==$zanryProHru["id_hry"]){
-            ?>     
-            <?= $zanryProHru["nazev"] ?>_
-       <?php }} ?>
+     ?>          
             
+              
+            <?= $zanryProHru["nazev"] ?>,
+            
+       <?php
+       
+        }} ?>
+               
          </td>
           <td>
             <a href="editace-hry/<?= $hra["id_hry"] ?>">Upravit</a>

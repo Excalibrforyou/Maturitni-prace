@@ -17,11 +17,6 @@ class HryKontroler extends Kontroler {
 
      $hryy = array_merge($hryy,$spravceHer->vratZanryHry($hryyy["id_hry"]));
    }      
-   
-
-
-      
- print_r($hryy);  
 
                        
     

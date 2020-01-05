@@ -37,48 +37,7 @@
      <input type="text" name="platforma" id="platforma"
      value="<?= $hry["platforma"] ?>" required>
    </div>
-
   
-  <div>
-           <?php 
-            $bum = array();
-           foreach ($zanry as $zanryProHru) {
-        
-             foreach($PorovZanru as $Porov){      
-             
-             
-            if($Porov["id_zanr"]==$zanryProHru["id_zanr"] AND !in_array($Porov["id_zanr"],$bum)){
-              $bum = $Porov["id_zanr"];
-            ?>     
-         
-         
-    <input type="checkbox" name="<?= $zanryProHru["nazev"]?>" value="<?= $zanryProHru["id_zanr"]?> ?>" checked ><?= $zanryProHru["nazev"]?> 
-    <br> 
-
-     
-       <?php }
-       if($Porov["id_zanr"]!=$zanryProHru["id_zanr"] AND !in_array($Porov["id_zanr"],$bum)) {
-            $bum = $Porov["id_zanr"];
-         
-          /*if($Porov["id_zanr"]==$zanryProHru["id_zanr"]){
-          
-          } */ 	                         
-        ?>
-        
-        
-        
-         <input type="checkbox" name="<?= $zanryProHru["nazev"]?>" value="<?= $zanryProHru["id_zanr"]?> ?>"  ><?= $zanryProHru["nazev"]?> 
-         <br>    
-       <?php
-      }
-
-     }   
-    } ?>
-
-
-  </div> 
-   
-   
       
    <input type="submit" value="Uložit údaje hry">
  </form>

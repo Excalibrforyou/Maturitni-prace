@@ -39,6 +39,22 @@ class SpravceZanrHra {
     ", array($idHry,$idZanru));
   }
   
+    public function vratZanrHry($idZanru,$idHry) {
+    return Db::dotazJeden("
+      SELECT *
+      FROM zanrhra
+      WHERE id_hry = ? AND id_zanr = ?
+    ", array($idHry,$idZanru));
+  }
+  
+  public function vratVsechnyZanryHry($idHry) {
+    $zanrhra = Db::dotazVsechny("
+      SELECT id_zanr
+      FROM zanrhra
+      where id_hry = ?
+    ", array($idHry)); 
+    return $zanrhra;
+  }
   
 }
 
