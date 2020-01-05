@@ -20,17 +20,16 @@ class EditaceHryKontroler extends Kontroler {
     if (!empty($parametry[0]))
     {
       $hry = $spravceHer->vratHru($parametry[0]);
-      $zanr = $spravceHer->vratZanryHry($parametry[0]);
-      print_r($zanr);  
+     $this->data["PorovZanru"] = $spravceHer->vratZanryHry($parametry[0]);
+     
     }
     else{
       $hry = $spravceHer->pripravPrazdnePoleHer();
-      $zanr = $spravceZanrHra->pripravPrazdnePoleZanrHry();
+     $this->data["PorovZanru"] = $spravceZanrHra->pripravPrazdnePoleZanrHry();
      } 
       
     $zanry = $spravceZanru->vratVsechnyZanry();
-    
-    $this->data["PorovZanru"]= $zanr;     
+      
     $this->data["zanry"] = $zanry;
     $this->data["hry"] = $hry;
     $this->pohled = "editaceHry";

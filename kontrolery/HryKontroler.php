@@ -24,7 +24,6 @@ class HryKontroler extends Kontroler {
  print_r($hryy);  
 
                        
-    //https://www.php.net/manual/en/function.array-splice.php
     
     $this->data["hryy"] = $hryy ;
     $this->data["hry"] = $hry;
