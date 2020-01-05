@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title>GameWiki</title>
+    <meta charset='utf-8'>
+    <base href="/">
+  </head>
+  <body>
+  
+   <nav>
+  <div class="blokPrihlaseni">
+  <?php
+    if (!empty($prihlasenyUzivatel)) {
+  ?>
+     <span>Jste přihlášeni jako 
+        <?= $prihlasenyUzivatel["prezdivka"] ?>
+        | <a href="#">Odhlásit se</a>
+     </span>
+  <?php
+    } else {
+  ?>
+       <a href="prihlaseni-uzivatele">Přihlásit se</a>
+  <?php
+    }
+  ?>
+  </div>
+     <ul>
+       <li><a href="uvod">Úvod</a></li>
+       <li><a href="hry">Hry</a></li>
+       <li><a href="uzivatele">Uživatelé</a></li>
+     </ul>
+     </nav>
+     
+     <section>
+     <?php
+       $this->kontroler->vypisPohled();
+     ?>
+     </section>
+     
+      <footer>
+      
+      </footer>  
+  </body>
+</html>

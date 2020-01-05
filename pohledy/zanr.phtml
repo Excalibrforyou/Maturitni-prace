@@ -1,0 +1,22 @@
+ <h1>Hry</h1>
+    
+  <p>
+    <a href="editace-zanru">Nový žánr</a>
+  </p>
+ 
+     <table>
+     <tr>
+       <th>Název</th>
+       <th>Popis</th>
+     </tr>
+     <?php foreach ($zanr as $zanr1) { ?>
+        <tr>
+          <td><?= $zanr1["nazev"] ?></td>
+          <td><?= $zanr1["popis"] ?></td>
+          <td>
+            <a href="editace-zanru/<?= $zanr1["id_zanr"] ?>">Upravit</a>
+            <a href="zanr/<?= $zanr1["id_zanr"] ?>/odstranit">Odstranit</a>
+           </td> 
+        </tr>   	
+     <?php } ?>
+     </table>

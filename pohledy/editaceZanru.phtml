@@ -1,0 +1,30 @@
+<?php
+  if (empty($zanr["id_zanr"])) {
+?>
+<h1>Vložení nové žánru</h1>
+<?php
+  } else {
+?> 
+<h1>Editace žánru</h1>
+<?php
+  }
+?>
+ 
+ <form method="post">
+   <input type="hidden" name="id_zanr" 
+     value="<?= $zanr["id_zanr"] ?>">
+   <div>
+     <label for="nazev">Název</label>
+     <input type="text" name="nazev" id="nazev"
+     value="<?= $zanr["nazev"] ?>" required>
+   </div>
+   <div>
+     <label for="popis">Popis</label>
+     <input type="text" name="popis" id="popis"
+     value="<?= $zanr["popis"] ?>" required>
+   </div>
+      
+   <input type="submit" value="Uložit údaje žánru">
+ </form>
+     
+     

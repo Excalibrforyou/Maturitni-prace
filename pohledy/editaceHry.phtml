@@ -1,0 +1,72 @@
+<?php
+  if (empty($hry["id_hry"])) {
+?>
+<h1>Vložení nové hry</h1>
+<?php
+  } else {
+?> 
+<h1>Editace hry</h1>
+<?php
+  }
+?>
+ 
+ <form method="post">
+   <input type="hidden" name="id_hry" 
+     value="<?= $hry["id_hry"] ?>">
+   <div>
+     <label for="Jmeno">Jméno</label>
+     <input type="text" name="Jmeno" id="Jmeno"
+     value="<?= $hry["Jmeno"] ?>" required>
+   </div>
+   <div>
+     <label for="obsah">Obsah</label>
+     <input type="text" name="obsah" id="obsah"
+     value="<?= $hry["obsah"] ?>" required>
+   </div>
+   <div>
+     <label for="datum_vydani">Datum vydání</label>
+     <input type="date" name="datum_vydani" id="datum_vydani"
+     value="<?= $hry["datum_vydani"] ?>" required>
+   </div>
+   <div>
+     <label for="vyvojar">Vývojář</label>
+     <input type="text" name="vyvojar" id="vyvojar"
+     value="<?= $hry["vyvojar"] ?>" required>
+   </div>
+     <label for="platforma">Platforma</label>
+     <input type="text" name="platforma" id="platforma"
+     value="<?= $hry["platforma"] ?>" required>
+   </div>
+
+  
+  <div>
+           <?php foreach ($zanry as $zanryProHru) {
+             print_r($PorovZanru); 
+            if($PorovZanru["id_zanr"]==$zanryProHru["id_zanr"]){
+            
+            ?>     
+         
+    <input type="checkbox" name="<?= $zanryProHru["nazev"]?>" value="<?= $zanryProHru["id_zanr"]?> ?>" checked ><?= $zanryProHru["nazev"]?> 
+    <br> 
+
+     
+       <?php }
+       else {
+            	
+        ?>
+         <input type="checkbox" name="<?= $zanryProHru["nazev"]?>" value="<?= $zanryProHru["id_zanr"]?> ?>"  ><?= $zanryProHru["nazev"]?> 
+         <br>    
+       <?php
+        
+     
+      } } ?>
+
+
+  </div> 
+   
+   
+      
+   <input type="submit" value="Uložit údaje hry">
+ </form>
+     
+     

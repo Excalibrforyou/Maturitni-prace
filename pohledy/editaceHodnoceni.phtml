@@ -1,0 +1,40 @@
+<?php
+  if (empty($hodnoceni["id_hod"])) {
+?>
+<h1>Vložení nového hodnocení</h1>
+<?php
+  } else {
+?> 
+<h1>Editace hodnocení</h1>
+<?php
+  }
+?>
+ 
+ <form method="post">
+   <input type="hidden" name="id_hod" 
+     value="<?= $hodnoceni["id_hod"] ?>">
+   <div>
+     <label for="hodnoceni">%</label>
+     <input type="text" name="hodnoceni" id="hodnoceni"
+     value="<?= $hodnoceni["hodnoceni"] ?>" required>
+   </div>
+   <div>
+     <label for="komentar">Recenze</label>
+     <input type="text" name="komentar" id="komentar"
+     value="<?= $hodnoceni["komentar"] ?>" required>
+   </div>
+   <div>
+     <label for="id_uzivatele">Uzivatel</label>
+     <input type="text" name="id_uzivatele" id="id_uzivatele"
+     value="<?= $hodnoceni["id_uzivatele"] ?>" required>
+   </div>
+   <div>
+     <label for="id_hry">Hra</label>
+     <input type="text" name="id_hry" id="id_hry"
+     value="<?= $hodnoceni["id_hry"] ?>" required>
+   </div>
+   
+   <input type="submit" value="Uložit údaje hodnocení">
+ </form>
+     
+     

@@ -1,0 +1,27 @@
+ <h1>Hodnoceni</h1>
+    
+  <p>
+    <a href="editace-hodnoceni">Nové hodnocení</a>
+  </p>
+ 
+     <table>
+     <tr>
+       <th>%</th>
+       <th>Recenze</th>
+       <th>Administrace</th>
+       <th>Uzivatel</th>
+       <th>Hra</th>
+     </tr>
+     <?php foreach ($hodnoceni as $hodnot) { ?>
+        <tr>
+          <td><?= $hodnot["hodnoceni"] ?></td>
+          <td><?= $hodnot["komentar"] ?></td>
+          <td><?= $hodnot["id_uzivatele"] ?></td>
+          <td><?= $hodnot["id_hry"] ?></td>
+          <td>
+            <a href="editace-uzivatele/<?= $hodnot["id_hod"] ?>">Upravit</a>
+            <a href="uzivatele/<?= $hodnot["id_hod"] ?>/odstranit">Odstranit</a>
+           </td> 
+        </tr>   	
+     <?php } ?>
+     </table>

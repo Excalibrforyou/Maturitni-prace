@@ -1,0 +1,25 @@
+ <h1>Uživatelé</h1>
+    
+  <p>
+    <a href="editace-uzivatele">Nový uživatel</a>
+  </p>
+ 
+     <table>
+     <tr>
+       <th>Přezdívka</th>
+       <th>Email</th>
+       <th>Ověřovací kód</th>
+       <th>Administrace</th>
+     </tr>
+     <?php foreach ($uzivatele as $uzivatel) { ?>
+        <tr>
+          <td><?= $uzivatel["prezdivka"] ?></td>
+          <td><?= $uzivatel["email"] ?></td>
+          <td><?= $uzivatel["over_kod"] ?></td>
+          <td>
+            <a href="editace-uzivatele/<?= $uzivatel["id_uzivatele"] ?>">Upravit</a>
+            <a href="uzivatele/<?= $uzivatel["id_uzivatele"] ?>/odstranit">Odstranit</a>
+           </td> 
+        </tr>   	
+     <?php } ?>
+     </table>

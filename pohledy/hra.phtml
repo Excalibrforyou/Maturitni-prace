@@ -1,0 +1,37 @@
+ <h1>Hry</h1>
+    
+  <p>
+    <a href="editace-hry">Nová hra</a>
+  </p>
+ 
+     <table>
+     <tr>
+       <th>Jmeno</th>
+       <th>Obsah</th>
+       <th>Datum vydání</th>
+       <th>Vyvojar</th>
+       <th>Platforma</th>
+       <th>Žánry</th>
+     </tr>
+     <?php foreach ($hry as $hra) { ?>
+        <tr>
+          <td><?= $hra["Jmeno"] ?></td>
+          <td><?= $hra["obsah"] ?></td>
+          <td><?= $hra["datum_vydani"] ?></td>
+          <td><?= $hra["vyvojar"] ?></td>
+          <td><?= $hra["platforma"] ?></td>
+         <td>
+           <?php foreach ($hryy as $zanryProHru) {
+            if($hra["id_hry"]==$zanryProHru["id_hry"]){
+            ?>     
+            <?= $zanryProHru["nazev"] ?>_
+       <?php }} ?>
+            
+         </td>
+          <td>
+            <a href="editace-hry/<?= $hra["id_hry"] ?>">Upravit</a>
+            <a href="hry/<?= $hra["id_hry"] ?>/odstranit">Odstranit</a>
+           </td> 
+        </tr>   	
+     <?php } ?>
+     </table>
