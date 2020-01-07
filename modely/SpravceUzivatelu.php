@@ -7,8 +7,7 @@ class SpravceUzivatelu {
       "prijmeni" => "",
       "prezdivka" => "",
       "email" => "",
-      "heslo" => "",
-      "over_kod" => ""
+      "heslo" => ""
     );
   }
 
@@ -36,11 +35,14 @@ class SpravceUzivatelu {
     
     
     $udajeUzivateleDB = array_intersect_key($udajeUzivatele, array_flip($klice));
-    $udajeUzivateleDB["over_kod"] = $kod; 
+   
+
     $hashHesla = $this->vratHashHesla($udajeUzivatele["heslo"]);
     if (empty($udajeUzivatele["ID_uzivatele"]))
     {
-      $udajeUzivateleDB["heslo"] = $hashHesla;
+      $udajeUzivateleDB["heslo"] = $hashHesla;  
+       $udajeUzivateleDB["over_kod"] = $kod; 
+       $udajeUzivateleDB["typ_uctu"] = 1;  
       Db::vloz("uzivatel", $udajeUzivateleDB);
     }
     else

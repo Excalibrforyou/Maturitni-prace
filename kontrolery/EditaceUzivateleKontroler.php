@@ -3,10 +3,9 @@ class EditaceUzivateleKontroler extends Kontroler {
   public function zpracuj($parametry) {
     $spravceUzivatelu = new SpravceUzivatelu();
     
-    if (!empty($_POST)) {
+    if (!empty($_POST)) {    
       $kod=$spravceUzivatelu->vygenerujNahodnyKod();
-      echo $kod;
-      $spravceUzivatelu->ulozUzivatele($_POST,$kod);
+      $spravceUzivatelu->ulozUzivatele($_POST,$kod); 
       $this->presmeruj("uzivatele");
     }
     

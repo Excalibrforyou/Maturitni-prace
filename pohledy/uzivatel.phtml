@@ -10,6 +10,7 @@
        <th>Přezdívka</th>
        <th>Email</th>
        <th>Ověřovací kód</th>
+       <th>Právo</th>
        <th>Administrace</th>
      </tr>
      <?php foreach ($uzivatel as $uzivatel1) { ?>
@@ -18,6 +19,7 @@
           <td><?= $uzivatel1["prezdivka"] ?></td>
           <td><?= $uzivatel1["email"] ?></td>
           <td><?= $uzivatel1["over_kod"] ?></td>
+          <td><?= $uzivatel1["typ_uctu"] ?></td>
           <td>
             <a href="editace-uzivatele/<?= $uzivatel1["ID_uzivatele"] ?>">Upravit</a>
             <a href="uzivatele/<?= $uzivatel1["ID_uzivatele"] ?>/odstranit">Odstranit</a>
