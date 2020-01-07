@@ -8,9 +8,9 @@ class UzivateleKontroler extends Kontroler {
       $spravceUzivatelu->odstranUzivatele($parametry[0]);
     }
     
-    $uzivatele = $spravceUzivatelu->vratVsechnyUzivatele();
+    $uzivatel = $spravceUzivatelu->vratVsechnyUzivatele();
   
-    $this->data["uzivatele"] = $uzivatele;
+    $this->data["uzivatel"] = $uzivatel;
     $this->pohled = "uzivatel";
   }
 }

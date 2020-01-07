@@ -52,11 +52,11 @@ class SpravceHer {
   public function vratZanryHry($idHry){
     $zanryProHru = Db::dotazVsechny("
       
-    SELECT za.nazev,zh.id_hry,za.id_zanr
+    SELECT za.nazev,zh.id_hry,za.id_zanru
     FROM
      hra h
      JOIN zanrhra zh ON h.id_hry = zh.id_hry
-      JOIN zanr za ON za.id_zanr = zh.id_zanr
+      JOIN zanr za ON za.id_zanru = zh.id_zanru
     WHERE h.id_hry = ? 
   ", array($idHry));    
   return $zanryProHru;

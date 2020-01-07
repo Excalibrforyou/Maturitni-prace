@@ -12,43 +12,42 @@
  
  <form method="post">
    <input type="hidden" name="id_uzivatele" 
-     value="<?= $uzivatel["id_uzivatele"] ?>">
+     value="<?= $uzivatel["ID_uzivatele"] ?>">
    <div>
      <label for="prezdivka">Nickname</label>
      <input type="text" name="prezdivka" id="prezdivka"
      value="<?= $uzivatel["prezdivka"] ?>" required>
+   </div> 
+   
+    <div>
+     <label for="jmeno">Jméno</label>
+     <input type="text" name="jmeno" id="jmeno"
+      value="<?= $uzivatel["jmeno"] ?>" required>
    </div>
+   
+    <div>
+     <label for="prijmeni">Přijmení</label>
+     <input type="text" name="prijmeni" id="prijmeni"
+      value="<?= $uzivatel["prijmeni"] ?>" required>
+   </div>   
+   
    <div>
      <label for="email">Email</label>
      <input type="text" name="email" id="email"
      value="<?= $uzivatel["email"] ?>" required>
    </div>
+   
    <div>
      <label for="heslo">Heslo</label>
      <input type="password" name="heslo" id="heslo"
       value="<?= $uzivatel["heslo"] ?>" required>
-   </div>
- 
-   
-   
+     </div>
      
-  <?php
-  if (empty($uzivatel["id_uzivatele"])) { 
-   $spravceUzivatelu = new SpravceUzivatelu(); 
-?>                                          
-     
-   <div>
-     <input type="hidden" name="over_kod" id="over_kod"
-     value="<?= $spravceUzivatelu->vygenerujNahodnyKod(); ?>" required>
-   </div>
-   
- <?php
-  }
-?>  
+
    
    
    
-   <input type="submit" value="Uložit údaje hodnocení">
+   <input type="submit" value="Uložit údaje uživatele">
  </form>
      
      

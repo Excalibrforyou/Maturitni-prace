@@ -1,0 +1,22 @@
+ <h1>Hry přiřazené k žánrům</h1>
+    
+  <p>
+    <a href="editace-zanruHry">Nové spojení</a>
+  </p>
+ 
+     <table>
+     <tr>
+       <th>id_zanr</th>
+       <th>id_hry</th>
+     </tr>
+     <?php foreach ($zanrhra as $zanrHry) { ?>
+        <tr>
+          <td><?= $zanrHry["id_zanru"] ?></td>
+          <td><?= $zanrHry["id_hry"] ?></td>
+          <td>
+            <a href="editace-zanruHry/<?= $zanrHry["id_zanru"]?>/<?= $zanrHry["id_hry"] ?>">Upravit</a>
+            <a href="zanrHra/<?= $zanrHry["id_zanru"]?>/<?= $zanrHry["id_hry"] ?>/odstranit">Odstranit</a>
+           </td> 
+        </tr>   	
+     <?php } ?>
+     </table>

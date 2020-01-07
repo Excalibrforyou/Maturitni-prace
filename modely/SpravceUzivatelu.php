@@ -2,7 +2,9 @@
 class SpravceUzivatelu {
   public function pripravPrazdnePoleUzivatele() {
     return array(
-      "id_uzivatele" => "",
+      "ID_uzivatele" => "",
+      "jmeno" => "",
+      "prijmeni" => "",
       "prezdivka" => "",
       "email" => "",
       "heslo" => "",
@@ -23,17 +25,20 @@ class SpravceUzivatelu {
     return Db::dotazJeden("
       SELECT *
       FROM uzivatel
-      WHERE id_uzivatele = ?
+      WHERE ID_uzivatele = ?
     ", array($idUzivatele));
   }
   
-  public function ulozUzivatele($udajeUzivatele) {
+  public function ulozUzivatele($udajeUzivatele,$kod) {
     $klice = array(
-      "id_uzivatele", "prezdivka", "email", "heslo", "over_kod"
+      "ID_uzivatele","jmeno", "prijmeni", "prezdivka", "email", "heslo"
     ); 
+    
+    
     $udajeUzivateleDB = array_intersect_key($udajeUzivatele, array_flip($klice));
+    $udajeUzivateleDB["over_kod"] = $kod; 
     $hashHesla = $this->vratHashHesla($udajeUzivatele["heslo"]);
-    if (empty($udajeUzivatele["id_uzivatele"]))
+    if (empty($udajeUzivatele["ID_uzivatele"]))
     {
       $udajeUzivateleDB["heslo"] = $hashHesla;
       Db::vloz("uzivatel", $udajeUzivateleDB);
@@ -43,14 +48,14 @@ class SpravceUzivatelu {
       if ($udajeUzivatele["heslo"] != "") 
         $udajeUzivateleDB["heslo"] = $hashHesla;
       Db::zmen("uzivatel", $udajeUzivateleDB, 
-               "WHERE id_uzivatele = ?", array($udajeUzivatele["id_uzivatele"])); 
+               "WHERE ID_uzivatele = ?", array($udajeUzivatele["ID_uzivatele"])); 
     }           
   }
   
   public function odstranUzivatele($idUzivatele) {
     Db::dotaz("
       DELETE FROM uzivatel
-      WHERE id_uzivatele = ?
+      WHERE ID_uzivatele = ?
     ", array($idUzivatele));
   }
   
@@ -65,11 +70,11 @@ class SpravceUzivatelu {
       WHERE prezdivka = ?
     ", array($login));
     
-    if (!$uzivatel)
+    if(!$uzivatel){ 
       return false;
-    
+       }   
     if ($uzivatel["heslo"] == $this->vratHashHesla($heslo))
-    {
+    {    
       $_SESSION["uzivatel"] = $uzivatel;
       return $uzivatel;
     }  

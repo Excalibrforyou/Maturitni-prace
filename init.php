@@ -10,5 +10,5 @@ session_start();
   
   spl_autoload_register("nactiTridu");
   
-  Db::pripoj("localhost", "root", "", "matur_prace");
+  Db::pripoj("localhost", "root", "", "maturitni_prace");
 ?>
