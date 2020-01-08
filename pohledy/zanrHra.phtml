@@ -6,17 +6,12 @@
  
      <table>
      <tr>
-       <th>Název Žánru</th>
-       <th>ID žánru</th>
-       <th>Název Hry</th>
-       <th>ID hry</th>
-       <th>Administrace</th>
+       <th>id_zanr</th>
+       <th>id_hry</th>
      </tr>
      <?php foreach ($zanrhra as $zanrHry) { ?>
         <tr>
-          <td><?= $zanrHry["nazev"] ?></td>
           <td><?= $zanrHry["id_zanru"] ?></td>
-          <td><?= $zanrHry["Jmeno"] ?></td>
           <td><?= $zanrHry["id_hry"] ?></td>
           <td>
             <a href="editace-zanruHry/<?= $zanrHry["id_zanru"]?>/<?= $zanrHry["id_hry"] ?>">Upravit</a>
