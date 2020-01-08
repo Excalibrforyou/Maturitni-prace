@@ -7,7 +7,7 @@ class ZanrHraKontroler extends Kontroler {
     {
       $spravceZanrHra->odstranZanrHru($parametry[0],$parametry[1]);    
     }
-    $zanrhra = $spravceZanrHra->vratVsechnyZanrHry();
+    $zanrhra = $spravceZanrHra->vratJmenoHrykZanru();
   
     $this->data["zanrhra"] = $zanrhra;
     $this->pohled = "zanrHra";

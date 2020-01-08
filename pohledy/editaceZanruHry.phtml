@@ -1,5 +1,5 @@
 <?php
-  if (empty($zanrhra["id_zanru"])&&empty($zanrhra["id_hry"])) {
+  if (empty($zanrhra[0]["id_zanru"])&&empty($zanrhra[0]["id_hry"])) {
 ?>
 <h1>Vložení nového spojení žánru a hry</h1>
 <?php
@@ -9,19 +9,75 @@
 <?php
   }
 ?>
- 
+  
+
+  
+  
  <form method="post">
-   <div>
-     <label for="id_zanru">id_zanru</label>
-     <input type="text" name="id_zanru" id="id_zanru"
-     value="<?= $zanrhra["id_zanru"] ?>" required>
-   </div>
-   <div>
-     <label for="id_hry">id_hry</label>
-     <input type="text" name="id_hry" id="id_hry"
-     value="<?= $zanrhra["id_hry"] ?>" required>
-   </div>
-      
+<?php
+  if (empty($zanrhra[0]["id_zanru"])&&empty($zanrhra[0]["id_hry"])) {
+?>   
+<select name="id_zanru" id="id_zanru">   
+<option value="">-----------------</option>
+
+<?php
+ foreach($zanry as $zanr){
+            echo "<option value='$zanr[id_zanru]'>$zanr[nazev]</option>";             
+ }
+?>
+</select>
+ 
+<select name="id_hry" id="id_hry">   
+<option value="">-----------------</option>
+
+<?php
+ foreach($hry as $hra){
+            echo "<option value='$hra[id_hry]'>$hra[Jmeno]</option>";             
+ }
+?>
+</select>
+<?php
+  } else {
+  
+?>
+
+
+ <form method="post">
+   
+<select id="id_zanru" name="id_zanru">   
+<option name="id_zanru" id="id_zanru" value=<?= $zanrhra[0]["id_zanru"]?>><?= $zanrhra[0]["nazev"]?></option>
+
+<?php
+ foreach($zanry as $zanr){
+            echo "<option value='$zanr[id_zanru]'>$zanr[nazev]</option>";             
+ }
+?>
+</select>
+ 
+<select name="id_hry" id="id_hry">   
+<option value=<?= $zanrhra[0]["id_hry"]?>><?= $zanrhra[0]["Jmeno"]?></option>
+
+<?php
+ foreach($hry as $hra){
+              echo "<option value='$hra[id_hry]'>$hra[Jmeno]</option>";          
+ }
+?>
+</select>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<?php } ?>    
    <input type="submit" value="Uložit spojení">
  </form>
      

@@ -2,7 +2,7 @@
 class SpravceZanru {
   public function pripravPrazdnePoleZanru() {
     return array(
-      "id_zanr" => "",
+      "id_zanru" => "",
       "nazev" => "",
       "popis" => ""
     );
@@ -20,29 +20,29 @@ class SpravceZanru {
     return Db::dotazJeden("
       SELECT *
       FROM zanr
-      WHERE id_zanr = ?
+      WHERE id_zanru = ?
     ", array($idZanru));
   }
   
   public function ulozZanr($udajeZanru) {
     $klice = array(
-      "id_zanr", "nazev", "popis"
+      "id_zanru", "nazev", "popis"
     ); 
        // array_flip ... prohodí klíče a hodnoty v poli
        // array_intersect_key ... ponechá v prvním poli pouze prvky s klíči z druhého pole
     $udajeZanru = array_intersect_key($udajeZanru, array_flip($klice));
   
-    if (empty($udajeZanru["id_zanr"]))
+    if (empty($udajeZanru["id_zanru"]))
       Db::vloz("zanr", $udajeZanru);
     else  
       Db::zmen("zanr", $udajeZanru, 
-               "WHERE id_zanr = ?", array($udajeZanru["id_zanr"])); 
+               "WHERE id_zanru = ?", array($udajeZanru["id_zanru"])); 
   }
   
   public function odstranZanr($idZanru) {
     Db::dotaz("
       DELETE FROM zanr
-      WHERE id_zanr = ?
+      WHERE id_zanru = ?
     ", array($idZanru));
   }
 }
