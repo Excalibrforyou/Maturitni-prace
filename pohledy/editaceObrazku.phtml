@@ -5,31 +5,35 @@
 <?php
   } else {
 ?> 
+
 <h1>Editace obrázku</h1>
-<?php
+
+ <?php
   }
 ?>
- 
- <form method="post">
+ <form method="post" enctype="multipart/form-data">
    <input type="hidden" name="id_obr" 
      value="<?= $obrazek["id_obr"] ?>">
+     
+    <input type="file" name="obrazek">
+
    <div>
      <label for="nazev_obr">Název</label>
      <input type="text" name="nazev_obr" id="nazev_obr"
      value="<?= $obrazek["nazev_obr"] ?>" required>
    </div>
-   <div>
-     <label for="popis">Cesta</label>
-     <input type="text" name="cesta" id="cesta"
-     value="<?= $obrazek["cesta"] ?>" required>
-   </div>
-   
+    
     <div>
      <label for="id_hry">Hra</label>
      <input type="text" name="id_hry" id="id_hry"
      value="<?= $obrazek["id_hry"] ?>" required>
-   </div>   
+   </div> 
+     
    <input type="submit" value="Uložit údaje obrázku">
  </form>
+
+
+
+
      
      

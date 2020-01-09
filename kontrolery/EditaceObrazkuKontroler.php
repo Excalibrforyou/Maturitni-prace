@@ -2,8 +2,9 @@
 class EditaceObrazkuKontroler extends Kontroler {
   public function zpracuj($parametry) {
     $spravceObrazku = new SpravceObrazku();
-    
+
     if (!empty($_POST)) {
+       $spravceObrazku->upload($_FILES,$_POST["id_hry"]);
       $spravceObrazku->ulozObrazek($_POST);
       $this->presmeruj("obrazek");
     }

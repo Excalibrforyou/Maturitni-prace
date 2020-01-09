@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang='cs'>
   <head>
-    <title>GameWiki</title>
+    <title>GameWiki</title> 
+    <link rel="stylesheet" href="/NavCSS.css">
     <meta charset='utf-8'>
-    <base href="/">
+   
   </head>
   <body>
-  
+  <header>
+  <img src="/Obrazky/GameWiki.png" alt="GameWiki.png, 7,6kB" title="GameWiki">
    <nav>
   <div class="blokPrihlaseni">
   <?php
@@ -28,16 +30,17 @@
   ?>
   </div>
      <ul>
-       <li><a href="uvod">Úvod</a></li>
-       <li><a href="hry">Hry</a></li>
-       <li><a href="uzivatele">Uživatelé</a></li>
-       <li><a href="zanr">Zanry</a></li>
-       <li><a href="hodnoceni">Hodnocení</a></li>
-       <li><a href="uzivatele">Uživatelé</a></li>
-       <li><a href="zanrHra">SpojeniZanruHry</a></li>
+       <li><a href="/uvod">Úvod</a></li>
+       <li><a href="/hry">Hry</a></li>
+       <li><a href="/uzivatele">Uživatelé</a></li>
+       <li><a href="/zanr">Zanry</a></li>
+       <li><a href="/hodnoceni">Hodnocení</a></li>
+       <li><a href="/uzivatele">Uživatelé</a></li>
+       <li><a href="/zanrHra">SpojeniZanruHry</a></li>
+       <li><a href="/obrazek">Obrázek</a></li>
      </ul>
      </nav>
-     
+  </header>  
      <section>
      <?php
        $this->kontroler->vypisPohled();

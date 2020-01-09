@@ -41,8 +41,8 @@ class SpravceUzivatelu {
     if (empty($udajeUzivatele["ID_uzivatele"]))
     {
       $udajeUzivateleDB["heslo"] = $hashHesla;  
-       $udajeUzivateleDB["over_kod"] = $kod; 
-       $udajeUzivateleDB["typ_uctu"] = 1;  
+      $udajeUzivateleDB["over_kod"] = $kod; 
+      $udajeUzivateleDB["typ_uctu"] = 1;  
       Db::vloz("uzivatel", $udajeUzivateleDB);
     }
     else
