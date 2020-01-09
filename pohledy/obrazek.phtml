@@ -1,0 +1,27 @@
+ <h1>Obrázky</h1>
+    
+  <p>
+    <a href="editace-obrazku">Nový obrázek</a>
+  </p>
+ 
+     <table>
+     <tr>
+       <th>ID obrázku</th>
+       <th>Název</th> 
+       <th>Cesta</th>
+       <th>Hra</th> 
+       <th>Administrace</th>
+     </tr>
+     <?php foreach ($obrazek as $obr) { ?>
+        <tr>
+          <td><?= $obr["id_obr"] ?></td>
+          <td><?= $obr["nazev_obr"] ?></td>
+          <td><?= $obr["cesta"] ?></td>
+          <td><?= $obr["id_hry"] ?></td>
+          <td>
+            <a href="editace-obrazku/<?= $obr["id_obr"] ?>">Upravit</a>
+            <a href="obrazek/<?= $obr["id_obr"] ?>/odstranit">Odstranit</a>
+           </td> 
+        </tr>   	
+     <?php } ?>
+     </table>

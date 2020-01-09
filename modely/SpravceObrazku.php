@@ -1,0 +1,50 @@
+<?php
+class SpravceObrazku {
+  public function pripravPrazdnePoleObrazku() {
+    return array(
+      "id_obr" => "",
+      "nazev_obr" => "",
+      "cesta" => "",
+      "id_hry" => ""
+    );
+  }
+
+  public function vratVsechnyObrazky() {
+    $obraz = Db::dotazVsechny("
+      SELECT *
+      FROM obrazek
+    ");
+    return $obraz;
+  }
+  
+  public function vratObrazek($idObrazku) {
+    return Db::dotazJeden("
+      SELECT *
+      FROM obrazek
+      WHERE id_obr = ?
+    ", array($idObrazku));
+  }
+  
+  public function ulozObrazek($udajeObrazku) {
+    $klice = array(
+      "id_obr", "nazev_obr", "cesta","id_hry"
+    ); 
+       // array_flip ... prohodí klíče a hodnoty v poli
+       // array_intersect_key ... ponechá v prvním poli pouze prvky s klíči z druhého pole
+    $udajeObrazkuDB = array_intersect_key($udajeObrazku, array_flip($klice));
+  
+    if (empty($udajeObrazku["id_obr"]))
+      Db::vloz("obrazek", $udajeObrazkuDB);
+    else  
+      Db::zmen("obrazek", $udajeObrazkuDB, 
+               "WHERE id_obr = ?", array($udajeObrazku["id_obr"])); 
+  }
+  
+  public function odstranObrazek($idObrazku) {
+    Db::dotaz("
+      DELETE FROM obrazek
+      WHERE id_obr = ?
+    ", array($idObrazku));
+  }
+}
+?>
