@@ -60,7 +60,28 @@ class SpravceHer {
     WHERE h.id_hry = ? 
   ", array($idHry));    
   return $zanryProHru;
-  } 
+  }
+  
+  public function vratIDPosledniHry(){
+  return Db::dotazJeden("
+  SELECT id_hry 
+  FROM hra 
+  ORDER BY id_hry DESC LIMIT 1"
+  );
+  
+  
+  }
+  
+    public function priradKIDNazevHry($idHry){
+  return Db::dotazJeden("
+  SELECT Jmeno 
+  FROM hra 
+  where id_hry = ?
+  ", array($idHry));
+  
+  
+  
+  }
   
 }
 

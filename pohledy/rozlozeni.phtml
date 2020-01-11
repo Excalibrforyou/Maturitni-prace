@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang='cs'>
   <head>
-    <title>GameWiki</title> 
-    <link rel="stylesheet" href="/NavCSS.css">
+    <title>GameWiki</title>   
     <meta charset='utf-8'>
+    <link rel="stylesheet" href="../styly/NavCSS.css">
    
+    <link rel="stylesheet" href="../styly/chosen/chosen.css" type="text/css">
+        
+    <link rel="stylesheet" href="../styly/chosen/chosen.min.css" type="text/css"> 
+    
+    <script src="../styly/chosen/docsupport/jquery-3.2.1.min.js"></script>          
+    <script src="../styly/chosen/chosen.jquery.min.js"></script>
+                
+          <script>
+           $(document).ready(function(){ 
+             $(".chosen-select").chosen({
+            disable_search_threshold: 0,
+              width: "25%",
+              no_results_text: "Nenašel jsem: "
+             });
+           
+            
+           });
+
+          </script>
+       
+     
   </head>
   <body>
   <header>
@@ -19,27 +40,29 @@
         "<?= $prihlasenyUzivatel["prezdivka"] ?>"
         <?= $prihlasenyUzivatel["prijmeni"] ?>
         
-        | <a href="prihlaseni-uzivatele/odhlasit">Odhlásit se</a>
+        | <a href="/prihlaseni-uzivatele/odhlasit">Odhlásit se</a>
      </span>
   <?php
     } else {
   ?>
-       <a href="prihlaseni-uzivatele">Přihlásit se</a>
+       <a href="/prihlaseni-uzivatele">Přihlásit se</a>
   <?php
     }
   ?>
   </div>
      <ul>
-       <li><a href="uvod">Úvod</a></li>
-       <li><a href="hry">Hry</a></li>
-       <li><a href="uzivatele">Uživatelé</a></li>
-       <li><a href="zanr">Zanry</a></li>
-       <li><a href="hodnoceni">Hodnocení</a></li>
-       <li><a href="uzivatele">Uživatelé</a></li>
-       <li><a href="zanrHra">SpojeniZanruHry</a></li>
-       <li><a href="obrazek">Obrázek</a></li>
+       <li><a href="/uvod">Úvod</a></li>
+       <li><a href="/hry">Hry</a></li>
+       <li><a href="/uzivatele">Uživatelé</a></li>
+       <li><a href="/zanr">Zanry</a></li>
+       <li><a href="/hodnoceni">Hodnocení</a></li>
+       <li><a href="/zanrHra">SpojeniZanruHry</a></li>
+       <li><a href="/obrazek">Obrázek</a></li>
      </ul>
      </nav>
+
+      
+     
   </header>  
      <section>
      <?php
@@ -48,7 +71,17 @@
      </section>
      
       <footer>
-      
+     <script type="text/javascript" >
+     
+            $(document).ready(function(){
+         $(".selectZanru").chosen();
+     });
+     
+     </script>
+  
+
       </footer>  
-  </body>
+  </body> 
+
+     
 </html>

@@ -5,7 +5,7 @@ header img {
 }
 body {
     height: 125vh;
-    background-image: url(Obrazky/VitaciObrazek.jpg);
+    background-image: url(../Obrazky/VitaciObrazek.jpg);
     background-size: cover;
     font-family: sans-serif;
     margin-top: 80px;

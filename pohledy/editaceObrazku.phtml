@@ -23,11 +23,47 @@
      value="<?= $obrazek["nazev_obr"] ?>" required>
    </div>
     
-    <div>
-     <label for="id_hry">Hra</label>
-     <input type="text" name="id_hry" id="id_hry"
-     value="<?= $obrazek["id_hry"] ?>" required>
-   </div> 
+   <?php
+  if (empty($obrazek["id_obr"])) {
+   ?>
+       <div>
+             <label for="hra">Hra</label>
+            <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
+            <?php
+               foreach($hry as $hra){
+               
+            ?>  
+                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
+           <?php
+                 }
+            ?>
+            </select>  
+            
+  
+   </div>    
+    <?php
+  } else {
+?> 
+        <div>
+             <label for="hra">Hra</label>
+            <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
+            <option value = "<?= $obrazek["id_hry"] ?>"><?= $obrazek["Jmeno"][0] ?></option>
+            <?php
+               foreach($hry as $hra){
+               if($hra["Jmeno"]!==$obrazek["Jmeno"][0]){
+            ?>  
+                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
+           <?php
+                } }
+            ?>
+            </select>  
+            
+  
+   </div>  
+      
+<?php
+  }
+?>    
      
    <input type="submit" value="Uložit údaje obrázku">
  </form>

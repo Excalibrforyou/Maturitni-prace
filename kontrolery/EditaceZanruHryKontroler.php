@@ -14,7 +14,8 @@ class EditaceZanruHryKontroler extends Kontroler {
       $zanrhra = $spravceZanraHra->vratZanrHry($parametry[0],$parametry[1]);
     }
     else
-      $zanrhra = $spravceZanraHra->pripravPrazdnePoleZanrHry();
+    
+    $zanrhra = $spravceZanraHra->pripravPrazdnePoleZanrHry();
     
     $this->data["zanrhra"] = $zanrhra;
     $this->pohled = "editaceZanruHry";

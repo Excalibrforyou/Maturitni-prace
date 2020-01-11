@@ -6,6 +6,7 @@ class UzivateleKontroler extends Kontroler {
     if (!empty($parametry[1]) && $parametry[1] == "odstranit")
     {
       $spravceUzivatelu->odstranUzivatele($parametry[0]);
+       $this->presmeruj("uzivatele");
     }
     
     $uzivatel = $spravceUzivatelu->vratVsechnyUzivatele();

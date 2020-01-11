@@ -38,8 +38,24 @@
      value="<?= $hry["platforma"] ?>" required>
    </div>
   
+    <div>
+     
+            <select class="chosen-select" name="zanr[ ]" multiple data-placeholder="Vyber žánry"> 
+            <?php
+               foreach($zanry as $zanr){
+               
+            ?>  
+                <option value = "<?= $zanr["id_zanru"] ?>"><?= $zanr["nazev"] ?></option> 
+                <?php
+                 }
+                ?>
+            </select>  
+            
+  
+   </div>                             
+  
       
    <input type="submit" value="Uložit údaje hry">
  </form>
      
-     
+         

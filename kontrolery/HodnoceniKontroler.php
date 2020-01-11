@@ -6,6 +6,7 @@ class HodnoceniKontroler extends Kontroler {
     if (!empty($parametry[1]) && $parametry[1] == "odstranit")
     {
       $spravceHodnoceni->odstranHodnoceni($parametry[0]);
+      $this->presmeruj("hodnoceni");
     }
     
     $hodnoceni = $spravceHodnoceni->vratHodnoceni();

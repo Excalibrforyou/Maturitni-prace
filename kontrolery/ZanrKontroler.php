@@ -6,6 +6,7 @@ class ZanrKontroler extends Kontroler {
     if (!empty($parametry[1]) && $parametry[1] == "odstranit")
     {
       $spravceZanru->odstranZanr($parametry[0]);
+      $this->presmeruj("zanr");
     }
     
     $zanr = $spravceZanru->vratVsechnyZanry();

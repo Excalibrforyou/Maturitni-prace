@@ -11,8 +11,8 @@ class SpravceObrazku {
 
   public function vratVsechnyObrazky() {
     $obraz = Db::dotazVsechny("
-      SELECT *
-      FROM obrazek
+      SELECT o.id_obr,o.nazev_obr,o.cesta,o.id_hry,h.Jmeno
+      FROM obrazek o join hra h ON (o.id_hry = h.id_hry)
     ");
     return $obraz;
   }
@@ -48,12 +48,7 @@ class SpravceObrazku {
     else{ 
       Db::zmen("obrazek", $udajeObrazkuDB, 
                "WHERE id_obr = ?", array($udajeObrazku["id_obr"]));
-         
-         
-         
-         
-         
-               
+           
     }  
    
   }
@@ -65,38 +60,49 @@ class SpravceObrazku {
     ", array($idObrazku));
   }
   
-  public function upload($obrazek,$idHry){
+  public function upload($obrazek,$idHry,$id_obrazku){
 
     $povoleneTypy = array("image/jpeg", "image/png", "image/gif"); 
+    $koncovka = array(
+    "image/jpeg"  => ".jpg",
+    "image/png" => ".png",
+    "image/gif" => ".gif"
+); 
       
-        $jmeno = $obrazek["obrazek"]["name"];
+        $puvodniJmeno = $obrazek["obrazek"]["name"];
+        $noveJmeno = $idHry."-".$id_obrazku["id_obr"]
         $typSouboru = $obrazek["obrazek"]["type"];
         $velikostSouboru = $obrazek["obrazek"]["size"];
-    
+        
         //Ověří zda je soubor platného formátu
-
         if(in_array($typSouboru, $povoleneTypy)){
-
+         $noveJmeno = $noveJmeno.$koncovka[$obrazek["obrazek"]["type"]];
             
             //Zjisti zde existuje soubor se stejnym jmenem
-            if(file_exists("Obrazky/Hry/" . $idHry . "/". $jmeno)){
-                echo $jmeno . " již existuje.";
+            if(file_exists("Obrazky/Hry/" . $idHry . "/". $noveJmeno)){
+                echo $noveJmeno . " již existuje.";
             } else{
             if (!file_exists("Obrazky/Hry/" . $idHry)) {
             mkdir("Obrazky/Hry/" . $idHry, 0777, true);
             }
-                move_uploaded_file($obrazek["obrazek"]["tmp_name"], "Obrazky/Hry/" . $idHry . "/". $jmeno);
+                move_uploaded_file($obrazek["obrazek"]["tmp_name"], "Obrazky/Hry/" . $idHry . "/". $noveJmeno);
                 
             }
              
         } else{
             echo "Špatný formát"; 
         }
-
-
-
+   }
+   
+  public function vratIDPoslednihoObrazku(){
+  return Db::dotazJeden("
+  SELECT id_obr 
+  FROM obrazek 
+  ORDER BY id_obr DESC LIMIT 1"
+  );
   
   
-}
+  }   
+   
 }
 ?>
