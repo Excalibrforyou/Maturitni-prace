@@ -8,7 +8,7 @@
   </head>
   <body>
   <header>
-  <img src="/Obrazky/GameWiki.png" alt="GameWiki.png, 7,6kB" title="GameWiki">
+  <a href="/uvod"><img src="/Obrazky/GameWiki.png" alt="GameWiki.png, 7,6kB" title="GameWiki"></a>
    <nav>
   <div class="blokPrihlaseni">
   <?php
@@ -16,10 +16,10 @@
   ?>
      <span>Jste přihlášeni jako 
         <?= $prihlasenyUzivatel["jmeno"] ?>
-        <?= $prihlasenyUzivatel["prezdivka"] ?>
+        "<?= $prihlasenyUzivatel["prezdivka"] ?>"
         <?= $prihlasenyUzivatel["prijmeni"] ?>
         
-        | <a href="#">Odhlásit se</a>
+        | <a href="prihlaseni-uzivatele/odhlasit">Odhlásit se</a>
      </span>
   <?php
     } else {
@@ -30,14 +30,14 @@
   ?>
   </div>
      <ul>
-       <li><a href="/uvod">Úvod</a></li>
-       <li><a href="/hry">Hry</a></li>
-       <li><a href="/uzivatele">Uživatelé</a></li>
-       <li><a href="/zanr">Zanry</a></li>
-       <li><a href="/hodnoceni">Hodnocení</a></li>
-       <li><a href="/uzivatele">Uživatelé</a></li>
-       <li><a href="/zanrHra">SpojeniZanruHry</a></li>
-       <li><a href="/obrazek">Obrázek</a></li>
+       <li><a href="uvod">Úvod</a></li>
+       <li><a href="hry">Hry</a></li>
+       <li><a href="uzivatele">Uživatelé</a></li>
+       <li><a href="zanr">Zanry</a></li>
+       <li><a href="hodnoceni">Hodnocení</a></li>
+       <li><a href="uzivatele">Uživatelé</a></li>
+       <li><a href="zanrHra">SpojeniZanruHry</a></li>
+       <li><a href="obrazek">Obrázek</a></li>
      </ul>
      </nav>
   </header>  

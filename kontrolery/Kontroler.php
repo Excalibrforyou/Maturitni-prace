@@ -14,6 +14,25 @@ abstract class Kontroler {
     header("Location: /$url");
     exit;
   }
+  
+  public function pridejZpravu($typ,$zprava){
+   $_SESSION["zpravy"][] = array(
+   "typ" => $typ,
+   "zprava" => $zprava 
+   ); 
+  }
+   
+   public function vratZpravy(){
+   if(isset($_SESSION["zpravy"]))
+     {
+   $zpravy = $_SESSION["zpravy"];
+   unset($_SESSION["zpravy"]);
+   return $zpravy;
+     }
+   else 
+     return array();
+   } 
+   
     
   abstract function zpracuj($parametry);
 }

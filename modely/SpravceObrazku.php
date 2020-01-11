@@ -87,7 +87,8 @@ class SpravceObrazku {
             }
                 move_uploaded_file($obrazek["obrazek"]["tmp_name"], "Obrazky/Hry/" . $idHry . "/". $jmeno);
                 
-            } 
+            }
+             
         } else{
             echo "Špatný formát"; 
         }
