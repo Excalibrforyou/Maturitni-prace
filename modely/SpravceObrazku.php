@@ -70,7 +70,7 @@ class SpravceObrazku {
 ); 
       
         $puvodniJmeno = $obrazek["obrazek"]["name"];
-        $noveJmeno = $idHry."-".$id_obrazku["id_obr"]
+        $noveJmeno = $idHry."-".$id_obrazku["id_obr"];
         $typSouboru = $obrazek["obrazek"]["type"];
         $velikostSouboru = $obrazek["obrazek"]["size"];
         
