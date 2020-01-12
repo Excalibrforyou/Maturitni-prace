@@ -28,7 +28,7 @@ class SpravceUzivatelu {
     ", array($idUzivatele));
   }
   
-  //uloží uživatele do databáze pokud id uživatele je prázdné, pokud není změní data tohoto přepíše data tohoto uživatele v databázi dle nových hodnot
+  
   public function ulozUzivatele($udajeUzivatele) {
     $klice = array(
       "ID_uzivatele","jmeno", "prijmeni", "prezdivka", "email", "heslo"
@@ -43,7 +43,8 @@ class SpravceUzivatelu {
     {
       $udajeUzivateleDB["heslo"] = $hashHesla;  
       $udajeUzivateleDB["over_kod"] = $this::vygenerujNahodnyKod(); 
-      $udajeUzivateleDB["typ_uctu"] = 1;  
+      $udajeUzivateleDB["typ_uctu"] = 1;
+      if($this::neopakujSe($udajeUzivatele))  
       Db::vloz("uzivatel", $udajeUzivateleDB);
     }
     else
@@ -174,5 +175,6 @@ class SpravceUzivatelu {
 
 
   }
+  
 }
 ?>       

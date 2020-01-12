@@ -39,7 +39,7 @@ class SpravceObrazku {
     
     
     $udajeUzivateleDB["cesta"] = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/"; 
-    echo '<script>alert("Welcome to Geeks for Geeks")</script>';
+
     if (empty($udajeObrazku["id_obr"])){
     $udajeUzivateleDB["cesta"] = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/"; 
                       Db::vloz("obrazek", $udajeObrazkuDB);

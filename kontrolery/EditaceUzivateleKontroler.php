@@ -5,9 +5,7 @@ class EditaceUzivateleKontroler extends Kontroler {
     
     if (!empty($_POST)) {
     if($spravceUzivatelu->overEmail($_POST["email"])){
-      if($spravceUzivatelu->neopakujSe($_POST)){ 
          $spravceUzivatelu->ulozUzivatele($_POST);  
-        }  
      }
      
       $this->presmeruj("uzivatele");

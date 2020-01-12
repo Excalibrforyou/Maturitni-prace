@@ -2,15 +2,20 @@
   if (empty($uzivatel["id_uzivatele"])) {
 ?>
 <h1>Vložení nového uživatele</h1>
+
+ <form method="post">
 <?php
   } else {
 ?> 
 <h1>Editace uživatele</h1>
+
+ <form method="post">
+     <input type="hidden" name="uprava" 
+     value=1>
 <?php
   }
 ?>
  
- <form method="post">
    <input type="hidden" name="ID_uzivatele" 
      value="<?= $uzivatel["ID_uzivatele"] ?>">
    <div>
