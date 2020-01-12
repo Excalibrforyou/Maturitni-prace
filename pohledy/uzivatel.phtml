@@ -7,6 +7,7 @@
      <table>
      <tr>
        <th>Jméno</th>
+       <th>Příjmení</th>
        <th>Přezdívka</th>
        <th>Email</th>
        <th>Ověřovací kód</th>
@@ -15,7 +16,8 @@
      </tr>
      <?php foreach ($uzivatel as $uzivatel1) { ?>
         <tr>
-          <td><?= $uzivatel1["prijmeni"] ?> <?= $uzivatel1["jmeno"] ?></td>
+          <td><?= $uzivatel1["jmeno"] ?></td>
+          <td><?= $uzivatel1["prijmeni"] ?></td>
           <td><?= $uzivatel1["prezdivka"] ?></td>
           <td><?= $uzivatel1["email"] ?></td>
           <td><?= $uzivatel1["over_kod"] ?></td>

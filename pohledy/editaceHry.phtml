@@ -33,13 +33,51 @@
      <input type="text" name="vyvojar" id="vyvojar"
      value="<?= $hry["vyvojar"] ?>" required>
    </div>
+   
+   <div>
      <label for="platforma">Platforma</label>
-     <input type="text" name="platforma" id="platforma"
-     value="<?= $hry["platforma"] ?>" required>
+     
+             <select class="chosen-select" name="platforma" data-placeholder="Vyber platformu" required> 
+                <?php
+                 if (empty($hry["id_hry"])) {
+                ?>
+                 
+               <?php
+                 } else {
+                ?>  
+                 <option value = "<?= $hry["platforma"] ?>"><?= $hry["platforma"] ?></option>
+                <?php
+                 }
+                ?>               
+                  <optgroup label="PC">
+                       <option value = "PC">PC</option>
+                       <option value = "Notebook">Notebook</option>
+                  </optgroup>
+                 <optgroup label="PlayStation">
+                         <option value = "Playstation Portable">Playstation Portable</option>
+                         <option value = "Playstation 1">Playstation 1</option>
+                         <option value = "Playstation 2">Playstation 2</option>
+                         <option value = "Playstation 3">Playstation 3</option>
+                         <option value = "Playstation 4">Playstation 4</option>
+                         <option value = "Playstation 5">Playstation 5</option>
+                  </optgroup>
+                  <optgroup label="Xbox">
+                         <option value = "Xbox">Xbox</option>
+                         <option value = "Xbox 360">Xbox 360</option>
+                         <option value = "Xbox One">Xbox One</option>
+                         <option value = "Xbox One S">Xbox One S</option>
+                         <option value = "Xbox One X">Xbox One X</option>
+                  </optgroup>
+                  <optgroup label="Mobil">
+                         <option value = "Android">Android</option>
+                         <option value = "iOS Apple">iOS Apple</option>
+                  </optgroup>                  
+            </select>  
+     
+     
    </div>
   
-    <div>
-     
+    <div>  <label for="zanr">Žánry</label>  
             <select class="chosen-select" name="zanr[ ]" multiple data-placeholder="Vyber žánry"> 
             <?php
                foreach($zanry as $zanr){
@@ -49,13 +87,10 @@
                 <?php
                  }
                 ?>
-            </select>  
-            
-  
+            </select>   
    </div>                             
   
       
    <input type="submit" value="Uložit údaje hry">
  </form>
-     
-         
+       

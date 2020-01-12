@@ -19,18 +19,21 @@ class SpravceZanrHra {
     $klice = array(
       "id_zanru", "id_hry"
     );
-    $udajeZanruHry["id_hry"]=$hra["id_hry"];
+    $existuje=0; 
+    $udajeZanruHry["id_hry"]=$hra;
     $udajeZanruHry["id_zanru"]=$zanr;
-    echo "id_hry".$udajeZanruHry["id_hry"];
 
-    $existujiciZanry = array();
+
     $existujiciZanry = $this::vratVsechnyZanryHry($udajeZanruHry["id_hry"]); 
 
-     print_r($existujiciZanry);
 
-    if(in_array($zanr, $existujiciZanry[0])){
-      $this::odstranZanrHru($zanr,$udajeZanruHry["id_hry"]);
-    
+    foreach ($existujiciZanry as $zanry){
+    if(array_search($zanr, $zanry)) $existuje=1;
+     }
+
+ 
+    if($existuje){
+      $this::odstranZanrHru($zanr,$udajeZanruHry["id_hry"]);    
     }
     else{                  
 
@@ -48,7 +51,7 @@ class SpravceZanrHra {
                }
        } 
   }    
-  
+        
   
   public function odstranZanrHru($idZanru,$idHry) {
     Db::dotaz("
@@ -66,12 +69,12 @@ class SpravceZanrHra {
   }
   
   public function vratVsechnyZanryHry($idHry) {
-    $zanrhra = Db::dotazVsechny("
+    return Db::dotazVsechny("
       SELECT id_zanru
       FROM zanrhra
       where id_hry = ?
     ", array($idHry)); 
-    return $zanrhra;
+
   }
   
 }

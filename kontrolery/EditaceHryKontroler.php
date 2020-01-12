@@ -3,7 +3,11 @@ class EditaceHryKontroler extends Kontroler {
   public function zpracuj($parametry) {
     $spravceHer = new SpravceHer();
     $spravceZanrHra = new SpravceZanrHra();
-    $spravceZanru = new SpravceZanru();  
+    $spravceZanru = new SpravceZanru();    
+    
+    
+    
+    
         
     if (!empty($_POST)) {
       $spravceHer->ulozHru($_POST);
@@ -11,16 +15,18 @@ class EditaceHryKontroler extends Kontroler {
     if(isset($_POST["zanr"]))    
     {
     if(!empty($_POST["id_hry"])){
-      foreach($_POST["zanr"] as $zanr){    
-     
+      foreach($_POST["zanr"] as $zanr){
+   
        $spravceZanrHra->ulozZanrHru($zanr,$parametry[0]);
      }     
     }
-    else 
+    else{
+ 
      foreach($_POST["zanr"] as $zanr){    
-     
-       $spravceZanrHra->ulozZanrHru($zanr,$spravceHer->vratIDPosledniHry());
-     }  
+
+       $spravceZanrHra->ulozZanrHru($zanr,($spravceHer->vratIDPosledniHry())["id_hry"]);
+     } 
+    } 
     } 
       
    $this->presmeruj("hry");

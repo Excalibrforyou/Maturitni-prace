@@ -31,14 +31,17 @@ class SpravceObrazku {
     );
     
 
-
+         
     
        // array_flip ... prohodí klíče a hodnoty v poli
        // array_intersect_key ... ponechá v prvním poli pouze prvky s klíči z druhého pole
-    $udajeObrazkuDB = array_intersect_key($udajeObrazku, array_flip($klice));
+    $udajeObrazkuDB = array_intersect_key($udajeObrazku, array_flip($klice)); 
     
-  
-    if (empty($udajeObrazku["id_obr"])){ 
+    
+    $udajeUzivateleDB["cesta"] = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/"; 
+    echo '<script>alert("Welcome to Geeks for Geeks")</script>';
+    if (empty($udajeObrazku["id_obr"])){
+    $udajeUzivateleDB["cesta"] = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/"; 
                       Db::vloz("obrazek", $udajeObrazkuDB);
                          
 
@@ -52,6 +55,9 @@ class SpravceObrazku {
     }  
    
   }
+  
+  
+  
        
   public function odstranObrazek($idObrazku) {
     Db::dotaz("
@@ -70,12 +76,14 @@ class SpravceObrazku {
 ); 
       
         $puvodniJmeno = $obrazek["obrazek"]["name"];
-        $noveJmeno = $idHry."-".$id_obrazku["id_obr"]
+        $noveJmeno = $idHry."-".$id_obrazku["id_obr"];
         $typSouboru = $obrazek["obrazek"]["type"];
         $velikostSouboru = $obrazek["obrazek"]["size"];
         
         //Ověří zda je soubor platného formátu
         if(in_array($typSouboru, $povoleneTypy)){
+        
+        // prida za nove vytvorene jmeno koncovku podle typu souboru 
          $noveJmeno = $noveJmeno.$koncovka[$obrazek["obrazek"]["type"]];
             
             //Zjisti zde existuje soubor se stejnym jmenem
