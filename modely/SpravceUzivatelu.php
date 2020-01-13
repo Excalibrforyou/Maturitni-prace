@@ -52,9 +52,9 @@ class SpravceUzivatelu {
       if ($udajeUzivatele["heslo"] != "") 
         $udajeUzivateleDB["heslo"] = $hashHesla;
         
-        if($this::neopakujSeVUprave($udajeUzivatele))
+        if($this::neopakujSeVUprave($udajeUzivatele)){
       Db::zmen("uzivatel", $udajeUzivateleDB, 
-               "WHERE ID_uzivatele = ?", array($udajeUzivatele["ID_uzivatele"])); 
+               "WHERE ID_uzivatele = ?", array($udajeUzivatele["ID_uzivatele"])); }
     }           
   }
   
@@ -126,11 +126,11 @@ class SpravceUzivatelu {
   public function overEmail($mail){
     
     if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-    echo "Email je platny.\n";
+ //   echo "Email je platny.\n";
     return true;
     }
     else{
-     echo '<script>alert("Tohle není platná emailova adresa")</script>';
+   // echo '<script>alert("Tohle není platná emailova adresa")</script>';
      return false;
     
     } 
@@ -158,7 +158,7 @@ class SpravceUzivatelu {
     if(array_search($udaje["prezdivka"], $prezdivka)) $existujePrezdivka=1;
     }
     if($existujePrezdivka){
-    echo "Prezdivka jiz existuje";
+//    echo "Prezdivka jiz existuje";
     return false;
     }
   
@@ -166,12 +166,12 @@ class SpravceUzivatelu {
     if(array_search($udaje["email"], $email)) $existujeEmail=1;
     }
     if($existujeEmail){
-    echo "Email jiz existuje";
+  //  echo "Email jiz existuje";
     return false;
     }
 
     if(!$existujeEmail && !$existujePrezdivka){
-      echo "vse v poradku";
+   //   echo "vse v poradku";
       return true;  
     }
 
@@ -179,20 +179,21 @@ class SpravceUzivatelu {
   }
     public function neopakujSeVUprave($udaje){
 
+
+
     $prezdivky = Db::dotazVsechny("
       SELECT prezdivka
       FROM uzivatel
       where id_uzivatele != ?
       ORDER BY prezdivka
-    ", array($udaje["id_uzivatele"]));
+    ", array($udaje["ID_uzivatele"]));
     
      $emaily = Db::dotazVsechny("
       SELECT email
       FROM uzivatel
       where id_uzivatele != ?
       ORDER BY email
-    ", array($udaje["id_uzivatele"]));
-    
+    ", array($udaje["ID_uzivatele"]));
     
      $existujePrezdivka = 0;
      $existujeEmail = 0;
@@ -201,7 +202,7 @@ class SpravceUzivatelu {
     if(array_search($udaje["prezdivka"], $prezdivka)) $existujePrezdivka=1;
     }
     if($existujePrezdivka){
-    echo "Prezdivka jiz existuje";
+  //  echo "Prezdivka jiz existuje";
     return false;
     }
   
@@ -209,12 +210,12 @@ class SpravceUzivatelu {
     if(array_search($udaje["email"], $email)) $existujeEmail=1;
     }
     if($existujeEmail){
-    echo "Email jiz existuje";
+ //   echo "Email jiz existuje";
     return false;
     }
 
     if(!$existujeEmail && !$existujePrezdivka){
-      echo "vse v poradku";
+  //    echo "vse v poradku";
       return true;  
     }
 

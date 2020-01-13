@@ -4,14 +4,14 @@ class SpravceObrazku {
     return array(
       "id_obr" => "",
       "nazev_obr" => "",
-      "cesta" => "",
+      "typ" => "",
       "id_hry" => ""
     );
   }
 
   public function vratVsechnyObrazky() {
     $obraz = Db::dotazVsechny("
-      SELECT o.id_obr,o.nazev_obr,o.cesta,o.id_hry,h.Jmeno
+      SELECT o.id_obr,o.nazev_obr,o.typ,o.id_hry,h.Jmeno
       FROM obrazek o join hra h ON (o.id_hry = h.id_hry)
     ");
     return $obraz;
@@ -25,23 +25,25 @@ class SpravceObrazku {
     ", array($idObrazku));
   }
   
-  public function ulozObrazek($udajeObrazku) {
+  public function ulozObrazek($udajeObrazku,$typ) {
     $klice = array(
-      "id_obr", "nazev_obr", "cesta","id_hry"
+      "id_obr", "nazev_obr", "typ", "id_hry"
     );
     
-
-         
+    echo $typ; 
     
        // array_flip ... prohodí klíče a hodnoty v poli
        // array_intersect_key ... ponechá v prvním poli pouze prvky s klíči z druhého pole
     $udajeObrazkuDB = array_intersect_key($udajeObrazku, array_flip($klice)); 
     
+    $udajeObrazkuDB["typ"] = $typ;
     
-    $udajeUzivateleDB["cesta"] = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/"; 
-
+    $bum = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/";
+    
+    $udajeUzivateleDB["typ"] = $typ;
+    
     if (empty($udajeObrazku["id_obr"])){
-    $udajeUzivateleDB["cesta"] = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/"; 
+
                       Db::vloz("obrazek", $udajeObrazkuDB);
                          
 
@@ -63,7 +65,10 @@ class SpravceObrazku {
     Db::dotaz("
       DELETE FROM obrazek
       WHERE id_obr = ?
-    ", array($idObrazku));
+    ", array($idObrazku)); 
+    
+    
+     
   }
   
   public function upload($obrazek,$idHry,$id_obrazku){
@@ -97,6 +102,8 @@ class SpravceObrazku {
                 
             }
              
+        
+          return $typSouboru;
         } else{
             echo "Špatný formát"; 
         }
