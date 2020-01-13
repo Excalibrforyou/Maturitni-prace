@@ -51,6 +51,8 @@ class SpravceUzivatelu {
     { 
       if ($udajeUzivatele["heslo"] != "") 
         $udajeUzivateleDB["heslo"] = $hashHesla;
+        
+        if($this::neopakujSeVUprave($udajeUzivatele))
       Db::zmen("uzivatel", $udajeUzivateleDB, 
                "WHERE ID_uzivatele = ?", array($udajeUzivatele["ID_uzivatele"])); 
     }           
@@ -175,6 +177,50 @@ class SpravceUzivatelu {
 
 
   }
+    public function neopakujSeVUprave($udaje){
+
+    $prezdivky = Db::dotazVsechny("
+      SELECT prezdivka
+      FROM uzivatel
+      where id_uzivatele != ?
+      ORDER BY prezdivka
+    ", array($udaje["id_uzivatele"]));
+    
+     $emaily = Db::dotazVsechny("
+      SELECT email
+      FROM uzivatel
+      where id_uzivatele != ?
+      ORDER BY email
+    ", array($udaje["id_uzivatele"]));
+    
+    
+     $existujePrezdivka = 0;
+     $existujeEmail = 0;
+  
+    foreach ($prezdivky as $prezdivka){
+    if(array_search($udaje["prezdivka"], $prezdivka)) $existujePrezdivka=1;
+    }
+    if($existujePrezdivka){
+    echo "Prezdivka jiz existuje";
+    return false;
+    }
+  
+    foreach ($emaily as $email){
+    if(array_search($udaje["email"], $email)) $existujeEmail=1;
+    }
+    if($existujeEmail){
+    echo "Email jiz existuje";
+    return false;
+    }
+
+    if(!$existujeEmail && !$existujePrezdivka){
+      echo "vse v poradku";
+      return true;  
+    }
+
+
+  }
+  
   
 }
 ?>
