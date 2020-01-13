@@ -25,22 +25,19 @@ class SpravceObrazku {
     ", array($idObrazku));
   }
   
-  public function ulozObrazek($udajeObrazku,$typ) {
+  public function ulozObrazek($udajeObrazku,$obrazek) {
     $klice = array(
       "id_obr", "nazev_obr", "typ", "id_hry"
     );
     
-    echo $typ; 
-    
        // array_flip ... prohodí klíče a hodnoty v poli
        // array_intersect_key ... ponechá v prvním poli pouze prvky s klíči z druhého pole
     $udajeObrazkuDB = array_intersect_key($udajeObrazku, array_flip($klice)); 
-    
-    $udajeObrazkuDB["typ"] = $typ;
-    
+    //$udajeObrazku["typ"] = $typ;
+    $udajeObrazkuDB["typ"] = $obrazek["obrazek"]["type"];
+
     $bum = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/";
-    
-    $udajeUzivateleDB["typ"] = $typ;
+
     
     if (empty($udajeObrazku["id_obr"])){
 
@@ -61,15 +58,23 @@ class SpravceObrazku {
   
   
        
-  public function odstranObrazek($idObrazku) {
+  public function odstranObrazek($data){
+
     Db::dotaz("
       DELETE FROM obrazek
       WHERE id_obr = ?
-    ", array($idObrazku)); 
+    ", array($data["id_obr"])); 
+        
     
-    
+    $koncovka = array(
+    "image/jpeg"  => ".jpg",
+    "image/png" => ".png",
+    "image/gif" => ".gif"
+     );
      
-  }
+    unlink("Obrazky/Hry/".$data["id_hry"]."/".$data["id_hry"]."-".$data["id_obr"].$koncovka[$data["typ"]]);
+    
+  } 
   
   public function upload($obrazek,$idHry,$id_obrazku){
 
@@ -101,11 +106,10 @@ class SpravceObrazku {
                 move_uploaded_file($obrazek["obrazek"]["tmp_name"], "Obrazky/Hry/" . $idHry . "/". $noveJmeno);
                 
             }
-             
-        
-          return $typSouboru;
+            
         } else{
-            echo "Špatný formát"; 
+            echo "Špatný formát";
+        
         }
    }
    
@@ -117,7 +121,8 @@ class SpravceObrazku {
   );
   
   
-  }   
+  }
+      
    
 }
 ?>

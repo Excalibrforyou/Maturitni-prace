@@ -1,12 +1,13 @@
 <?php
 class EditaceObrazkuKontroler extends Kontroler {
-  public function zpracuj($parametry) {
+  public function zpracuj($parametry){
     $spravceObrazku = new SpravceObrazku();
     $spravceHer = new SpravceHer();
 
-    if (!empty($_POST)) {  
-      $uploaded = $spravceObrazku->upload($_FILES,$_POST["id_hry"],$spravceObrazku->vratIDPoslednihoObrazku());
-      $spravceObrazku->ulozObrazek($_POST,$uploaded);   
+    if (!empty($_POST)) {      
+      $spravceObrazku->ulozObrazek($_POST,$_FILES);   
+      $spravceObrazku->upload($_FILES,$_POST["id_hry"],$spravceObrazku->vratIDPoslednihoObrazku());
+
 
       $this->presmeruj("obrazek");
     }

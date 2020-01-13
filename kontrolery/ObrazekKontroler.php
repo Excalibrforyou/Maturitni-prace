@@ -6,7 +6,10 @@ class ObrazekKontroler extends Kontroler {
     
     if (!empty($parametry[1]) && $parametry[1] == "odstranit")
     {
-      $spravceObrazku->odstranObrazek($parametry[0]);
+      
+      $data = $spravceObrazku->vratObrazek($parametry[0]);
+      $spravceObrazku->odstranObrazek($data);
+      
       $this->presmeruj("obrazek");
     }
     
