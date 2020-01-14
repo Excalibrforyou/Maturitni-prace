@@ -43,9 +43,10 @@ class SpravceUzivatelu {
     {
       $udajeUzivateleDB["heslo"] = $hashHesla;  
       $udajeUzivateleDB["over_kod"] = $this::vygenerujNahodnyKod(); 
-      $udajeUzivateleDB["typ_uctu"] = 1;
+      $udajeUzivateleDB["typ_uctu"] = 0;
       if($this::neopakujSe($udajeUzivatele))  
       Db::vloz("uzivatel", $udajeUzivateleDB);
+      return 1;
     }
     else
     { 
@@ -55,7 +56,9 @@ class SpravceUzivatelu {
         if($this::neopakujSeVUprave($udajeUzivatele)){
       Db::zmen("uzivatel", $udajeUzivateleDB, 
                "WHERE ID_uzivatele = ?", array($udajeUzivatele["ID_uzivatele"])); }
-    }           
+               return 1;
+    }
+    return 0;           
   }
   
   //odstraní uživatele
@@ -184,14 +187,14 @@ class SpravceUzivatelu {
     $prezdivky = Db::dotazVsechny("
       SELECT prezdivka
       FROM uzivatel
-      where id_uzivatele != ?
+      where ID_uzivatele != ?
       ORDER BY prezdivka
     ", array($udaje["ID_uzivatele"]));
     
      $emaily = Db::dotazVsechny("
       SELECT email
       FROM uzivatel
-      where id_uzivatele != ?
+      where ID_uzivatele != ?
       ORDER BY email
     ", array($udaje["ID_uzivatele"]));
     
@@ -221,7 +224,34 @@ class SpravceUzivatelu {
 
 
   }
+ 
+  public function posliOverovaciMail($data){
   
+   
+  $over_email = "http://gamewiki.dx.am/OvereniUzivatele/".$data["over_kod"]."/"; 
+   
+    
+  
+   $msg = "Zdravím \n".$data["jmeno"]."\n\n
+   Děkujeme za tvoji registrace na webu GameWiki.\n\n
+   Zde je tvůj ověřovací email: ".$over_email." \n\n
+   Po ověření je třeba se znovu přihlásit.
+   \n\n
+   S přáním pěkného dne GameWiki.
+   ";
+   
+   
+   
+// odešle email
+  if(mail($data["email"],"Ověření účtu GameWiki",$msg)) return 1;
+  else return 0;
+  }
+  
+  
+  public function overUzivatele($kod){
+                Db::dotaz("UPDATE uzivatel SET typ_uctu = 1 WHERE over_kod = ?", array($kod));
+                return 1;            
+  } 
   
 }
 ?>
