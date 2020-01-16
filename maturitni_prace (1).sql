@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Čtv 09. led 2020, 23:12
+-- Vytvořeno: Čtv 16. led 2020, 22:36
 -- Verze serveru: 10.4.11-MariaDB
 -- Verze PHP: 7.4.1
 
@@ -36,14 +36,6 @@ CREATE TABLE `hodnoceni` (
   `id_hry` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Vypisuji data pro tabulku `hodnoceni`
---
-
-INSERT INTO `hodnoceni` (`id_hod`, `hodnoceni`, `komentar`, `id_uzivatele`, `id_hry`) VALUES
-(6, 50, '25454525', 4, 1),
-(7, 50, '5555', 4, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -64,9 +56,9 @@ CREATE TABLE `hra` (
 --
 
 INSERT INTO `hra` (`id_hry`, `Jmeno`, `obsah`, `datum_vydani`, `vyvojar`, `platforma`) VALUES
-(1, 'Crysisa', 'Obrovsky open world', '2020-01-25', 'Crytek', 'PC'),
-(2, 'Far cry', 'Stredni open world', '2020-01-24', 'FarTek', 'XBOX'),
-(3, 'Hunt', 'Maly open world', '2020-01-23', 'HuntTek', 'PS4');
+(52, 'ss', 'sss', '2020-01-01', 'sa', 'Playstation 1'),
+(53, 'ss/ss', 'sdada', '2020-01-16', 'dsada', 'Notebook'),
+(54, 'Jen', 'zivot je  na nic', '2020-01-03', 'já', 'Xbox One S');
 
 -- --------------------------------------------------------
 
@@ -76,8 +68,8 @@ INSERT INTO `hra` (`id_hry`, `Jmeno`, `obsah`, `datum_vydani`, `vyvojar`, `platf
 
 CREATE TABLE `obrazek` (
   `id_obr` int(10) NOT NULL,
-  `nazev_obr` varchar(45) DEFAULT NULL,
-  `cesta` varchar(255) DEFAULT NULL,
+  `nazev_obr` varchar(45) CHARACTER SET utf8 COLLATE utf8_czech_ci DEFAULT NULL,
+  `typ` text NOT NULL,
   `id_hry` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -103,8 +95,10 @@ CREATE TABLE `uzivatel` (
 --
 
 INSERT INTO `uzivatel` (`ID_uzivatele`, `jmeno`, `prijmeni`, `prezdivka`, `email`, `heslo`, `over_kod`, `typ_uctu`) VALUES
-(4, 'Tom', 'Bom', 'Bam', 'Bem', '6c43dd2f8f6f3d07e6b3cf6a69f7af49022287939dad46e8e40d046b1cfef116', '774dmdseqswm5ec5doa7y6kz2miw7jprrgu3awqv', 'A'),
-(39, 'aa', 'aa', 'aa', 'sss', 'a31fe9656fc8d3a459e623dc8204e6d0268f8df56d734dac3ca3262edb5db883', 'et8u8hzpvakyfz2mjxhfgffqrz065i6sq4q5de0t', '1');
+(4, 'Tom', 'Bom', 'aaaa', 'Bem@ss.c', '9d72fa678c71834cad751a9d64a4936cdbc6a33e3f5fe35c7c0789fd97ed0d8b', '774dmdseqswm5ec5doa7y6kz2miw7jprrgu3awqv', 'A'),
+(57, 'sdadas', 'dsada', 'bbbb', 'ccc@ccc.ccc', 'b51222f3978ccd47cb6509903650a434660729060bafd95fc4f450c6d8c28691', 'vfvz6mxcndubne5h386z0s52kkmakhwcp2nnn08f', '1'),
+(58, 'ccc', 'ccc', 'ccc', 'ccc@ccc.cccs', '980cb3a6a8f4ced9ccc29f820a0f32b07643b1b06f84a8332536a75657bfc6a4', 'v6fysf850quw7twuehty25moc77idnf7japcokky', '1'),
+(60, 'Exo', 'Exo', 'Exo', 'excalibrforyou@gmail.com', '8ef2df9540f01b6e52246bed1b5bde4274c93077b75a59cc1571a50f087b0127', 'dgck8ydzsx6fmh8me7tb08ux320oea7bxqjpjq5c', '1');
 
 -- --------------------------------------------------------
 
@@ -137,7 +131,8 @@ CREATE TABLE `zanr` (
 
 INSERT INTO `zanr` (`id_zanru`, `nazev`, `popis`) VALUES
 (1, 'Akcni', 'neco'),
-(2, 'Strategie', 'neco');
+(2, 'Strategie', 'neco'),
+(9, 'Bam', '111');
 
 -- --------------------------------------------------------
 
@@ -155,8 +150,11 @@ CREATE TABLE `zanrhra` (
 --
 
 INSERT INTO `zanrhra` (`id_zanru`, `id_hry`) VALUES
-(1, 2),
-(2, 3);
+(2, 52),
+(2, 54),
+(9, 52),
+(9, 53),
+(9, 54);
 
 --
 -- Klíče pro exportované tabulky
@@ -217,25 +215,25 @@ ALTER TABLE `zanrhra`
 -- AUTO_INCREMENT pro tabulku `hodnoceni`
 --
 ALTER TABLE `hodnoceni`
-  MODIFY `id_hod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_hod` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pro tabulku `hra`
 --
 ALTER TABLE `hra`
-  MODIFY `id_hry` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_hry` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT pro tabulku `obrazek`
 --
 ALTER TABLE `obrazek`
-  MODIFY `id_obr` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_obr` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1653;
 
 --
 -- AUTO_INCREMENT pro tabulku `uzivatel`
 --
 ALTER TABLE `uzivatel`
-  MODIFY `ID_uzivatele` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `ID_uzivatele` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT pro tabulku `video`
@@ -247,7 +245,7 @@ ALTER TABLE `video`
 -- AUTO_INCREMENT pro tabulku `zanr`
 --
 ALTER TABLE `zanr`
-  MODIFY `id_zanru` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_zanru` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Omezení pro exportované tabulky
