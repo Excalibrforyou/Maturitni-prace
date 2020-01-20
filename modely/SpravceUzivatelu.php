@@ -180,6 +180,7 @@ class SpravceUzivatelu {
 
 
   }
+  
     public function neopakujSeVUprave($udaje){
 
 

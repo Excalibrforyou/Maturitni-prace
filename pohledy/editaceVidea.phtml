@@ -1,0 +1,73 @@
+<?php
+  if (empty($video["id_vid"])) {
+?>
+<h1>Vložení nového videa</h1>
+<?php
+  } else {
+?> 
+
+<h1>Editace videa</h1>
+
+ <?php
+  }
+?>
+ <form method="post" enctype="multipart/form-data">
+   <input type="hidden" name="id_vid" 
+     value="<?= $video["id_vid"] ?>">
+
+   <div>
+     <label for="link">Youtube link</label>
+     <input type="text" name="link" id="link"
+     value="<?= $video["link"] ?>" required>
+   </div>
+    
+   <?php
+  if (empty($video["id_vid"])) {
+   ?>
+       <div>
+             <label for="hra">Hra</label>
+            <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
+            <?php
+               foreach($hry as $hra){
+               
+            ?>  
+                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
+           <?php
+                 }
+            ?>
+            </select>  
+            
+  
+   </div>    
+    <?php
+  } else {
+?> 
+        <div>
+             <label for="hra">Hra</label>
+            <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
+            <option value = "<?= $video["id_hry"] ?>"><?= $video["Jmeno"][0] ?></option>
+            <?php
+               foreach($hry as $hra){
+               if($hra["Jmeno"]!==$video["Jmeno"][0]){
+            ?>  
+                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
+           <?php
+                } }
+            ?>
+            </select>  
+            
+  
+   </div>  
+      
+<?php
+  }
+?>    
+     
+   <input type="submit" value="Uložit údaje videa">
+ </form>
+
+
+
+
+     
+     

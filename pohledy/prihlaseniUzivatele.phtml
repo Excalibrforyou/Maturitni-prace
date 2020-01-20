@@ -1,18 +1,17 @@
-<h1>Přihlášení uživatele</h1>
+<div class="prihlaseni">
+ <h1>Přihlášení</h1>
  
  <form method="post">
-   <div>
-     <label for="prezdivka">Login</label>
-     <input type="text" name="prezdivka" id="prezdivka" required>
+   <div class="textbox">
+     <input type="text" name="prezdivka" id="prezdivka" placeholder="Přezdívka" required>
    </div>
-   <div>
-     <label for="heslo">Heslo</label>
-     <input type="password" name="heslo" id="heslo" required>
-   </div>
-
-   <input type="submit" value="Přihlásit se">
+   <div class="textbox">
+     <input type="password" name="heslo" id="heslo" placeholder="Heslo" required>
+   </div >
+   <input type="submit" class="prihlaseniTlacitko" value="Přihlásit se">
  </form>
  
- <a href="/registraceUzivatele">Pokud nejsi zaregistrován, zaregistruj se</a>
+ <a href="/registraceUzivatele">Registrace</a>
      
      
+</div>

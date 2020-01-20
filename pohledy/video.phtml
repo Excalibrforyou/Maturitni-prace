@@ -1,0 +1,25 @@
+ <h1>Videa</h1>
+    
+  <p>
+    <a href="editace-videa">Nové video</a>
+  </p>
+ 
+     <table>
+     <tr>
+       <th>ID videa</th> 
+       <th>Link</th>
+       <th>Hra</th> 
+       <th>Administrace</th>
+     </tr>
+     <?php foreach ($video as $vid) { ?>
+        <tr>
+          <td><?= $vid["id_vid"] ?></td>
+          <td><a href="<?= $vid["link"] ?>"><?= $vid["link"] ?></a></td>
+          <td><?= $vid["Jmeno"] ?></td>
+          <td>
+            <a href="editace-videa/<?= $vid["id_vid"] ?>">Upravit</a>
+            <a href="video/<?= $vid["id_vid"] ?>/odstranit">Odstranit</a>
+           </td> 
+        </tr>   	
+     <?php } ?>
+     </table>
