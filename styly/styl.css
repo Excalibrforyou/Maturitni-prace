@@ -6,19 +6,28 @@ font-family: "montserrat",sans-serif;
  
 body {
     z-index: auto;
-    height: 125vh;
+    height: 100vh;
     background-position: center;
     background-image: var(--pozadi);
     background-size: cover;
     font-family: sans-serif;
     margin-top: 80px;
-    padding: 30px;
     color: var(--barvaTextu);  
+     background-repeat: no-repeat;
 }
 
 main {
     color: var(--barvaTextu);
 } 
+
+h1 {
+  padding: 8px;
+  background: rgba(65, 105, 225, 0.8);
+  border-radius: 8px;
+  margin: 0;
+  font-size: 64px;
+  font-family: "Roboto Slab", serif;
+}
  /*Stylovani headeru*/
 
 .header img {
@@ -140,7 +149,6 @@ float: left;
  border: none;
  outline: none;
  background:none;
-
  padding: 0;
  color: #ffff;
  font-size: 16px;
@@ -176,6 +184,7 @@ float: left;
 
 .logo{
 float: left;
+
 }
 
 
@@ -286,6 +295,10 @@ display: none;
   text-align: center;
   }
   
+  .dropdown:active {
+  background-color: darkblue;
+  }
+  
   .menu{
     position: fixed;
     width: 100%;
@@ -333,6 +346,7 @@ display: none;
   border-bottom: 6px solid #4caf50;
   margin-bottom: 50px;
   padding: 13px 0;
+    background: none;
 }
 
 .registrace .textbox{
@@ -401,6 +415,7 @@ background: #4caf50;
   border-bottom: 6px solid #00FFFF;
   margin-bottom: 50px;
   padding: 13px 0;
+  background: none;
 }
 
 .prihlaseni .textbox{
@@ -447,17 +462,129 @@ color: grey;
 }
 
 .prihlaseni input[type = "submit"]:hover{
-background: #00FFFF;
+background: rgb(65, 105, 225);
 color: black;
 }
 
 
 /* Konec stylu prihlaseni */
 
+/* Stylovani uvodu */
 
+.banner {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: top center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.2);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; 
+  background-blend-mode: overlay;
+  color: white;
+ 
+}
+
+.banner h1{
+
+    margin-top: 300px ;
+
+}
+
+.banner h3 {
+  background: black;
+  border-radius: 8px;
+  padding: 0 24px;
+  font-size: 24px;
+}
+
+
+
+
+.admin{
+   display: flex;
+   padding: 30px;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   padding-bottom: 50px;
+   
+}
+
+.admin a:link,a:visited {
+  background-color: royalblue;
+  color: white;
+  padding: 14px 25px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+}
+.logo a:hover, a:active { 
+ background-color: rgba(169,169,169,0);
+}
+.admin a:hover, a:active {
+ background-color: darkblue;
+ transition:  0.4s ;
+}
+
+
+.admin td, th {
+  text-align: left;
+  padding: 3px 8px;
+  border: 1px solid;
+  border-width: 1px 0;
+
+}
+
+.admin table tbody tr td {
+max-width:300px;
+max-height: 100px;
+overflow: auto;
+
+}
+
+
+.admin tbody tr:nth-child(2n) {
+  background-color: rgba(204,204,204,0.8);
+  color: black;
+}
+
+
+.admin table {
+  border: 1px solid;
+  border-collapse: collapse;
+  border-width: 1px 0;
+  height: 80px;
+  overflow: auto;
+  display: table-cell;
+  min-height: 500px;
+  min-width: 1100px;
+  
+}
+
+.admin thead th {
+  background-color: #555;
+  color: #fff;
+}  
+
+
+
+@media screen and (max-width:1000px){
+
+ .admin table {
+display: flex;
+}
+
+}
+
+
+/* konec stylovani uvodu  */
 /* pozadí */
 
 html {
 --pozadi: url(../Obrazky/uvod.jpg);
 --barvaTextu: white;  
 }
+
+/* pozadí */

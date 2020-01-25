@@ -11,8 +11,6 @@ class hledejKontroler extends Kontroler {
     }
     else $this->presmeruj("uvod");
     
-    
-
     $this->data["vysledky"] = $vysledky;
     $this->pohled = "vyhledavani";
   }
