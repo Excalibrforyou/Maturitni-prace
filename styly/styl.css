@@ -89,7 +89,7 @@ float: left;
  
 .search_box{
  transform: translate(0%, 30%);
- background-color: #fbc531;
+ background-color: #999999;
  height: 40px;
  border-radius: 40px;
  padding: 10px;
@@ -99,7 +99,6 @@ float: left;
  border: none;
  outline: none;
  background:none;
-
  padding: 0;
  color: #ffff;
  font-size: 16px;
@@ -109,7 +108,7 @@ float: left;
 
 }
 .search_btn {
- color: #fbc531;
+ color: #999999;
  float: right;
  text-decoration: none;
  width: 40px;
@@ -117,7 +116,7 @@ float: left;
  line-height: 40px;
  text-align: center;
  border-radius: 50%;
-
+ cursor: pointer;
 }
 .search_box:hover .input_box {
  width: 240px;
@@ -131,7 +130,7 @@ float: left;
  
 .search_box_sbalen{
  transform: translate(-50%, 50%);
- background-color: #fbc531;
+ background-color: #999999;
  height: 40px;
  border-radius: 40px;
  padding: 10px;
@@ -151,7 +150,7 @@ float: left;
 
 }
 .search_btn_sbalen {
- color: #fbc531;
+ color: #999999;
  float: right;
  text-decoration: none;
  width: 40px;
@@ -159,7 +158,7 @@ float: left;
  line-height: 40px;
  text-align: center;
  border-radius: 50%;
-
+ cursor: pointer;
 }
 .search_box_sbalen:hover .input_box_sbalen {
  min-width: 150px;
@@ -241,7 +240,7 @@ display: none;
 }
 
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:700px) {
     .input_box{
     display: none;
     }
@@ -256,8 +255,9 @@ display: none;
    float: none;
    display: inline-block;
    position: absolute;
-  top: -10px;
-  margin:0 auto;
+   top: -20px;
+   margin: 0 auto;
+
 }
   
   

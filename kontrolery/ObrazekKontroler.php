@@ -13,9 +13,17 @@ class ObrazekKontroler extends Kontroler {
       $this->presmeruj("obrazek");
     }
     
+    
+    
     $obrazek = $spravceObrazku->vratVsechnyObrazky();
 
-  
+    
+    foreach($obrazek as &$obr){
+     
+     $obr["download"] = "Obrazky/Hry/".$obr["id_hry"]."/".$obr["id_hry"]."-".$obr["id_obr"].$spravceObrazku->priradKoncovku($obr["typ"]);                              
+   }      
+        
+    
     $this->data["obrazek"] = $obrazek;
     $this->pohled = "obrazek";
   }

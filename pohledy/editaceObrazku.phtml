@@ -15,11 +15,16 @@
    <input type="hidden" name="id_obr" 
      value="<?= $obrazek["id_obr"] ?>">
      
-   <input type="hidden" name="typ" 
-     value="<?= $obrazek["typ"] ?>">  
-     
-    <input type="file" name="obrazek">
 
+   <?php
+  if (empty($obrazek["id_obr"])) {
+   ?> 
+   
+    <input type="file" name="obrazek">
+    
+       <?php
+  } 
+?> 
    <div>
      <label for="nazev_obr">Název</label>
      <input type="text" name="nazev_obr" id="nazev_obr"
@@ -45,28 +50,11 @@
   
    </div>    
     <?php
-  } else {
+  } 
 ?> 
-        <div>
-             <label for="hra">Hra</label>
-            <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
-            <option value = "<?= $obrazek["id_hry"] ?>"><?= $obrazek["Jmeno"][0] ?></option>
-            <?php
-               foreach($hry as $hra){
-               if($hra["Jmeno"]!==$obrazek["Jmeno"][0]){
-            ?>  
-                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
-           <?php
-                } }
-            ?>
-            </select>  
-            
-  
-   </div>  
+
       
-<?php
-  }
-?>    
+ 
      
    <input type="submit" value="Uložit údaje obrázku">
  </form>

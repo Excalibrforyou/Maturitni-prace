@@ -19,8 +19,12 @@
           <td><?= $obr["typ"] ?></td>
           <td><?= $obr["Jmeno"] ?></td>
           <td>
+          
+          
+          
             <a href="editace-obrazku/<?= $obr["id_obr"] ?>">Upravit</a>
             <a href="obrazek/<?= $obr["id_obr"] ?>/odstranit">Odstranit</a>
+            <a href="<?=$obr["download"]?>" download>Stáhnout</a>
            </td> 
         </tr>   	
      <?php } ?>

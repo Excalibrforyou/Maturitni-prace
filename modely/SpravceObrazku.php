@@ -33,14 +33,14 @@ class SpravceObrazku {
        // array_flip ... prohodí klíče a hodnoty v poli
        // array_intersect_key ... ponechá v prvním poli pouze prvky s klíči z druhého pole
     $udajeObrazkuDB = array_intersect_key($udajeObrazku, array_flip($klice)); 
-    //$udajeObrazku["typ"] = $typ;
-    $udajeObrazkuDB["typ"] = $obrazek["obrazek"]["type"];
+
+   
 
     $bum = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/";
 
     
     if (empty($udajeObrazku["id_obr"])){
-
+       $udajeObrazkuDB["typ"] = $obrazek["obrazek"]["type"];
                       Db::vloz("obrazek", $udajeObrazkuDB);
                          
 
@@ -49,8 +49,7 @@ class SpravceObrazku {
        
     else{ 
       Db::zmen("obrazek", $udajeObrazkuDB, 
-               "WHERE id_obr = ?", array($udajeObrazku["id_obr"]));
-           
+               "WHERE id_obr = ?", array($udajeObrazku["id_obr"]));  
     }  
    
   }
@@ -59,12 +58,8 @@ class SpravceObrazku {
   
        
   public function odstranObrazek($data){
-
-    Db::dotaz("
-      DELETE FROM obrazek
-      WHERE id_obr = ?
-    ", array($data["id_obr"])); 
-        
+    
+      $udaje = $this->vratObrazek($data["id_obr"]);
     
     $koncovka = array(
     "image/jpeg"  => ".jpg",
@@ -72,8 +67,16 @@ class SpravceObrazku {
     "image/gif" => ".gif"
      );
      
-    unlink("Obrazky/Hry/".$data["id_hry"]."/".$data["id_hry"]."-".$data["id_obr"].$koncovka[$data["typ"]]);
     
+  if (unlink("Obrazky/Hry/".$data["id_hry"]."/".$data["id_hry"]."-".$data["id_obr"].$koncovka[$udaje["typ"]])) {
+    Db::dotaz("
+      DELETE FROM obrazek
+      WHERE id_obr = ?
+    ", array($data["id_obr"])); 
+    return 1;
+   }      
+     
+   return 0; 
   } 
   
   public function upload($obrazek,$idHry,$id_obrazku){
@@ -122,6 +125,19 @@ class SpravceObrazku {
   
   
   }
+  
+  
+ public function priradKoncovku($koncovka){
+         $koncovky = array(
+    "image/jpeg"  => ".jpg",
+    "image/png" => ".png",
+    "image/gif" => ".gif"
+     );
+ 
+   return $koncovka = $koncovky[$koncovka];
+ 
+ }
+                 
       
    
 }
