@@ -98,7 +98,7 @@ class SpravceObrazku {
             
             //Zjisti zde existuje soubor se stejnym jmenem
             if(file_exists("Obrazky/Hry/" . $idHry . "/". $noveJmeno)){
-                echo $noveJmeno . " již existuje.";
+               // echo $noveJmeno . " již existuje.";
             } else{
             if (!file_exists("Obrazky/Hry/" . $idHry)) {
             mkdir("Obrazky/Hry/" . $idHry, 0777, true);
@@ -108,7 +108,7 @@ class SpravceObrazku {
             }
             
         } else{
-            echo "Špatný formát";
+            //echo "Špatný formát";
         
         }
    }

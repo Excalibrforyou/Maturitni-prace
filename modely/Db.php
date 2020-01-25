@@ -77,4 +77,15 @@ class Db {
 	{
 		return self::$spojeni->lastInsertId();
 	}
+    
+    public static function likeDotaz($dotaz, $parametry = array()){
+    
+    $i = self::$spojeni->prepare($dotaz);
+    $p = '%' . $parametry[0] . '%';
+    $i->bindValue(':klicoveSlovo',$p);   
+    $i->execute(); 
+    return $i; 
+   
+    }
+    
 }

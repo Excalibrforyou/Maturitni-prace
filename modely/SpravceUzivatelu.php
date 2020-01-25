@@ -235,8 +235,8 @@ class SpravceUzivatelu {
   
    $msg = "Zdravím \n".$data["jmeno"]."\n\n
    Děkujeme za tvoji registrace na webu GameWiki.\n\n
-   Zde je tvůj ověřovací email: ".$over_email." \n\n
-   Po ověření je třeba se znovu přihlásit.
+   Zde je tvůj ověřovací odkaz: ".$over_email." \n\n
+   Po ověření je třeba se znovu přihlásit pomocí přezdívky a hesla pod kterými jsi se zaregistroval.
    \n\n
    S přáním pěkného dne GameWiki.
    ";

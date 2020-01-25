@@ -9,6 +9,8 @@
         
     <link rel="stylesheet" href="../styly/chosen/chosen.min.css" type="text/css"> 
     
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    
     <script src="../styly/chosen/docsupport/jquery-3.2.1.min.js"></script>          
     <script src="../styly/chosen/chosen.jquery.min.js"></script>
                 
@@ -25,18 +27,50 @@
 
           </script>
        
-     
+                                      
   </head>
   <body>
   <header>
-  <a href="/uvod"><img src="/Obrazky/GameWiki.png" alt="GameWiki.png, 7,6kB" title="GameWiki"></a>
-   <nav>
-  <div class="blokPrihlaseni">
-  <?php
+   <div class="header">
+     <div class="logo">
+       <a href="/uvod"><img src="/Obrazky/GameWiki.png" alt="GameWiki.png, 7,6kB" title="GameWiki"></a> 
+       
+     </div>
+     
+     
+  <div class="nav">
+      
+      
+  <input type="checkbox" id="check">
+  <label for="check" class="rozbal-btn">
+   <i class="fas fa-bars"></i>
+  </label>
+   
+        <div class="search_box">
+    <form action="/hledej" method="post">
+      <input class="input_box" type="text" placeholder="Hledej..." name="vyhledavani">
+      <button type="submit" class="search_btn"><i class="fas fa-search"></i></button>
+    </form>
+      </div>
+     
+  <ul class="menu">
+                
+    <div class="search_box_sbalen">
+<form action="/hledej" method="post">
+      <input class="input_box_sbalen" type="text" placeholder="Hledej..." name="vyhledavani">
+      <button type="submit" class="search_btn_sbalen"><i class="fas fa-search"></i></button>
+</form>
+      </div>
+      
+      
+    <div class="prihlaseni-nav">
+     
+  
+        <?php
     if (!empty($prihlasenyUzivatel)) {
   ?>
-     <span>Jste přihlášeni jako 
-        <?= $prihlasenyUzivatel["jmeno"] ?>
+     <span>
+      |  <?= $prihlasenyUzivatel["jmeno"] ?>
         "<?= $prihlasenyUzivatel["prezdivka"] ?>"
         <?= $prihlasenyUzivatel["prijmeni"] ?>
         
@@ -48,21 +82,65 @@
        <a href="/prihlaseni-uzivatele">Přihlásit se</a>
   <?php
     }
-  ?>
-  </div>
-     <ul>
-       <li><a href="/uvod">Úvod</a></li>
-       <li><a href="/hry">Hry</a></li>
-       <li><a href="/uzivatele">Uživatelé</a></li>
-       <li><a href="/zanr">Zanry</a></li>
-       <li><a href="/hodnoceni">Hodnocení</a></li>
-       <li><a href="/obrazek">Obrázek</a></li>
-       <li><a href="/video">Video</a></li>
-     </ul>
-     </nav>
+  ?>      
+  
+     </div>
+          <div class="dropdown">
 
-      
+          
+          <button class="dropbtn">Admin 
+          <i class="fa fa-caret-down"></i>
+        </button> 
+           <div class="dropdown-content">
+         <a href="/uvod">Úvod</a>
+         <a href="/hry">Hry</a>
+         <a href="/uzivatele">Uživatelé</a>
+         <a href="/zanr">Zanry</a>
+         <a href="/hodnoceni">Hodnocení</a>
+         <a href="/obrazek">Obrázek</a>
+         <a href="/video">Video</a>
+        </div>
+       </div>
+
+         
+        
      
+ 
+  
+    <label for="check" class="schovej-btn">
+   <i class="fas fa-times"></i>
+  </label> 
+  </ul>  
+    
+ </div>    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                                                                                                                       
+
+
+  </div>
+        
   </header>  
   
      <section>

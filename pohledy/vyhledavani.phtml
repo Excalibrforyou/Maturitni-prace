@@ -1,0 +1,19 @@
+ <h1>Vyhledavání</h1>
+   <table>
+    
+   
+      <tr>
+       <th>Jmeno</th>
+       <th>Vyvojar</th>
+     </tr>
+     <?php foreach ($vysledky as $vysledek) { ?>
+        <tr>
+          <td><?= $vysledek["Jmeno"] ?></td>
+          <td><?= $vysledek["vyvojar"] ?></td>
+        </tr> 
+        
+        <?php
+         }
+        ?> 	  
+        
+        </table>
