@@ -1,32 +1,6 @@
--- phpMyAdmin SQL Dump
--- version 4.9.2
--- https://www.phpmyadmin.net/
---
--- Počítač: 127.0.0.1
--- Vytvořeno: Čtv 16. led 2020, 22:36
--- Verze serveru: 10.4.11-MariaDB
--- Verze PHP: 7.4.1
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Databáze: `maturitni_prace`
---
-
--- --------------------------------------------------------
-
---
--- Struktura tabulky `hodnoceni`
---
+drop database maturitni_prace;
+create database if not exists maturitni_prace;
+use maturitni_prace;
 
 CREATE TABLE `hodnoceni` (
   `id_hod` int(10) NOT NULL,
@@ -36,11 +10,8 @@ CREATE TABLE `hodnoceni` (
   `id_hry` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
 
---
--- Struktura tabulky `hra`
---
+
 
 CREATE TABLE `hra` (
   `id_hry` int(10) NOT NULL,
@@ -56,9 +27,9 @@ CREATE TABLE `hra` (
 --
 
 INSERT INTO `hra` (`id_hry`, `Jmeno`, `obsah`, `datum_vydani`, `vyvojar`, `platforma`) VALUES
-(52, 'ss', 'sss', '2020-01-01', 'sa', 'Playstation 1'),
-(53, 'ss/ss', 'sdada', '2020-01-16', 'dsada', 'Notebook'),
-(54, 'Jen', 'zivot je  na nic', '2020-01-03', 'já', 'Xbox One S');
+(1, 'Hunt', 'ShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnuti', '2020-01-01', 'Crytek', 'Playstation 1'),
+(2, 'Doom', 'ShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnuti', '2020-01-16', 'HuntDown', 'Notebook'),
+(3, 'Civilization', 'ShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnutiShrnuti', '2020-01-03', 'Humanity', 'Xbox One S');
 
 -- --------------------------------------------------------
 
@@ -95,10 +66,10 @@ CREATE TABLE `uzivatel` (
 --
 
 INSERT INTO `uzivatel` (`ID_uzivatele`, `jmeno`, `prijmeni`, `prezdivka`, `email`, `heslo`, `over_kod`, `typ_uctu`) VALUES
-(4, 'Tom', 'Bom', 'aaaa', 'Bem@ss.c', '9d72fa678c71834cad751a9d64a4936cdbc6a33e3f5fe35c7c0789fd97ed0d8b', '774dmdseqswm5ec5doa7y6kz2miw7jprrgu3awqv', 'A'),
-(57, 'sdadas', 'dsada', 'bbbb', 'ccc@ccc.ccc', 'b51222f3978ccd47cb6509903650a434660729060bafd95fc4f450c6d8c28691', 'vfvz6mxcndubne5h386z0s52kkmakhwcp2nnn08f', '1'),
-(58, 'ccc', 'ccc', 'ccc', 'ccc@ccc.cccs', '980cb3a6a8f4ced9ccc29f820a0f32b07643b1b06f84a8332536a75657bfc6a4', 'v6fysf850quw7twuehty25moc77idnf7japcokky', '1'),
-(60, 'Exo', 'Exo', 'Exo', 'excalibrforyou@gmail.com', '8ef2df9540f01b6e52246bed1b5bde4274c93077b75a59cc1571a50f087b0127', 'dgck8ydzsx6fmh8me7tb08ux320oea7bxqjpjq5c', '1');
+(1, 'admin', 'admin', 'admin', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '774dmdseqswm5ec5doa7y6kz2miw7jprrgu3awqv', 'A'),
+(2, 'Tomas', 'Jelinek', 'Jelen', 'ccc@ccc.cc', 'b51222f3978ccd47cb6509903650a434660729060bafd95fc4f450c6d8c28691', 'vfvz6mxcndubne5h386z0s52kkmakhwcp2nnn08f', '1'),
+(3, 'ccc', 'ccc', 'ccc', 'ccc@ccc.cccs', '980cb3a6a8f4ced9ccc29f820a0f32b07643b1b06f84a8332536a75657bfc6a4', 'v6fysf850quw7twuehty25moc77idnf7japcokky', '1'),
+(4, 'Martin', 'Jed', 'Exo', '------------', '8ef2df9540f01b6e52246bed1b5bde4274c93077b75a59cc1571a50f087b0127', 'dgck8ydzsx6fmh8me7tb08ux320oea7bxqjpjq5c', '1');
 
 -- --------------------------------------------------------
 
@@ -108,7 +79,6 @@ INSERT INTO `uzivatel` (`ID_uzivatele`, `jmeno`, `prijmeni`, `prezdivka`, `email
 
 CREATE TABLE `video` (
   `id_vid` int(10) NOT NULL,
-  `nazev_vid` varchar(45) DEFAULT NULL,
   `link` varchar(255) NOT NULL,
   `id_hry` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -130,9 +100,9 @@ CREATE TABLE `zanr` (
 --
 
 INSERT INTO `zanr` (`id_zanru`, `nazev`, `popis`) VALUES
-(1, 'Akcni', 'neco'),
-(2, 'Strategie', 'neco'),
-(9, 'Bam', '111');
+(1, 'Akcni', '------------'),
+(2, 'Strategie', '------------'),
+(3, 'Tahovka', '------------');
 
 -- --------------------------------------------------------
 
@@ -150,12 +120,22 @@ CREATE TABLE `zanrhra` (
 --
 
 INSERT INTO `zanrhra` (`id_zanru`, `id_hry`) VALUES
-(2, 52),
-(2, 54),
-(9, 52),
-(9, 53),
-(9, 54);
+(2, 1),
+(2, 2),
+(3, 2),
+(1, 3),
+(2, 3),
+(3, 3);
 
+INSERT INTO `video` (`id_vid`, `link`,`id_hry`) VALUES
+(1, 'https://youtu.be/ux9vr4xfWj4',1),
+(2, 'https://youtu.be/_eVNU59Q_MU',2),
+(3, 'https://youtu.be/oQxdPYjjWbc',3);
+
+INSERT INTO `hodnoceni` (`id_hod`, `hodnoceni`, `komentar`,`id_uzivatele`,`id_hry`) VALUES
+(1, 50, 'Prumerna hra',1,1),
+(2, 25, 'Spatna hra',2,2),
+(3, 40, 'Ujde to',3,3);
 --
 -- Klíče pro exportované tabulky
 --
@@ -277,7 +257,3 @@ ALTER TABLE `zanrhra`
   ADD CONSTRAINT `zanrhra_ibfk_1` FOREIGN KEY (`id_zanru`) REFERENCES `zanr` (`id_zanru`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `zanrhra_ibfk_2` FOREIGN KEY (`id_hry`) REFERENCES `hra` (`id_hry`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

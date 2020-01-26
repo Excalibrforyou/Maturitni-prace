@@ -1,5 +1,5 @@
 <?php
-class hledejKontroler extends Kontroler {
+class HledejKontroler extends Kontroler {
   public function zpracuj($parametry) {
     $spravceVyhledavani = new SpravceVyhledavani();
     $spravceHer = new SpravceHer(); 
