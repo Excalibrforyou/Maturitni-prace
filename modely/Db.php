@@ -81,8 +81,7 @@ class Db {
     public static function likeDotaz($dotaz, $parametry = array()){
     
     $i = self::$spojeni->prepare($dotaz);
-    $p = '%' . $parametry[0] . '%';
-    $i->bindValue(':klicoveSlovo',$p);   
+    $i->bindValue(':klicoveSlovo',"%{$parametry[0]}%");   
     $i->execute(); 
     return $i; 
    

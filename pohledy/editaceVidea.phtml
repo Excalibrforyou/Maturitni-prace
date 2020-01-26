@@ -1,4 +1,5 @@
-<?php
+<div class="adminEdit">
+ <?php
   if (empty($video["id_vid"])) {
 ?>
 <h1>Vložení nového videa</h1>
@@ -15,18 +16,25 @@
    <input type="hidden" name="id_vid" 
      value="<?= $video["id_vid"] ?>">
 
-   <div>
-     <label for="link">Youtube link</label>
-     <input type="text" name="link" id="link"
+   <div class="radek">
+<div class="s25">
+      <label for="link">Youtube link</label>
+</div>
+<div class="s75">
+      <input type="text" name="link" id="link"
      value="<?= $video["link"] ?>" required>
    </div>
+</div>
     
    <?php
   if (empty($video["id_vid"])) {
    ?>
-       <div>
-             <label for="hra">Hra</label>
-            <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
+       <div class="radek">
+<div class="s25">
+              <label for="hra">Hra</label>
+</div>
+<div class="s75">
+             <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
             <?php
                foreach($hry as $hra){
                
@@ -36,15 +44,19 @@
                  }
             ?>
             </select>  
+</div>
             
   
    </div>    
     <?php
   } else {
 ?> 
-        <div>
-             <label for="hra">Hra</label>
-            <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
+        <div class="radek">
+           <div class="s25">
+              <label for="hra">Hra</label>
+           </div>
+          <div class="s75">
+             <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
             <option value = "<?= $video["id_hry"] ?>"><?= $video["Jmeno"][0] ?></option>
             <?php
                foreach($hry as $hra){
@@ -56,6 +68,7 @@
             ?>
             </select>  
             
+          </div>
   
    </div>  
       
@@ -63,7 +76,9 @@
   }
 ?>    
      
-   <input type="submit" value="Uložit údaje videa">
+  <div class="radek">
+    <input type="submit" value="Uložit údaje videa">
+  </div>
  </form>
 
 
@@ -71,3 +86,23 @@
 
      
      
+</div>
+
+<?php
+if (isset($_SESSION["uzivatel"])){
+	
+
+ if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
+?>
+
+<script>
+
+ let rootElement = document.documentElement;
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
+ 
+</script>
+
+<?php
+}  
+}
+?>

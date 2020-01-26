@@ -1,4 +1,5 @@
-<?php
+<div class="adminEdit">
+ <?php
   if (empty($zanr["id_zanru"])) {
 ?>
 <h1>Vložení nové žánru</h1>
@@ -13,18 +14,49 @@
  <form method="post">
    <input type="hidden" name="id_zanru" 
      value="<?= $zanr["id_zanru"] ?>">
-   <div>
-     <label for="nazev">Název</label>
-     <input type="text" name="nazev" id="nazev"
+   <div class="radek">
+<div class="s25">
+      <label for="nazev">Název</label>
+</div>
+<div class="s75">
+      <input type="text" name="nazev" id="nazev"
      value="<?= $zanr["nazev"] ?>" required>
+</div>
    </div>
-   <div>
-     <label for="popis">Popis</label>
-     <input type="text" name="popis" id="popis"
+   <div class="radek">
+   <div class="s25">
+      <label for="popis">Popis</label>
+   </div>
+   <div class="s75">
+      <input type="text" name="popis" id="popis"
      value="<?= $zanr["popis"] ?>" required>
    </div>
+   </div>
       
-   <input type="submit" value="Uložit údaje žánru">
+   <div class="radek">
+    <input type="submit" value="Uložit údaje žánru">
+   </div>
  </form>
      
      
+</div>
+
+
+<?php
+if (isset($_SESSION["uzivatel"])){
+	
+
+ if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
+?>
+
+<script>
+
+ let rootElement = document.documentElement;
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
+ 
+</script>
+
+<?php
+}  
+}
+?>

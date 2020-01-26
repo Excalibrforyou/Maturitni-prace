@@ -1,12 +1,17 @@
+<div class="adminEdit">
 <?php
   if (empty($uzivatel["id_uzivatele"])) {
 ?>
+
+ 
+
 <h1>Vložení nového uživatele</h1>
 
  <form method="post">
 <?php
   } else {
 ?> 
+
 <h1>Editace uživatele</h1>
 
  <form method="post">
@@ -18,39 +23,97 @@
     
    <input type="hidden" name="ID_uzivatele" 
      value="<?= $uzivatel["ID_uzivatele"] ?>">
-   <div>
+     
+     
+     
+   <div class="radek">
+   <div class="s25">   
      <label for="prezdivka">Nickname</label>
+     
+   </div>
+<div class="s75">
+    
      <input type="text" name="prezdivka" id="prezdivka"
      value="<?= $uzivatel["prezdivka"] ?>" required>
-   </div> 
+     
+</div>
+</div> 
    
-    <div>
-     <label for="jmeno">Jméno</label>
-     <input type="text" name="jmeno" id="jmeno"
+   
+   
+    <div class="radek">
+    
+<div class="s25">
+      <label for="jmeno">Jméno</label>
+</div>
+     
+<div class="s75">
+      <input type="text" name="jmeno" id="jmeno"
       value="<?= $uzivatel["jmeno"] ?>" required>
+      
+</div>
    </div>
    
-    <div>
-     <label for="prijmeni">Přijmení</label>
-     <input type="text" name="prijmeni" id="prijmeni"
+    <div class="radek">
+    
+   <div class="s25">
+      <label for="prijmeni">Přijmení</label>
+   </div>
+     
+<div class="s75">
+      <input type="text" name="prijmeni" id="prijmeni"
       value="<?= $uzivatel["prijmeni"] ?>" required>
+</div>
+      
    </div>   
    
-   <div>
-     <label for="email">Email</label>
-     <input type="email" name="email" id="email"
+   <div class="radek">
+   
+<div class="s25">
+      <label for="email">Email</label>
+</div>
+     
+<div class="s75">
+      <input type="email" name="email" id="email"
      value="<?= $uzivatel["email"] ?>" required>
+</div>
+     
    </div>
    
-   <div>
-     <label for="heslo">Heslo</label>
-     <input type="password" name="heslo" id="heslo"
+   <div class="radek">
+<div class="s25">
+      <label for="heslo">Heslo</label>
+</div>
+<div class="s75">
+      <input type="password" name="heslo" id="heslo"
       value="<?= $uzivatel["heslo"] ?>" required>
+</div>
+      
      </div>
    
-                    
+       <div class="radek">                
    
    <input type="submit" value="Uložit údaje uživatele">
+        </div>
  </form>
      
-     
+</div>     
+
+<?php
+if (isset($_SESSION["uzivatel"])){
+	
+
+ if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
+?>
+
+<script>
+
+ let rootElement = document.documentElement;
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
+ 
+</script>
+
+<?php
+}  
+}
+?>

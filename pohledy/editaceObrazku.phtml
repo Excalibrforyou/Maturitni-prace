@@ -1,6 +1,8 @@
+<div class="adminEdit">
 <?php
   if (empty($obrazek["id_obr"])) {
 ?>
+
 <h1>Vložení nového obrázku</h1>
 <?php
   } else {
@@ -19,34 +21,50 @@
    <?php
   if (empty($obrazek["id_obr"])) {
    ?> 
-   
-    <input type="file" name="obrazek">
+<div class="radek">
+
+<div class="s25">
+     <label for="file">Hra</label>
+</div>
+     
+  <div class="s75">
+     <input type="file" name="obrazek" id="file">
+  </div>
     
+</div>
        <?php
   } 
 ?> 
-   <div>
-     <label for="nazev_obr">Název</label>
-     <input type="text" name="nazev_obr" id="nazev_obr"
+   <div class="radek">
+<div class="s25">
+      <label for="nazev_obr">Název</label>
+</div>
+<div class="s75">
+      <input type="text" name="nazev_obr" id="nazev_obr"
      value="<?= $obrazek["nazev_obr"] ?>" required>
+</div>
    </div>
     
    <?php
   if (empty($obrazek["id_obr"])) {
    ?>
-       <div>
-             <label for="hra">Hra</label>
-            <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
+       <div class="radek">
+           <div class="s25">
+              <label for="hra">Hra</label>
+           </div>    
+          <div class="s75">
+             <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
             <?php
                foreach($hry as $hra){
                
             ?>  
-                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
+                <option id="hra" value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
            <?php
                  }
             ?>
             </select>  
             
+          </div>
   
    </div>    
     <?php
@@ -56,11 +74,31 @@
       
  
      
-   <input type="submit" value="Uložit údaje obrázku">
+  <div class="radek">
+    <input type="submit" value="Uložit údaje obrázku">
+  </div>
  </form>
 
+  </div> 
 
 
+<?php
+if (isset($_SESSION["uzivatel"])){
+	
 
+ if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
+?>
+
+<script>
+
+ let rootElement = document.documentElement;
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
+ 
+</script>
+
+<?php
+}  
+}
+?>
      
      

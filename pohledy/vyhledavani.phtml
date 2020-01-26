@@ -1,19 +1,50 @@
- <h1>Vyhledavání</h1>
+<div class="vyhledavaniStr">
+  <h1>Vyhledavání</h1>
    <table>
-    
-   
       <tr>
-       <th>Jmeno</th>
-       <th>Vyvojar</th>
+       <th>Jméno</th>
+       <th>Vývojář</th>
+       <th>Žánry</th>
      </tr>
-     <?php foreach ($vysledky as $vysledek) { ?>
+     <?php
+
+      foreach ($vysledky as $vysledek) { ?>
         <tr>
           <td><?= $vysledek["Jmeno"] ?></td>
           <td><?= $vysledek["vyvojar"] ?></td>
-        </tr> 
+          <td>
+      <?php foreach ($zanry as $zanryProHru) {
+            if($vysledek["id_hry"]==$zanryProHru["id_hry"]){
+     ?>                
+            <?= $zanryProHru["nazev"]." " ?>         
+       <?php    
+        }
+    }
         
-        <?php
-         }
-        ?> 	  
+}?> 
+        </td>	  
+     </tr> 
+    
+ </table>
         
-        </table>
+        
+</div>
+ 
+<?php
+if (isset($_SESSION["uzivatel"])){
+	
+
+ if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
+?>
+
+<script>
+
+ let rootElement = document.documentElement;
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
+ 
+</script>
+
+<?php
+}  
+}
+?>
