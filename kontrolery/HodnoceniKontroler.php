@@ -1,6 +1,11 @@
 <?php
 class HodnoceniKontroler extends Kontroler {
   public function zpracuj($parametry) {
+  
+       if ($_SESSION["uzivatel"]["typ_uctu"]!="A") {
+       $this->presmeruj("uvod");	
+     }
+  
     $spravceHodnoceni = new SpravceHodnoceni();
     
     if (!empty($parametry[1]) && $parametry[1] == "odstranit")

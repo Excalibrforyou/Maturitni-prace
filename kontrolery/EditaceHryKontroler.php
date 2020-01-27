@@ -1,6 +1,11 @@
 <?php
 class EditaceHryKontroler extends Kontroler {
   public function zpracuj($parametry) {
+  
+       if ($_SESSION["uzivatel"]["typ_uctu"]!="A") {
+       $this->presmeruj("uvod");	
+     }
+  
     $spravceHer = new SpravceHer();
     $spravceZanrHra = new SpravceZanrHra();
     $spravceZanru = new SpravceZanru();    

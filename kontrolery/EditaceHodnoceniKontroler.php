@@ -1,8 +1,17 @@
 <?php
 class EditaceHodnoceniKontroler extends Kontroler {
   public function zpracuj($parametry) {
+  
+     if ($_SESSION["uzivatel"]["typ_uctu"]!="A") {
+       $this->presmeruj("uvod");	
+     }
+  
+  
     $spravceHodnoceni = new SpravceHodnoceni();
     $spravceHer = new SpravceHer();
+    
+    
+    
     
     if (!empty($_POST)) {
       $spravceHodnoceni->ulozHodnoceni($_POST);

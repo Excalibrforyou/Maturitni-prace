@@ -1,6 +1,10 @@
 <?php
 class ObrazekKontroler extends Kontroler {
   public function zpracuj($parametry) {
+  
+       if ($_SESSION["uzivatel"]["typ_uctu"]!="A") {
+       $this->presmeruj("uvod");	
+     }
     $spravceObrazku = new SpravceObrazku();
     $spravceHer = new SpravceHer();
     
@@ -20,7 +24,8 @@ class ObrazekKontroler extends Kontroler {
     
     foreach($obrazek as &$obr){
      
-     $obr["download"] = "Obrazky/Hry/".$obr["id_hry"]."/".$obr["id_hry"]."-".$obr["id_obr"].$spravceObrazku->priradKoncovku($obr["typ"]);                              
+     $obr["download"] = "Obrazky/Hry/".$obr["id_hry"]."/".$obr["id_hry"]."-".$obr["id_obr"].$spravceObrazku->priradKoncovku($obr["typ"]);
+     $obr["nahled"] = "Obrazky/Hry/".$obr["id_hry"]."/zmenseny/".$obr["id_hry"]."-".$obr["id_obr"].$spravceObrazku->priradKoncovku($obr["typ"]);                              
    }      
         
     

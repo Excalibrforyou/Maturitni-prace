@@ -1,14 +1,18 @@
 <?php
 class EditaceObrazkuKontroler extends Kontroler {
   public function zpracuj($parametry){
+  
+       if ($_SESSION["uzivatel"]["typ_uctu"]!="A") {
+       $this->presmeruj("uvod");	
+     }
+  
     $spravceObrazku = new SpravceObrazku();
     $spravceHer = new SpravceHer();
 
     if (!empty($_POST)) {      
       $spravceObrazku->ulozObrazek($_POST,$_FILES);   
-      $spravceObrazku->upload($_FILES,$_POST["id_hry"],$spravceObrazku->vratIDPoslednihoObrazku());
-
-
+      $cesta = $spravceObrazku->upload($_FILES,$_POST["id_hry"],$spravceObrazku->vratIDPoslednihoObrazku());    
+      $b=$spravceObrazku->upravVelikost($cesta,150,150);
       $this->presmeruj("obrazek");
     }
     

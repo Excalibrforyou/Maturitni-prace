@@ -228,7 +228,7 @@ class SpravceUzivatelu {
  
   public function posliOverovaciMail($data){
   
-   
+
   $over_email = "http://gamewiki.dx.am/OvereniUzivatele/".$data["over_kod"]."/"; 
    
     

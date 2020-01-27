@@ -1,6 +1,11 @@
 <?php
 class VideoKontroler extends Kontroler {
   public function zpracuj($parametry) {
+  
+       if ($_SESSION["uzivatel"]["typ_uctu"]!="A") {
+       $this->presmeruj("uvod");	
+     }
+  
     $spravceVidea = new SpravceVidea();
     $spravceHer = new SpravceHer();
     

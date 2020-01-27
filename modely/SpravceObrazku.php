@@ -9,6 +9,17 @@ class SpravceObrazku {
     );
   }
 
+
+  /* DODELAT OSETRENI PRI ODSTRANENI HRY ODSTRANIT VSECHNY OBRAZKY SE HROU SPOJENE!  */
+  public function vratObrazky() {
+    $obraz = Db::dotazVsechny("
+    select *
+    from obrazek
+    ");
+    return $obraz;
+  }
+  
+
   public function vratVsechnyObrazky() {
     $obraz = Db::dotazVsechny("
       SELECT o.id_obr,o.nazev_obr,o.typ,o.id_hry,h.Jmeno
@@ -69,6 +80,7 @@ class SpravceObrazku {
      
     
   if (unlink("Obrazky/Hry/".$data["id_hry"]."/".$data["id_hry"]."-".$data["id_obr"].$koncovka[$udaje["typ"]])) {
+      unlink("Obrazky/Hry/".$data["id_hry"]."/zmenseny/".$data["id_hry"]."-".$data["id_obr"].$koncovka[$udaje["typ"]]);
     Db::dotaz("
       DELETE FROM obrazek
       WHERE id_obr = ?
@@ -107,7 +119,7 @@ class SpravceObrazku {
             mkdir("Obrazky/Hry/" . $idHry, 0777, true);
             }
                 move_uploaded_file($obrazek["obrazek"]["tmp_name"], "Obrazky/Hry/" . $idHry . "/". $noveJmeno);
-                
+              return  ("Obrazky/Hry/".$idHry."/".$noveJmeno);  
             }
             
         } else{
@@ -137,6 +149,64 @@ class SpravceObrazku {
    return $koncovka = $koncovky[$koncovka];
  
  }
+  
+  public function upravVelikost($obrazek, $sir, $vys){
+  
+     
+    $id = $this->vratIDPoslednihoObrazku();
+   
+     $data = $this->vratObrazek($id["id_obr"]);
+     
+     $cilObr = "Obrazky/Hry/".$data["id_hry"]."/zmenseny/";
+    
+        if (!file_exists("Obrazky/Hry/".$data["id_hry"]."/zmenseny")) {
+            mkdir("Obrazky/Hry/".$data["id_hry"]."/zmenseny", 0777, true);
+         }
+     
+
+     if($data["typ"] == "image/jpeg"){
+     
+    $cilObr=$cilObr.$data["id_hry"]."-".$data["id_obr"].".jpg"; 
+     
+   list($sirka, $vyska) = getimagesize($obrazek);
+   $zdroj = imagecreatefromjpeg($obrazek);
+   $cil = imagecreatetruecolor($sir, $vys);
+   imagecopyresampled($cil, $zdroj, 0, 0, 0, 0, $sir, $vys, $sirka, $vyska);  
+   imagejpeg($cil,$cilObr);  
+     }
+     
+      if($data["typ"] == "image/png"){
+      
+     $cilObr=$cilObr.$data["id_hry"]."-".$data["id_obr"].".png"; 
+      
+   list($sirka, $vyska) = getimagesize($obrazek);
+   $zdroj = imagecreatefrompng($obrazek);
+   $cil = imagecreatetruecolor($sir, $vys);
+   imagecopyresampled($cil, $zdroj, 0, 0, 0, 0, $sir, $vys, $sirka, $vyska);
+   imagepng($cil,$cilObr);   
+      
+      
+      } 
+     
+    if($data["typ"] == "image/gif"){
+    
+     $cilObr=$cilObr.$data["id_hry"]."-".$data["id_obr"].".gif"; 
+    
+   list($sirka, $vyska) = getimagesize($obrazek);
+   $zdroj = imagecreatefromgif($obrazek);
+   $cil = imagecreatetruecolor($sir, $vys);
+   imagecopyresampled($cil, $zdroj, 0, 0, 0, 0, $sir, $vys, $sirka, $vyska);
+   imagegif($cil,$cilObr);  
+    
+    
+    }
+    
+   else return false;
+   
+    
+  
+  }
+   
                  
       
    

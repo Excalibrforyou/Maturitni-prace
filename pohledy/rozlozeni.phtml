@@ -84,6 +84,13 @@
   ?>      
   
      </div>
+     <?php
+      if (!empty($prihlasenyUzivatel)) {
+      	   if ($prihlasenyUzivatel["typ_uctu"]=="A") {
+     ?>
+     
+     
+     
           <div class="dropdown">
 
           
@@ -100,7 +107,10 @@
         </div>
        </div>
 
-         
+     <?php
+        }
+      }
+     ?>    
         
      
  
@@ -111,28 +121,6 @@
   </ul>  
     
  </div>    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
                                                                                                                        
 

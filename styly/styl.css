@@ -10,9 +10,11 @@ body {
 	background-image: var(--pozadi);
 	background-size: cover;
 	font-family: sans-serif;
-	margin-top: 100px;
 	color: var(--barvaTextu);
 	background-repeat: no-repeat;
+    background-attachment: fixed;
+    justify-content: center;
+    align-items: center;
 }
 main {
 	color: var(--barvaTextu);
@@ -21,7 +23,7 @@ h1 {
 	padding: 8px;
 	background: rgba(65, 105, 225, 0.8);
 	border-radius: 8px;
-	margin: 0;
+	margin: 10px;
 	font-size: 64px;
 	font-family: "Roboto Slab", serif;
 }
@@ -274,7 +276,7 @@ h1 {
 	float: left;
 	font-size: 40px;
 	border-bottom: 6px solid #4caf50;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 	padding: 13px 0;
 	background: none;
 }
@@ -335,7 +337,7 @@ h1 {
 	float: left;
 	font-size: 40px;
 	border-bottom: 6px solid #00FFFF;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 	padding: 13px 0;
 	background: none;
 }
@@ -420,7 +422,14 @@ h1 {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	padding-bottom: 50px;
+    width: 50%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .admin a:link, a:visited {
 	background-color: #4caf50;
@@ -429,6 +438,12 @@ h1 {
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
+}
+.admin .nahledEdit {
+
+background: none;
+
+
 }
 .admin a:hover, a:active {
 	background-color: #4caf50;
@@ -441,9 +456,10 @@ h1 {
 	background-color: rgba(0, 0, 0, 0.3);   
 }
 .admin table tbody tr td {
-	max-width: 300px;
+	max-width: 400px;
 	max-height: 100px;
 	overflow: auto;
+    white-space: nowrap;
 }
 .admin tbody tr:nth-child(2n) {
 	background-color: rgba(204, 204, 204, 0.8);
@@ -506,11 +522,18 @@ h1 {
 }
 .adminEdit {
 	border-radius: 5px;
-	padding: 20px;
 	padding: 30px;
 	display: flex;
 	flex-direction: column;
 	color: white;
+        width: 50%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .adminEdit h1 {
 	text-align: center;
@@ -551,6 +574,15 @@ h1 {
   margin-bottom: 12px; /* Add some space below the input */
   display: flex;
   flex-direction: column;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: -200px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  
 
 }
 

@@ -1,31 +1,17 @@
-<div class = "banner">
- 
-<h1>GameWiki</h1>
-<p>Vítejte na GameWiki</p>
+<div class="hraNahled">
+
 
 
  
-
-
-
-
 </div>
 
-
-
-<script>
-
- let rootElement = document.documentElement;
- rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvod.jpg)");
- 
-</script>
 
 
 
 <?php
 if (isset($_SESSION["uzivatel"])){
 	
-
+   imagecopyresized(resource dst_im, resource src_im, int dstX, int dstY, int srcX, int srcY, int dstW, int dstH, int srcW, int srcH)
  if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
 ?>
 
