@@ -2,9 +2,6 @@
 class HledejKontroler extends Kontroler {
   public function zpracuj($parametry) {
   
-    if ($_SESSION["uzivatel"]["typ_uctu"]!="A" || $_SESSION["uzivatel"]["typ_uctu"]!="1") {
-       $this->presmeruj("uvod");	
-     }
   
   
     $spravceVyhledavani = new SpravceVyhledavani();
