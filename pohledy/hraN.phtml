@@ -1,7 +1,58 @@
 <div class="hraNahled">
 
+ <div class="hraInfo">
+  
 
 
+         <h2>
+          <?= $hra["Jmeno"] ?>
+         </h2>
+         <div class="obsah">
+         <div class="shrnuti">
+          <?= $hra["obsah"] ?>
+          </div>
+          <?=  $hra["datum_vydani"] ?>
+          <?= $hra["vyvojar"] ?>
+        <?= $hra["platforma"] ?>
+        </div>
+
+   </div>
+ 
+   <div class="galerie">
+    <?php
+    
+    foreach ($obrazky as $obr) {
+    if ($obr["id_hry"]==$hra["id_hry"]) {
+    	
+    	
+   
+    
+    ?>
+    <a class="nahledEdit" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="150px" width="150px"></a>
+    <?php
+    }
+    } 
+    ?>
+     
+     <?php
+     foreach ($video as $vid) {
+      if ($hra["id_hry"]==$vid["id_hry"]) {	
+     
+     ?>
+    <iframe width="500" height="400" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen
+     src="<?= $vid["link"] ?>">
+    </iframe> 
+      <?php
+      
+       }
+       } 
+      ?>
+     
+    </div>
+ 
+    <div align="hodnoceni">
+     
+    </div>
  
 </div>
 
@@ -10,8 +61,6 @@
 
 <?php
 if (isset($_SESSION["uzivatel"])){
-	
-   imagecopyresized(resource dst_im, resource src_im, int dstX, int dstY, int srcX, int srcY, int dstW, int dstH, int srcW, int srcH)
  if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
 ?>
 

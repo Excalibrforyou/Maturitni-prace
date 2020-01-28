@@ -69,6 +69,24 @@ class SpravceVidea {
   
   
   }
+  
+  public function vratEmbedYoutubeLink($url){
+  
+     $typKratka = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+     $typDlouha = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+    if (preg_match($typDlouha, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+
+    if (preg_match($typKratka, $url, $matches)) {
+        $youtube_id = $matches[count($matches) - 1];
+    }
+    return 'https://www.youtube.com/embed/' . $youtube_id ;
+
+         
+  }  
+    
       
    
 }
