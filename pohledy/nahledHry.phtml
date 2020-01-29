@@ -8,38 +8,56 @@
           <?= $hra["Jmeno"] ?>
          </h2>
          <div class="obsah">
-         <div class="shrnuti">
-          <?= $hra["obsah"] ?>
-          </div>
+
           <?=  $hra["datum_vydani"] ?>
           <?= $hra["vyvojar"] ?>
         <?= $hra["platforma"] ?>
+         <?php
+          foreach ($zanry as $zanrprohru) {
+            	 
+         ?>
+         
+            <?= $zanrprohru["Zanr"]["nazev"] ?> 
+         <?php
+           }
+         ?>
         </div>
-
+        <div class="shrnuti">
+          <?= $hra["obsah"] ?>
+        </div>
    </div>
+   
+   
+   
  
    <div class="galerie">
+   <h2>
+    Galerie
+   </h2>
     <?php
     
     foreach ($obrazky as $obr) {
     if ($obr["id_hry"]==$hra["id_hry"]) {
-    	
-    	
-   
-    
     ?>
-    <a class="nahledEdit" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="150px" width="150px"></a>
+    <a href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="150px" width="150px"></a>
     <?php
     }
     } 
     ?>
+    </div>
+    
+    
+    
+    
+    <div class="galerieVidei">
      
+   
      <?php
      foreach ($video as $vid) {
       if ($hra["id_hry"]==$vid["id_hry"]) {	
      
      ?>
-    <iframe width="500" height="400" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen
+    <iframe class="video" width="150" height="150" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen
      src="<?= $vid["link"] ?>">
     </iframe> 
       <?php
@@ -47,8 +65,8 @@
        }
        } 
       ?>
-     
-    </div>
+      </div> 
+    
  
     <div align="hodnoceni">
      

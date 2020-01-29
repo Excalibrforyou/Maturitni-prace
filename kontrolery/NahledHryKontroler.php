@@ -5,8 +5,8 @@ class NahledHryKontroler extends Kontroler {
     $spravceVidea = new SpravceVidea(); 
     $spravceObrazku = new SpravceObrazku();
     $spravceHer = new SpravceHer();
-    $hryy = array();
-    
+    $spravceZanrHra = new SpravceZanrHra();
+    $spravceZanru = new SpravceZanru();
 
     
     if (empty($parametry[0]))
@@ -21,7 +21,14 @@ class NahledHryKontroler extends Kontroler {
     
     
     $obrazek = $spravceObrazku->vratVsechnyObrazky();
-
+    $video = $spravceVidea->vratVsechnyVidea();        
+    $zanry = $spravceZanrHra->vratVsechnyZanryHry($hra["id_hry"]);
+  
+    
+    foreach ($zanry as &$zanr) {
+    	
+        $zanr["Zanr"] = $spravceZanru->vratNazevZanru($zanr["id_zanru"]);
+    }
     
     foreach($obrazek as &$obr){
      
@@ -29,35 +36,23 @@ class NahledHryKontroler extends Kontroler {
      $obr["nahled"] = "/Obrazky/Hry/".$obr["id_hry"]."/zmenseny/".$obr["id_hry"]."-".$obr["id_obr"].$spravceObrazku->priradKoncovku($obr["typ"]);                              
    } 
    
-      $video = $spravceVidea->vratVsechnyVidea();   
-   
-     foreach ($video as &$vid) {
+   foreach ($video as &$vid) {
      
-     $vid["link"] = $spravceVidea->vratEmbedYoutubeLink($vid["link"]);
+   $vid["link"] = $spravceVidea->vratEmbedYoutubeLink($vid["link"]);
      	
-     }
- /*   
-    
-    $hry = $spravceHer->    
-    $hra = $spravceHer->vratHru();    
-                                                
-  foreach($hry as $hra){
+   }
 
-     $hryy = array_merge($hryy,$spravceHer->vratZanryHry($hra["id_hry"]));
-   }      
-       */
   
      
 
   
   
   
-                       
+    $this->data["zanry"] = $zanry;                         
     $this->data["video"] = $video;   
     $this->data["obrazky"]=$obrazek;
-    $this->data["hryy"] = $hryy;
     $this->data["hra"] = $hra;
-    $this->pohled = "hraN";
+    $this->pohled = "nahledHry";
   }
 }
 ?>

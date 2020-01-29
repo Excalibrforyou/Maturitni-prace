@@ -45,5 +45,15 @@ class SpravceZanru {
       WHERE id_zanru = ?
     ", array($idZanru));
   }
+  
+    public function vratNazevZanru($idZanru) {
+    return Db::dotazJeden("
+      SELECT nazev
+      FROM zanr
+      WHERE id_zanru = ?
+    ", array($idZanru));
+  }
+  
+  
 }
 ?>

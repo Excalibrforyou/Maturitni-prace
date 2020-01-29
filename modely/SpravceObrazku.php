@@ -47,8 +47,6 @@ class SpravceObrazku {
 
    
 
-    $bum = "Obrazky/Hry/".$udajeObrazku["id_hry"]."/";
-
     
     if (empty($udajeObrazku["id_obr"])){
        $udajeObrazkuDB["typ"] = $obrazek["obrazek"]["type"];
@@ -70,8 +68,7 @@ class SpravceObrazku {
        
   public function odstranObrazek($data){
     
-      $udaje = $this->vratObrazek($data["id_obr"]);
-    
+      $udaje = $this->vratObrazek($data["id_obr"]); 
     $koncovka = array(
     "image/jpeg"  => ".jpg",
     "image/png" => ".png",

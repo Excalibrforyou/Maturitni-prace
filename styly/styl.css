@@ -632,7 +632,7 @@ padding: 12px;
   height: 75%;
   margin: auto;
   position: absolute;
-  top: 100px;
+  top: 0;
   left: 0;
   bottom: 0;
   right: 0;
@@ -640,9 +640,26 @@ padding: 12px;
   
 }
 
+.galerie{
 
-.hraInfo {
+margin: 10px 50px;
 
+}
+
+.galerie h2{
+text-align: center;
+}
+
+.galerie img{
+transition:  1s ;
+padding: 15px;
+width: 200px;
+}
+
+.galerie img:hover{
+
+filter: greayscale(100%);
+transform: scale(1.1);
 }
 
 
