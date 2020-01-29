@@ -37,7 +37,7 @@ h1 {
 }
 .header {
 	height: 100px;
-	background: rgba(169, 169, 169, 0.5);
+	background: #393535;   
 	padding: 0 20px;
 	color: #fff;
 	position: fixed;
@@ -179,6 +179,23 @@ h1 {
 	padding: 0 10px;
 	transition: 0.4s;
 }
+
+.dropdown-content a{
+padding: unset ;
+}
+.menu a:hover {
+	background: rgba(65, 105, 225, 0.8);
+    color: white;
+}
+
+.menu .prihlaseni-nav a:hover {
+    padding-top: 40px;
+        padding-bottom: 40px;
+	rgba(65, 105, 225, 0.8)
+   
+}
+
+
 .schovej-btn, .rozbal-btn {
 	transition: 0.4s;
 	font-size: 30px;
@@ -191,9 +208,9 @@ h1 {
 .rozbal-btn i {
 	line-height: 100px;
 }
-.menu a:hover, .schovej-btn:hover, .rozbal-btn:hover {
+/*.menu a:hover, .schovej-btn:hover, .rozbal-btn:hover {
 	color: blue;
-}
+} */
 #check {
 	position: absolute;
 	visibility: hidden;
@@ -431,8 +448,10 @@ h1 {
   left: 0;
   bottom: 0;
   right: 0;
-}
-.admin a:link, a:visited {
+  padding-top: 150px;
+}    
+
+.admin a:link,.admin a:visited {
 	background-color: #4caf50;
 	color: white;
 	padding: 14px 25px;
@@ -440,6 +459,7 @@ h1 {
 	text-decoration: none;
 	display: inline-block;
 }
+
 .admin table tbody tr td a.nahledEdit {
 
 background: none;
