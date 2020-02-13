@@ -44,9 +44,7 @@ class NahledHryKontroler extends Kontroler {
    }
 
    $hodnoceni = $spravceHodnoceni->vratVsechnyHodnoceniHry($parametry[0]);
-
-
-
+   $hra["celkoveHodnoceni"] = $spravceHodnoceni->vratCelkoveHodnoceni($parametry[0]);
 
     $this->data["hodnoceni"] = $hodnoceni;
     $this->data["zanry"] = $zanry;

@@ -62,7 +62,15 @@ class SpravceHodnoceni {
       WHERE ho.id_hry = ?
     ", array($idHry));
   }
+                     
+  public function vratCelkoveHodnoceni($idHry){
+     return Db::dotazSamotny("
+     select TRUNCATE(AVG(hodnoceni),0)
+     from hodnoceni
+     WHERE id_hry = ?
+    ", array($idHry));
   
+  }
   
 }
 ?>

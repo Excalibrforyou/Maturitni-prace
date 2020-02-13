@@ -741,7 +741,11 @@ overflow: auto;
  margin: 10px;
  background: rgba(0,0,0,0.2);
 }
+.obrazek div{
 
+margin-bottom: 10px;
+margin-top: -10px;
+}
 .galerie a{
 background: none;
 }
@@ -751,6 +755,8 @@ background: none;
 filter: greayscale(100%);
 transform: scale(1.1);
 }
+
+
 
 .galerieVidei{
 text-align: center;       
@@ -774,6 +780,24 @@ padding: 100px 0 ;
   right: 0;
   text-align: center;
   
+}
+
+.komentare .pridejKom{
+
+         background-color: #1c87c9;
+         border: none;
+         color: white;
+         padding: 10px 17px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 20px;
+         margin: 20px 20px;
+         cursor: pointer;
+         margin-top: 0px;
+         
+         
+
 }
 
 .komentare .komentarovy_box {
