@@ -47,5 +47,22 @@ class SpravceHodnoceni {
       WHERE id_hod = ?
     ", array($idHodnoceni));
   }
+  
+    public function vratVsechnyHodnoceniUzivatele($idUzivatele) {
+    return Db::dotazVsechny("
+      SELECT *
+      FROM hodnoceni
+      WHERE id_uzivatele = ?
+    ", array($idUzivatele));
+  }
+    public function vratVsechnyHodnoceniHry($idHry) {
+    return Db::dotazVsechny("
+      SELECT u.prezdivka, ho.hodnoceni,ho.komentar,hr.Jmeno
+      FROM hodnoceni ho join hra hr on(ho.id_hry=hr.id_hry) join uzivatel u on(ho.id_uzivatele=u.ID_uzivatele)
+      WHERE ho.id_hry = ?
+    ", array($idHry));
+  }
+  
+  
 }
 ?>

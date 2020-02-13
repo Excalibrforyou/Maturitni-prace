@@ -5,14 +5,14 @@
 <h1>Vložení nového hodnocení</h1>
 <?php
   } else {
-?> 
+?>
 <h1>Editace hodnocení</h1>
 <?php
   }
 ?>
- 
+
  <form method="post">
-   <input type="hidden" name="id_hod" 
+   <input type="hidden" name="id_hod"
      value="<?= $hodnoceni["id_hod"] ?>">
    <div class="radek">
     <div class="s25">
@@ -41,70 +41,70 @@
      value="<?= $hodnoceni["id_uzivatele"] ?>" required>
     </div>
    </div>
-   
+
       <?php
-  if (empty($obrazek["id_obr"])) {
+  if (empty($hodnoceni["id_hry"])) {
    ?>
        <div class="radek">
            <div class="s25">
               <label for="hra">Hra</label>
            </div>
-<div class="s75">
-             <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
+            <div class="s75">
+             <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru">
             <?php
                foreach($hry as $hra){
-               
-            ?>  
-                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
+
+            ?>
+                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option>
            <?php
                  }
             ?>
-            </select>  
-</div>
-            
-  
-   </div>    
+            </select>
+            </div>
+
+
+   </div>
     <?php
   } else  {
-?> 
+?>
         <div class="radek">
             <div class="s25">
               <label for="hra">Hra</label>
             </div>
            <div class="s75">
-             <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
+             <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru">
             <option value = "<?= $hodnoceni["id_hry"] ?>"><?= $hodnoceni["Jmeno"][0] ?></option>
             <?php
                foreach($hry as $hra){
                if($hra["Jmeno"]!==$hodnoceni["Jmeno"][0]){
-            ?>  
-                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
+            ?>
+                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option>
            <?php
                 } }
             ?>
-            </select>  
-            
+            </select>
+
            </div>
-  
-   </div>  
-      
+
+   </div>
+
 <?php
   }
-?> 
-   
-   
+?>
+
+
   <div class="radek">
     <input type="submit" value="Uložit údaje hodnocení">
   </div>
  </form>
-     
-     
+
+
 </div>
 
 
 <?php
 if (isset($_SESSION["uzivatel"])){
-	
+
 
  if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
 ?>
@@ -113,10 +113,10 @@ if (isset($_SESSION["uzivatel"])){
 
  let rootElement = document.documentElement;
  rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
- 
+
 </script>
 
 <?php
-}  
+}
 }
 ?>

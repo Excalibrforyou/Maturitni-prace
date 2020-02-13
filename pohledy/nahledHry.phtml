@@ -1,31 +1,70 @@
-<div class="hraNahled">
+﻿<div class="hraNahled">
 
  <div class="hraInfo">
+  <div class="NazevHry">   
+ 
+       <div class="jmeno">
+       
+   <h1><?= $hra["Jmeno"] ?></h1>         
+   
+     </div>
+
+
+ 
+
+      <div class="hodnoceniHry">
+       
+       
+         <h2>50%</h2>
+        </div> 
+  </div>
   
-
-
-         <h2>
-          <?= $hra["Jmeno"] ?>
-         </h2>
-         <div class="obsah">
-
-          <?=  $hra["datum_vydani"] ?>
-          <?= $hra["vyvojar"] ?>
-        <?= $hra["platforma"] ?>
+          <div class="zanry">
+         
+     
          <?php
           foreach ($zanry as $zanrprohru) {
             	 
          ?>
          
-            <?= $zanrprohru["Zanr"]["nazev"] ?> 
+          <strong>  <?= $zanrprohru["Zanr"]["nazev"] ?>  </strong>
          <?php
            }
          ?>
-        </div>
-        <div class="shrnuti">
+           </div> 
+           
+           
+    <div class="shrnuti">
           <?= $hra["obsah"] ?>
         </div>
+        
+        
+         <div class="obsah">
+   
+          
+      <table>
+       
+       <tr>
+       <th>Vývojář: </th>
+       <th><?= $hra["vyvojar"] ?>  </th>
+       </tr>
+       <tr>
+       <th>Datum vydání: </th>
+       <th> <?= date_format(date_create($hra["datum_vydani"]), 'j. n. Y') ?></th>
+       </tr>
+       <tr>
+       <th>Platforma: </th>
+       <th><?= $hra["platforma"]?></th>
+       </tr>       
+       </table>
+       
    </div>
+
+   
+   </div>
+
+   
+   
    
    
    
@@ -34,30 +73,50 @@
    <h2>
     Galerie
    </h2>
-    <?php
+    <div class="obrazky">
+     
+   
+     <?php
     
     foreach ($obrazky as $obr) {
     if ($obr["id_hry"]==$hra["id_hry"]) {
-    ?>
+    ?>  
+   <div class="obrazek">
+
+   <div>
+     
+   
+    
     <a href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="150px" width="150px"></a>
+     </div> 
+    <div>
+     
+    
+     <strong> <?=$obr["nazev_obr"]?></strong>
+     </div>
+
+  </div>
     <?php
     }
     } 
-    ?>
+    ?>  
+   
     </div>
     
-    
+    </div> 
     
     
     <div class="galerieVidei">
-     
+     <h2>
+      Videa
+     </h2>
    
      <?php
      foreach ($video as $vid) {
       if ($hra["id_hry"]==$vid["id_hry"]) {	
      
      ?>
-    <iframe class="video" width="150" height="150" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen
+    <iframe class="video" frameborder="0" allowfullscreen
      src="<?= $vid["link"] ?>">
     </iframe> 
       <?php
@@ -67,13 +126,37 @@
       ?>
       </div> 
     
+      
  
-    <div align="hodnoceni">
-     
-    </div>
+
+<div class="komentare">
+  <h2>
+   Komentáře
+  </h2>
+  <?php
+   
+  
+  foreach ($hodnoceni as $hod) {
+     ?>
+ 
+
+                <div class="komentarovy_box">
+                  <div class="inside_comment">
+                    <div class="kometar_hlavicka">
+                      <div class="komentarPrezdivka"><strong><?= $hod["prezdivka"] ?></strong></div>
+                      <div class="komentarHodnoceni"><strong><?= $hod["hodnoceni"] ?>%</strong></div>
+                    </div>
+                  </div>
+                  <div class="teloKomentare">
+                    <p><?= $hod["komentar"] ?></p>
+                  </div>
+                </div>
+  <?php
+     }
+  ?>
  
 </div>
-
+</div>
 
 
 
@@ -85,11 +168,24 @@ if (isset($_SESSION["uzivatel"])){
 <script>
 
  let rootElement = document.documentElement;
- rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/hra.jpg)");
  
 </script>
 
 <?php
+}
+else{
+?>
+
+<script>
+
+ let rootElement = document.documentElement;
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/hra.jpg)");
+ 
+</script>
+
+<?php
+	
 }  
 }
 ?>

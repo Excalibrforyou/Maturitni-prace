@@ -5,14 +5,14 @@
 <h1>Vložení nové hry</h1>
 <?php
   } else {
-?> 
+?>
 <h1>Editace hry</h1>
 <?php
   }
 ?>
- 
+
  <form method="post">
-   <input type="hidden" name="id_hry" 
+   <input type="hidden" name="id_hry"
      value="<?= $hry["id_hry"] ?>">
    <div class="radek">
     <div class="s25">
@@ -28,8 +28,8 @@
       <label for="obsah">Obsah</label>
      </div>
 <div class="s75">
-      <input type="text" name="obsah" id="obsah"
-     value="<?= $hry["obsah"] ?>" required>
+ <textarea name="obsah" id="obsah"> <?= $hry["obsah"] ?> </textarea>
+
 </div>
    </div>
    <div class="radek">
@@ -50,25 +50,25 @@
      value="<?= $hry["vyvojar"] ?>" required>
      </div>
    </div>
-   
+
    <div class="radek">
   <div class="s25">
       <label for="platforma">Platforma</label>
   </div>
-     
+
            <div class="s75">
-              <select class="chosen-select" name="platforma" data-placeholder="Vyber platformu" required> 
+              <select class="chosen-select" name="platforma" data-placeholder="Vyber platformu" required>
                 <?php
                  if (empty($hry["id_hry"])) {
                 ?>
-                 
+
                <?php
                  } else {
-                ?>  
+                ?>
                  <option value = "<?= $hry["platforma"] ?>"><?= $hry["platforma"] ?></option>
                 <?php
                  }
-                ?>               
+                ?>
                   <optgroup label="PC">
                        <option value = "PC">PC</option>
                        <option value = "Notebook">Notebook</option>
@@ -89,43 +89,43 @@
                   <optgroup label="Mobil">
                          <option value = "Android">Android</option>
                          <option value = "iOS Apple">iOS Apple</option>
-                  </optgroup>                  
-            </select>  
+                  </optgroup>
+            </select>
            </div>
-     
-     
+
+
    </div>
-  
-    <div class="radek"> 
+
+    <div class="radek">
     <div class="s25">
       <label for="zanr">Žánry</label>
-    </div>  
+    </div>
           <div class="s75">
-             <select class="chosen-select" name="zanr[ ]" multiple data-placeholder="Vyber žánry"> 
+             <select class="chosen-select" name="zanr[ ]" multiple data-placeholder="Vyber žánry">
             <?php
                foreach($zanry as $zanr){
-               
-            ?>  
-                <option value = "<?= $zanr["id_zanru"] ?>"><?= $zanr["nazev"] ?></option> 
+
+            ?>
+                <option value = "<?= $zanr["id_zanru"] ?>"><?= $zanr["nazev"] ?></option>
                 <?php
                  }
                 ?>
-            </select>   
+            </select>
           </div>
-   </div>                             
-  
-      
+   </div>
+
+
   <div class="radek">
     <input type="submit" value="Uložit údaje hry">
   </div>
  </form>
-       
+
 </div>
 
 
 <?php
 if (isset($_SESSION["uzivatel"])){
-	
+
 
  if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
 ?>
@@ -134,10 +134,10 @@ if (isset($_SESSION["uzivatel"])){
 
  let rootElement = document.documentElement;
  rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
- 
+
 </script>
 
 <?php
-}  
+}
 }
 ?>

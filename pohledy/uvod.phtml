@@ -1,10 +1,10 @@
 <div class = "banner">
- 
+
 <h1>GameWiki</h1>
 <p>Vítejte na GameWiki</p>
 
 
- 
+
 
 
 
@@ -17,14 +17,14 @@
 
  let rootElement = document.documentElement;
  rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvod.jpg)");
- 
+
 </script>
 
 
 
 <?php
 if (isset($_SESSION["uzivatel"])){
-	
+
 
  if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
 ?>
@@ -33,10 +33,10 @@ if (isset($_SESSION["uzivatel"])){
 
  let rootElement = document.documentElement;
  rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
- 
+
 </script>
 
 <?php
-}  
+}
 }
 ?>
