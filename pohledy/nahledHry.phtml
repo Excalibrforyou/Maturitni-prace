@@ -133,11 +133,27 @@
   <h2>
    Hodnocení
   </h2>
-  
-  <a href="" class="pridejKom">Přidej hodnocení</a>
+  <?php
+   if($overeni["uzivatel"] == 1){
+      if ($overeni["hodnoceni"]==0) {
+      	
+      
+  ?>
+  <a href="/editaceHodnoceniU/<?= $hra["id_hry"] ?>" class="pridejKom">Přidej hodnocení</a>
   
   <?php
-   
+  }else{
+  
+  ?>
+  
+  
+   <a href="/editaceHodnoceniU/<?= $hra["id_hry"] ?>" class="pridejKom">Uprav své hodnocení</a>
+  
+  <?php 
+  
+  }
+  
+  }
   
   foreach ($hodnoceni as $hod) {
      ?>

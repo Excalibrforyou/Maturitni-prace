@@ -10,7 +10,7 @@
 
       foreach ($vysledky as $vysledek) { ?>
         <tr>
-          <td><?= $vysledek["Jmeno"] ?></td>
+          <td><a href="nahledHry/<?= $vysledek["id_hry"] ?>"><?= $vysledek["Jmeno"] ?></a></td>
           <td><?= $vysledek["vyvojar"] ?></td>
           <td>
       <?php foreach ($zanry as $zanryProHru) {

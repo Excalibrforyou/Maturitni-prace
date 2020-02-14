@@ -8,7 +8,7 @@ class NahledHryKontroler extends Kontroler {
     $spravceZanrHra = new SpravceZanrHra();
     $spravceZanru = new SpravceZanru();
     $spravceHodnoceni = new SpravceHodnoceni();
-
+    $overeni["uzivatel"] = 1;
 
     if (empty($parametry[0]))
     {
@@ -18,6 +18,11 @@ class NahledHryKontroler extends Kontroler {
 
     if (empty($hra)) {
     $this->presmeruj("uvod");
+    }
+    
+
+    if(empty($_SESSION["uzivatel"])||$_SESSION["uzivatel"]["typ_uctu"]=="0"){
+    $overeni["uzivatel"] = 0;
     }
 
 
@@ -42,10 +47,20 @@ class NahledHryKontroler extends Kontroler {
    $vid["link"] = $spravceVidea->vratEmbedYoutubeLink($vid["link"]);
 
    }
-
+    $jizExistuje = $spravceHodnoceni->existujeHodnoceni($parametry[0],$_SESSION["uzivatel"]["ID_uzivatele"]);
+    
+    
+   if(empty($jizExistuje)){
+      $overeni["hodnoceni"] = 0;
+    }
+    else $overeni["hodnoceni"] = 1;
+   
    $hodnoceni = $spravceHodnoceni->vratVsechnyHodnoceniHry($parametry[0]);
    $hra["celkoveHodnoceni"] = $spravceHodnoceni->vratCelkoveHodnoceni($parametry[0]);
-
+    
+   
+    
+    $this->data["overeni"] = $overeni;
     $this->data["hodnoceni"] = $hodnoceni;
     $this->data["zanry"] = $zanry;
     $this->data["video"] = $video;

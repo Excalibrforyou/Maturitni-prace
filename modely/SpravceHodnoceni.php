@@ -72,5 +72,24 @@ class SpravceHodnoceni {
   
   }
   
+  public function existujeHodnoceni($idhry,$iduzi){
+         
+         
+    $data = Db::dotazJeden("
+      SELECT *
+      FROM hodnoceni
+      WHERE id_uzivatele = ? AND id_hry = ?
+    ", array($iduzi,$idhry));
+  
+     if(!empty($data)){
+     
+       return $data;
+     }
+     else return false;
+  
+  
+  }
+  
+  
 }
 ?>

@@ -1,0 +1,104 @@
+<div class="adminEdit">
+ <?php
+  if (empty($hodnoceni["id_hod"])) {
+?>
+<h1>Vložení nového hodnocení</h1>
+<?php
+  } else {
+?>
+<h1>Editace hodnocení</h1>
+<?php
+  }
+?>
+
+ <form method="post">
+     
+     <input type="hidden" name="id_hod"
+     value="<?= $hodnoceni["id_hod"] ?>">         
+     
+     <input type="hidden" name="id_uzivatele" id="id_uzivatele"
+     value="<?= $_SESSION["uzivatel"]["ID_uzivatele"] ?>" required>   
+     
+
+
+     <div class="radek">
+   <div class="s25">
+      <label for="id_hry">Hra</label>
+   </div>
+    <div class="s75">
+      <input type="text" name="id_hry" id="id_hry"
+     value="<?= $hodnoceni["Jmeno"]?>" readonly disabled>
+     <input type="hidden" name="id_hry" id="id_hry"
+     value="<?= $hodnoceni["id_hry"]?>" required>
+    </div>
+   </div>  
+   <div class="radek">
+    <div class="s25">
+      <label for="komentar">Recenze</label>
+    </div>
+     <div class="s75">
+      <textarea type="text" name="komentar" id="komentar" rows="4" cols="50"><?= $hodnoceni["komentar"] ?></textarea>
+      
+     </div>
+   </div>
+   <div class="radek">
+    <div class="s25">
+      <label for="hodnoceni" ><span id="hodnoceniOut"></span>%</label>
+    </div>
+<div class="s75">   
+  <input type="range" min="0" max="100" value="<?= $hodnoceni["hodnoceni"] ?>" name="hodnoceni" id="hodnoceni" required>   
+</div>
+   </div>
+  
+
+
+
+
+  <div class="radek"> 
+   <?php
+  if (!empty($hodnoceni["id_hod"])) {
+?>
+  
+    <a href="/editaceHodnoceniU/<?=$hodnoceni["id_hry"]?>/odstranit/<?= $hodnoceni["id_hod"]?>">Odstranit</a>
+   <?php
+   }
+?>  
+    
+    <input type="submit" value="Uložit údaje hodnocení">   
+    
+  </div>
+ 
+ </form>
+
+
+</div>
+
+
+<script>
+var slider = document.getElementById("hodnoceni");
+var output = document.getElementById("hodnoceniOut");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+
+<?php
+if (isset($_SESSION["uzivatel"])){
+
+
+ if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
+?>
+
+<script>
+
+ let rootElement = document.documentElement;
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
+
+</script>
+
+<?php
+}
+}
+?>
