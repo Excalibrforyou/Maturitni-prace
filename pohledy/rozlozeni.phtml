@@ -13,19 +13,30 @@
     
     <script src="../styly/chosen/docsupport/jquery-3.2.1.min.js"></script>          
     <script src="../styly/chosen/chosen.jquery.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    
                 
           <script>
            $(document).ready(function(){ 
              $(".chosen-select").chosen({
               disable_search_threshold: 0,
               no_results_text: "Nenašel jsem: "
+              
              });
            
             
            });
-
-          </script>
-       
+           
+           </script>
+           <script>  
+          
+          
+          $(document).ready( function () {
+          $(".tabulkaDATATABLES").DataTable();
+           } );
+          
+            </script>
                                       
   </head>
   <body>
@@ -75,6 +86,9 @@
         
         | <a href="/prihlaseni-uzivatele/odhlasit">Odhlásit se</a>
      </span>
+     
+     
+     
   <?php
     } else {
   ?>
@@ -84,6 +98,32 @@
   ?>      
   
      </div>
+     <?php
+      if (!empty($prihlasenyUzivatel)){
+     if ($prihlasenyUzivatel["typ_uctu"]=="1"||$prihlasenyUzivatel["typ_uctu"]=="A") {
+     	
+      
+     ?>
+     <div class="uzivatel">
+      <a href="/editace-uzivatele/<?= $prihlasenyUzivatel["ID_uzivatele"] ?>">Nastavení</a>
+     </div>
+     
+     <?php
+     }
+     else{
+      ?>
+      
+      <div class="overSvujMail">
+         Prosím ověř svůj email, pokud ho nemůžeš najít nezapomeň zkontrolovat SPAM!
+      </div>
+      
+      
+      
+    <?php 
+      }
+      }
+     ?>
+     
      <?php
       if (!empty($prihlasenyUzivatel)) {
       	   if ($prihlasenyUzivatel["typ_uctu"]=="A") {

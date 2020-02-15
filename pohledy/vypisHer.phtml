@@ -1,0 +1,45 @@
+<div class="vypisHer">
+  <h1>Výpis her</h1>
+   <table class="tabulkaDATATABLES">
+   <thead>
+      <tr>
+       <th>Jméno</th>
+       <th>Vývojář</th>
+     </tr>
+     </thead>
+      <tbody>
+     <?php
+
+      foreach ($hry as $vysledek) { ?>
+        <tr>
+          <td><a href="nahledHry/<?= $vysledek["id_hry"] ?>"><?= $vysledek["Jmeno"] ?></a></td>
+          <td><?= $vysledek["vyvojar"] ?></td>
+          
+     </tr>
+     <?php
+      }
+     ?> 
+   </tbody>
+ </table>
+        
+        
+</div>
+ 
+<?php
+if (isset($_SESSION["uzivatel"])){
+	
+
+ if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
+?>
+
+<script>
+
+ let rootElement = document.documentElement;
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/uvodAdmin.jpg)");
+ 
+</script>
+
+<?php
+ }  
+}
+?>

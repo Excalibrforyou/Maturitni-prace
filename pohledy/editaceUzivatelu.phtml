@@ -1,6 +1,6 @@
 <div class="adminEdit">
 <?php
-  if (empty($uzivatel["id_uzivatele"])) {
+  if (empty($uzivatel["ID_uzivatele"])) {
 ?>
 
  
@@ -80,16 +80,25 @@
      
    </div>
    
+     <?php
+      if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
+     ?>
+   
    <div class="radek">
 <div class="s25">
       <label for="heslo">Heslo</label>
 </div>
 <div class="s75">
       <input type="password" name="heslo" id="heslo"
-      value="<?= $uzivatel["heslo"] ?>" required>
+      value="<?= $uzivatel["heslo"] ?>" required disabled>
 </div>
       
      </div>
+     
+       <?php
+        }
+       ?>
+     
    
        <div class="radek">                
    

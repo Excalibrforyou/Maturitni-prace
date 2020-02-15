@@ -169,10 +169,21 @@ h1 {
 .menu {
 	float: right;
 	line-height: 100px;
-	display: flex;
-	position: relative;
+	display: flex;	
 	text-align: center;
 }
+
+.overSvujMail{
+right: 25%;
+left: 25%;
+position: absolute;
+top: 7%;
+}
+.uzivatel a:hover{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 .menu a {
 	color: #fff;
 	text-decoration: none;
@@ -190,8 +201,7 @@ padding: unset ;
 
 .menu .prihlaseni-nav a:hover {
     padding-top: 40px;
-        padding-bottom: 40px;
-	rgba(65, 105, 225, 0.8)
+    padding-bottom: 40px;
 
 }
 
@@ -277,6 +287,11 @@ padding: unset ;
 	#check:checked~.menu {
 		right: 0;
 	}
+    
+    .overSvujMail{
+    top: 40%;
+    }
+    
 }
 /*Konec stylovani headeru*/
 
@@ -532,6 +547,11 @@ background: none;
 	padding: 12px 12px 12px 0;
 	display: inline-block;
 }
+
+#posunutiChosen{
+margin-top: 15px;
+}
+
 .adminEdit input[type=submit] {
 	background-color: #4CAF50;
 	color: white;
@@ -541,7 +561,7 @@ background: none;
 	cursor: pointer;
 	float: right;
 }
-.adminEdit a {
+.adminEdit-odtranHodnoceni{
     text-decoration: none;
 	background-color: #4CAF50;
 	color: white;
@@ -860,12 +880,12 @@ input[type="range"]{
   -webkit-appearance: none !important; /*Vymaze puvodni vzhled koleje(deafualtni)*/
   width: 100%;
   height: 15px;
-  margin: auto;
   transition: all 0.3s ease;
+  margin-top: 13px;
+  background-color: rgba(129, 207, 224, 0.6);
   }
   
-  
-  input[type="range"]::-webkit-slider-thumb {
+  input[type="range"]::-webkit-slider-thumb {                                                                   
   -webkit-appearance: none !important; /*Vymaze puvodni vzhled posuvniku(deafualtni)*/ 
   width: 20px ;
   height: 20px;
