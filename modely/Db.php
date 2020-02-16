@@ -83,9 +83,9 @@ class Db {
     
     $i = self::$spojeni->prepare($dotaz);
     $i->bindValue(':klicoveSlovo',"%{$parametry[0]}%");   
-    $i->execute(); 
-    return $i; 
+    $i->execute();
+    return $i->fetchAll();
    
     }
     
-}
+}                         

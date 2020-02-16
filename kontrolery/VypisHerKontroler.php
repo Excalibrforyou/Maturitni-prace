@@ -17,9 +17,7 @@ class VypisHerKontroler extends Kontroler
         
         
         if (empty($_POST["zanr"])) {
-            
-            
-            
+
             foreach ($hry as $hra) {
                  $zanryProDaneHry = array_merge($zanryProDaneHry, $spravceHer->vratZanryHry($hra["id_hry"]));
                  $finalHry[$hra["id_hry"]] = $hra["id_hry"];

@@ -1,5 +1,26 @@
 <div class="vyhledavaniStr">
   <h1>Vyhledavání</h1>
+  
+  
+         <div class="sortVyhledavani">
+          
+               <form method="post">
+               <select class="chosen-select" name="zanr[ ]" multiple data-placeholder="Vyber žánry">
+            <?php
+               foreach($vsechnyZanry as $zanr){
+
+            ?>
+                <option value = "<?= $zanr["id_zanru"] ?>"><?= $zanr["nazev"] ?></option>
+                <?php
+                 }
+                ?>
+            </select>
+             <input type="submit" value="Najdi">   
+           
+           </form>  
+  
+       
+         </div>
    <table>
       <tr>
        <th>Jméno</th>
@@ -7,8 +28,10 @@
        <th>Žánry</th>
      </tr>
      <?php
-
-      foreach ($vysledky as $vysledek) { ?>
+       
+      foreach ($_SESSION["vysledkyVyhledavani"] as $vysledek) { 
+       if (in_array($vysledek["id_hry"],$finalHry)) {
+      ?>
         <tr>
           <td><a href="nahledHry/<?= $vysledek["id_hry"] ?>"><?= $vysledek["Jmeno"] ?></a></td>
           <td><?= $vysledek["vyvojar"] ?></td>
@@ -21,11 +44,13 @@
         }
     }
         
+}
 }?> 
         </td>	  
      </tr> 
     
  </table>
+
         
         
 </div>

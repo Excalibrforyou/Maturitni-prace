@@ -1,4 +1,4 @@
-<div class="vypisHer">
+<div class="vyhledavaniStr">
   <h1>Výpis her</h1>
   
             <form method="post">
@@ -27,7 +27,10 @@
       <tbody>
      <?php
 
-      foreach ($hry as $vysledek) { 
+      foreach ($hry as $vysledek) {
+      if (!empty($finalHry)) {
+      	
+       
       if (in_array($vysledek["id_hry"],$finalHry)) {
       	
       
@@ -42,9 +45,10 @@
             <?= $zanryProHru["nazev"]." " ?>         
        <?php    
         }
-    }
+      }
       }
       
+      }
       }
      ?> </td>
    </tbody>

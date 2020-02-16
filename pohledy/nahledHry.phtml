@@ -14,8 +14,17 @@
 
       <div class="hodnoceniHry">
        
-       
-         <h2><?= $hra["celkoveHodnoceni"] ?>%</h2>
+           <?php
+            if(!empty($hra["celkoveHodnoceni"])){
+           ?>
+         <h2><?= $hra["celkoveHodnoceni"] ?>%</h2>  
+           <?php
+            }else{
+           ?>
+           <h2>-%</h2>
+           <?php
+            }
+           ?>
         </div> 
   </div>
   
