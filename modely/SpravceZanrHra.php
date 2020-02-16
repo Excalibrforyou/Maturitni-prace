@@ -77,6 +77,18 @@ class SpravceZanrHra {
 
   }
   
+  public function vratVsechnyHryZanru($idZanru){
+  
+          return Db::dotazVsechny("
+      SELECT *
+      FROM zanrhra
+      where id_zanru = ?
+    ", array($idZanru)); 
+  
+  }
+
+  
+  
 }
 
 ?>

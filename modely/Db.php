@@ -78,6 +78,7 @@ class Db {
 		return self::$spojeni->lastInsertId();
 	}
     
+   
     public static function likeDotaz($dotaz, $parametry = array()){
     
     $i = self::$spojeni->prepare($dotaz);

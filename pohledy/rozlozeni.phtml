@@ -74,7 +74,7 @@
       
       
     <div class="prihlaseni-nav">
-     
+      
   
         <?php
     if (!empty($prihlasenyUzivatel)) {
@@ -98,6 +98,11 @@
   ?>      
   
      </div>
+     
+      <div class="uzivatel" >
+        <a id="rozsir" href="/vypis-her">Hry</a>
+      </div>  
+     
      <?php
       if (!empty($prihlasenyUzivatel)){
      if ($prihlasenyUzivatel["typ_uctu"]=="1"||$prihlasenyUzivatel["typ_uctu"]=="A") {
@@ -106,12 +111,13 @@
      ?>
      <div class="uzivatel">
       <a href="/editace-uzivatele/<?= $prihlasenyUzivatel["ID_uzivatele"] ?>">Nastavení</a>
-     </div>
-     
+     </div>   
      <?php
      }
      else{
       ?>
+      
+
       
       <div class="overSvujMail">
          Prosím ověř svůj email, pokud ho nemůžeš najít nezapomeň zkontrolovat SPAM!
