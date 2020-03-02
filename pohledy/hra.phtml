@@ -4,15 +4,19 @@
     
 
  
-     <table>
-     <tr>
+     <table id="datatable">
+     <thead>
+     <tr class = "hlavicky">
        <th>Jmeno</th>
        <th>Obsah</th>
        <th>Datum vydání</th>
        <th>Vyvojar</th>
        <th>Platforma</th>
        <th>Žánry</th>
+       <th>Administrace</th>
      </tr>
+     </thead>
+     <tbody>
      <?php foreach ($hry as $hra) { ?>
         <tr>
           <td><?= $hra["Jmeno"] ?></td>
@@ -39,7 +43,8 @@
             <a href="hry/<?= $hra["id_hry"] ?>/odstranit">Odstranit</a>
            </td> 
         </tr>   	
-     <?php } ?>
+     <?php } ?> 
+     </tbody>
      </table>   
      
   <p>

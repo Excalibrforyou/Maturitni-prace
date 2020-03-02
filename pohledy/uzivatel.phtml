@@ -4,8 +4,9 @@
  <h1>Uživatelé</h1>
     
 
-     <table>
-     <tr>
+     <table id="datatable">
+     <thead>
+     <tr class="hlavicky">
        <th>Jméno</th>
        <th>Příjmení</th>
        <th>Přezdívka</th>
@@ -13,7 +14,8 @@
        <th>Ověřovací kód</th>
        <th>Právo</th>
        <th>Administrace</th>
-     </tr>
+     </tr> 
+     </thead> <tbody>
      <?php foreach ($uzivatel as $uzivatel1) { ?>
         <tr>
           <td><?= $uzivatel1["jmeno"] ?></td>
@@ -27,7 +29,8 @@
             <a href="uzivatele/<?= $uzivatel1["ID_uzivatele"] ?>/odstranit">Odstranit</a>
            </td> 
         </tr>   	
-     <?php } ?>
+     <?php } ?> 
+     </tbody>
      </table>
     <p>
     <a href="editace-uzivatele">Nový uživatel</a>

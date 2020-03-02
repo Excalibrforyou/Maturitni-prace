@@ -4,14 +4,17 @@
     
 
  
-     <table>
-     <tr>
+     <table id="datatable">
+     <thead>
+     <tr class = "hlavicky">
        <th>%</th>
        <th>Recenze</th>
        <th>Uzivatel</th>
        <th>Hra</th>  
        <th>Administrace</th>
-     </tr>
+     </tr>  
+      </thead>
+      <tbody>
      <?php foreach ($hodnoceni as $hodnot) { ?>
         <tr>
           <td><?= $hodnot["hodnoceni"] ?></td>
@@ -23,7 +26,8 @@
             <a href="editace-hodnoceni/<?= $hodnot["id_hod"] ?>">Upravit</a>
             <a href="hodnoceni/<?= $hodnot["id_hod"] ?>/odstranit">Odstranit</a>
            </td> 
-        </tr>   	
+        </tr>  
+        </tbody> 	
      <?php } ?>
      </table>     
      <p>

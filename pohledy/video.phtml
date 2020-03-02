@@ -1,16 +1,18 @@
 <div class="admin">
 
  <h1>Videa</h1>
-    
 
- 
-     <table>
-     <tr>
+     <table id="datatable">
+     <thead>
+     <tr class="hlavicky">
        <th>ID videa</th> 
        <th>Link</th>
        <th>Hra</th> 
        <th>Administrace</th>
-     </tr>
+     </tr> 
+     </thead>
+    <tbody> 
+     
      <?php foreach ($video as $vid) { ?>
         <tr>
           <td><?= $vid["id_vid"] ?></td>
@@ -22,6 +24,7 @@
            </td> 
         </tr>   	
      <?php } ?>
+     </tbody>
      </table> 
      
    <p>

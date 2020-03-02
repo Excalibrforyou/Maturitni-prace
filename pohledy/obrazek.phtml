@@ -3,8 +3,9 @@
  <h1>Obrázky</h1>
     
 
-     <table>
-     <tr>
+     <table class="datatableObrazek">
+     <thead>
+     <tr class = "hlavicky">
        <th>Náhled</th>
        <th>ID obrázku</th>
        <th>Název</th> 
@@ -12,13 +13,15 @@
        <th>Hra</th> 
        <th>Administrace</th>
      </tr>
+     </thead>
+     <tbody>
      <?php 
      
      foreach ($obrazek as $obr) { 
    
     ?>
     <tr>
-          <td><a class="nahledEdit" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="150px" width="150px"></a></td>
+          <td><a class="nahledEdit" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="150" width="150" alt=""></a></td>
           <td><?= $obr["id_obr"] ?></td>
           <td><?= $obr["nazev_obr"] ?></td>
           <td><?= $obr["typ"] ?></td>
@@ -33,6 +36,7 @@
            </td> 
         </tr>   	
      <?php } ?>
+     </tbody>
      </table>   
      
   <p>

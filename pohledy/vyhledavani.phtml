@@ -15,9 +15,9 @@
                  }
                 ?>
             </select>
-             <input type="submit" value="Najdi">   
+             <input type="submit" value="Najdi" class="vyhledavaniTlacitkoPohled">   
            
-           </form>  
+           </form>                                             
   
        
          </div>
@@ -29,7 +29,8 @@
      </tr>
      <?php
        
-      foreach ($_SESSION["vysledkyVyhledavani"] as $vysledek) { 
+      foreach ($_SESSION["vysledkyVyhledavani"] as $vysledek) {
+       if (!empty($finalHry)) { 
        if (in_array($vysledek["id_hry"],$finalHry)) {
       ?>
         <tr>
@@ -44,6 +45,7 @@
         }
     }
         
+}
 }
 }?> 
         </td>	  

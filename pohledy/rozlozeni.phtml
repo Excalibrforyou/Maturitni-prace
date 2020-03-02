@@ -2,41 +2,71 @@
 <html lang='cs'>
   <head>
     <title>GameWiki</title>   
-    <meta charset='utf-8' name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styly/styl.css">
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
    
     <link rel="stylesheet" href="../styly/chosen/chosen.css" type="text/css">
         
     <link rel="stylesheet" href="../styly/chosen/chosen.min.css" type="text/css"> 
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Roboto:500&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="../styly/styl.css">
     <script src="../styly/chosen/docsupport/jquery-3.2.1.min.js"></script>          
     <script src="../styly/chosen/chosen.jquery.min.js"></script>
     <script src="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    
+    <script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
                 
           <script>
            $(document).ready(function(){ 
              $(".chosen-select").chosen({
               disable_search_threshold: 0,
-              no_results_text: "Nenašel jsem: "
-              
+              no_results_text: "Nenašel jsem: ",
+              width: "95%"
              });
+             $(".datatableObrazek").DataTable({
+             "pageLength": 3,
+             "lengthChange": false,
+             "bInfo" : false,
+                            "language": {
+                "search": "Vyhledávání:",
+                "zeroRecords":    "Žádné výsledky",
+                "paginate": {
+                      "first":      "První",
+                      "last":       "Poslední",
+                      "next":       "Další",
+                      "previous":   "Předchozí"
+    }
+  }
+    
+       
+             
+             }
+             );
            
-            
+             $("#datatable").DataTable({
+             "lengthChange": false,
+             "pageLength": 6,
+             "bInfo" : false,
+                "language": {
+                "search": "Vyhledávání:",
+                "zeroRecords":    "Žádné výsledky",
+                "paginate": {
+                      "first":      "První",
+                      "last":       "Poslední",
+                      "next":       "Další",
+                      "previous":   "Předchozí"
+    }
+  }
+             
+             });
            });
            
            </script>
-           <script>  
-          
-          
-          $(document).ready( function () {
-          $(".tabulkaDATATABLES").DataTable();
-           } );
-          
-            </script>
+
                                       
   </head>
   <body>
@@ -66,13 +96,25 @@
   <ul class="menu">
                 
     <div class="search_box_sbalen">
-<form action="/hledej" method="post">
+<form action="/Hledej" method="post">
       <input class="input_box_sbalen" type="text" placeholder="Hledej..." name="vyhledavani">
       <button type="submit" class="search_btn_sbalen"><i class="fas fa-search"></i></button>
 </form>
+
+
       </div>
+            <?php
+      if (!empty($prihlasenyUzivatel)){
+     if ($prihlasenyUzivatel["typ_uctu"]=="0") {
+     	
       
-      
+     ?>
+      <div class="overSvujMail">
+         Prosím ověř svůj email!
+      </div>
+     <?php
+     }} 
+     ?> 
     <div class="prihlaseni-nav">
       
   
@@ -113,22 +155,13 @@
       <a href="/editace-uzivatele/<?= $prihlasenyUzivatel["ID_uzivatele"] ?>">Nastavení</a>
      </div>   
      <?php
-     }
-     else{
+     }}
       ?>
       
 
       
-      <div class="overSvujMail">
-         Prosím ověř svůj email, pokud ho nemůžeš najít nezapomeň zkontrolovat SPAM!
-      </div>
+
       
-      
-      
-    <?php 
-      }
-      }
-     ?>
      
      <?php
       if (!empty($prihlasenyUzivatel)) {
@@ -161,7 +194,7 @@
      
  
   
-    <label for="check" class="schovej-btn">
+     <label for="check" class="schovej-btn">
    <i class="fas fa-times"></i>
   </label> 
   </ul>  
@@ -172,6 +205,18 @@
 
 
   </div>
+    
+     <?php
+     if(isset($zpravy)){
+     if(!empty($zpravy)){
+       foreach ($zpravy as $zprava) {  
+     ?>
+        echo "<script type='text/javascript'>alert('$zprava');</script>";
+      
+     <?php
+       }}}
+     ?>
+     
         
   </header>  
   

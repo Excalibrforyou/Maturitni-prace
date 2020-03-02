@@ -3,11 +3,15 @@
  <h1>Žánry</h1>
 
  
-     <table>
-     <tr>
-       <th>Název</th>
+     <table id="datatable">
+     <thead>
+     <tr class="hlavicky">
+       <th>Název</th> 
        <th>Popis</th>
-     </tr>
+       <th></th> 
+      </tr>  
+     </thead>
+     <tbody>
      <?php foreach ($zanr as $zanr1) { ?>
         <tr>
           <td><?= $zanr1["nazev"] ?></td>
@@ -17,7 +21,8 @@
             <a href="zanr/<?= $zanr1["id_zanru"] ?>/odstranit">Odstranit</a>
            </td> 
         </tr>   	
-     <?php } ?>
+     <?php } ?>  
+     </tbody>
      </table>
          
   <p>
