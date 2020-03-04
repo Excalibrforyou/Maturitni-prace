@@ -93,7 +93,7 @@ background-color: #4CAF50;
 	z-index: 1;
 	background-color: rgba(169, 169, 169, 0.5);
 	transition: 0.4s;
-}
+}         
 .dropdown-content a {
 	float: none;
 	text-decoration: none;
@@ -334,6 +334,7 @@ padding-right: 30px;
 	margin-bottom: 40px;
 	padding: 13px 0;
 	background: none;
+    color:white;
 }
 .registrace .textbox {
 	width: 100%;
@@ -438,35 +439,57 @@ padding-right: 30px;
 	background: rgb(65, 105, 225);
 	color: black;
 }
+
+.doplnkovyStylLinku{
+
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  	border: 2px solid red;
+  	transition: 0.3s;	
+      background: rgba(0, 0, 0, 0.6);
+      margin: 0 68px;
+  }
+
+
+.prihlaseni a:hover, .prihlaseni a:active, .registrace a:hover, .registrace a:active .adminEdit a:active, .adminEdit a:hover {
+  	background: rgba(255, 0, 0, 0.6);
+	color: black;
+}
+
+
+
 /* Konec stylu prihlaseni */
 
 /* Stylovani uvodu */
 
-.banner {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: top center;
-	flex-direction: column;
-	background: rgba(0, 0, 0, 0.2);
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: center;
-	background-blend-mode: overlay;
-	color: white;
-}
-.banner h1 {
-	margin-top: 300px;
-}
-.banner h3 {
+
+#zaklad{
+
+      height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: overlay;
+    color: white;
+ }
+ 
+   
+#zaklad p {
 	background: black;
 	border-radius: 8px;
 	padding: 0 24px;
 	font-size: 24px;
 }
-.logo a:hover, a:active {
-	background-color: rgba(169, 169, 169, 0);
-}
+ 
 /* konec stylovani uvodu  */
 
 /*stylovani admin pristupu */

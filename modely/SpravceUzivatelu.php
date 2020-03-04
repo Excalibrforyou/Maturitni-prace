@@ -233,11 +233,11 @@ class SpravceUzivatelu {
    
     
   
-   $msg = "Zdravím \n".$data["jmeno"]."\n\n
-   Děkujeme za tvoji registrace na webu GameWiki.\n\n
-   Zde je tvůj ověřovací odkaz: ".$over_email." \n\n
+   $msg = "Zdravím ".$data["jmeno"]."
+   Děkujeme za tvoji registrace na webu GameWiki.
+   Zde je tvůj ověřovací odkaz: ".$over_email."
    Po ověření je třeba se znovu přihlásit pomocí přezdívky a hesla pod kterými jsi se zaregistroval.
-   \n\n
+
    S přáním pěkného dne GameWiki.
    ";
    
@@ -254,5 +254,51 @@ class SpravceUzivatelu {
                 return 1;            
   } 
   
-}
+  public function zmenheslo($data,$stareHeslo,$noveHeslo){
+
+       $hesloZmena["heslo"]=$this->vratHashHesla($noveHeslo);
+
+
+       $uzivatel = $this->vratUzivatele($data["ID_uzivatele"]);
+
+
+      if(!empty($data)&&!empty($stareHeslo)){
+        if(($data["ID_uzivatele"]==$uzivatel["ID_uzivatele"])){
+        if($uzivatel["heslo"]==$this->vratHashHesla($stareHeslo)){
+        
+                Db::zmen("uzivatel", $hesloZmena, 
+               "WHERE ID_uzivatele = ?", array($data["ID_uzivatele"]));
+        
+        }
+        }  
+        
+        /*if($data["typ_uctu"]=="A"){
+        
+        
+                Db::zmen("uzivatel", $hesloZmena, 
+               "WHERE ID_uzivatele = ?", array($data["ID_uzivatele"]));
+        
+        
+        }  */
+  }
+  }
+  
+ public function zmenhesloAdmin($data,$noveHeslo){
+ 
+       if(!empty($data)&&!empty($noveHeslo)){
+        $hesloZmena["heslo"]=$this->vratHashHesla($noveHeslo);
+                
+                        Db::zmen("uzivatel", $hesloZmena, 
+                        "WHERE ID_uzivatele = ?", array($data));
+        
+                           
+        
+        
+        
+ 
+ } 
+ } 
+  
+   
+} 
 ?>

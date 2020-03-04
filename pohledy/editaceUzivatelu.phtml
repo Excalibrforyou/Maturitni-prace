@@ -90,18 +90,23 @@
 </div>
 <div class="s75">
       <input type="password" name="heslo" id="heslo"
-      value="<?= $uzivatel["heslo"] ?>" required disabled>
+      value="<?= $uzivatel["heslo"] ?>" disabled>
 </div>
       
      </div>
+    <div class="radek">                
+    <a href="/zmenaHesla/<?= $uzivatel["ID_uzivatele"]?>" class="doplnkovyStylLinku">Změna hesla</a>
+       
+       <?php
+        }else{
+       ?>
+    <div class="radek">                
+    <a href="/zmenaHesla" class="doplnkovyStylLinku">Změna hesla</a>
      
        <?php
-        }
+         }
        ?>
-     
-   
-       <div class="radek">                
-   
+
    <input type="submit" value="Uložit údaje uživatele">
         </div>
  </form>

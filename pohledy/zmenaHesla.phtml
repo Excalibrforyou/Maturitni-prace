@@ -1,0 +1,41 @@
+<div class="prihlaseni">
+ <h1>Změna hesla</h1>
+ 
+ <form method="post">
+
+     <?php
+      if(!empty($id_zmeny)&&$_SESSION["uzivatel"]["typ_uctu"]=='A'){
+     ?>
+     <input type="hidden" name="uzivatel" id="uzivatel" value="<?= $id_zmeny ?>" > 
+     <?php
+      }else{
+     ?>
+     
+     
+   <div class="textbox">
+     <input type="password" name="stareHeslo" id="stareHeslo" placeholder="Staré heslo" required>
+   </div>       
+   
+   <?php
+      } 
+      ?>
+      
+   <div class="textbox">
+     <input type="password" name="heslo" id="heslo" placeholder="Heslo" required>
+   </div >
+   <input type="submit" class="prihlaseniTlacitko" value="Změn heslo">
+
+ </form>
+
+     
+     
+</div>
+
+
+
+<script>
+
+ let rootElement = document.documentElement;
+ rootElement.style.setProperty('--pozadi',"url(../Obrazky/Prihlaseni.jpg)");
+ 
+</script>
