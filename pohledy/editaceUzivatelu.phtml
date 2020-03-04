@@ -88,18 +88,32 @@
 <div class="s25">
       <label for="heslo">Heslo</label>
 </div>
-<div class="s75">
-      <input type="password" name="heslo" id="heslo"
-      value="<?= $uzivatel["heslo"] ?>" disabled>
-</div>
       
-     </div>
+     
+      <?php
+       if(!empty($uzivatel["ID_uzivatele"])){
+      ?>
+<div class="s75">
+      <input type="password" name="heslo" id="heslo" disabled
+      value="<?= $uzivatel["heslo"] ?>">
+</div>
+</div>    
     <div class="radek">                
     <a href="/zmenaHesla/<?= $uzivatel["ID_uzivatele"]?>" class="doplnkovyStylLinku">Změna hesla</a>
        
        <?php
-        }else{
+       }else{
        ?>
+       <div class="s75">
+      <input type="password" name="heslo" id="heslo"
+      value="<?= $uzivatel["heslo"] ?>">
+</div>
+</div> 
+       
+       <?php  } }else{
+       ?>
+       
+
     <div class="radek">                
     <a href="/zmenaHesla" class="doplnkovyStylLinku">Změna hesla</a>
      
