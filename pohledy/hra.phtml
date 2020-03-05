@@ -19,12 +19,12 @@
      <tbody>
      <?php foreach ($hry as $hra) { ?>
         <tr>
-          <td><?= $hra["Jmeno"] ?></td>
-          <td><?= $hra["obsah"] ?></td>
-          <td><?=  $hra["datum_vydani"] ?></td>
-          <td><?= $hra["vyvojar"] ?></td>
-          <td><?= $hra["platforma"] ?></td>
-         <td>
+          <td><div class="bunka_tabulky"><?= $hra["Jmeno"] ?></div></td>
+          <td><div class="bunka_tabulky"><?= $hra["obsah"] ?></div></td>
+          <td><div class="bunka_tabulky"><?=  $hra["datum_vydani"] ?></div></td>
+          <td><div class="bunka_tabulky"><?= $hra["vyvojar"] ?></div></td>
+          <td><div class="bunka_tabulky"><?= $hra["platforma"] ?></div></td>
+         <td><div class="bunka_tabulky">
            <?php foreach ($hryy as $zanryProHru) {
             if($hra["id_hry"]==$zanryProHru["id_hry"]){
      ?>          
@@ -37,11 +37,11 @@
         }
         } ?>
                
-         </td>
-          <td>
+         </div></td>
+          <td><div class="bunka_tabulky">
             <a href="editace-hry/<?= $hra["id_hry"] ?>">Upravit</a>
             <a href="hry/<?= $hra["id_hry"] ?>/odstranit">Odstranit</a>
-           </td> 
+           </div></td> 
         </tr>   	
      <?php } ?> 
      </tbody>

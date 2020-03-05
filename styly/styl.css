@@ -526,6 +526,9 @@ padding-right: 30px;
 background: none;
 
 
+}    
+.admin table tbody tr .obrazek_administrace{
+ max-width: 100%;      
 }
 .admin a:hover,.admin a:active {
 	background-color: #87CEFA;
@@ -983,5 +986,9 @@ color: white !important;
   
 .dataTables_filter {
 color: white !important;
+}
+
+.bunka_tabulky{
+max-height: 70px;
 }
 

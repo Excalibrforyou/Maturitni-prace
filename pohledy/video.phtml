@@ -15,13 +15,13 @@
      
      <?php foreach ($video as $vid) { ?>
         <tr>
-          <td><?= $vid["id_vid"] ?></td>
-          <td><a href="<?= $vid["link"] ?>"><?= $vid["link"] ?></a></td>
-          <td><?= $vid["Jmeno"] ?></td>
-          <td>
+          <td><div class="bunka_tabulky"><?= $vid["id_vid"] ?></div></td>
+          <td><div class="bunka_tabulky"><a href="<?= $vid["link"] ?>"><?= $vid["link"] ?></a></div></td>
+          <td><div class="bunka_tabulky"><?= $vid["Jmeno"] ?></div></td>
+          <td><div class="bunka_tabulky">
             <a href="editace-videa/<?= $vid["id_vid"] ?>">Upravit</a>
             <a href="video/<?= $vid["id_vid"] ?>/odstranit">Odstranit</a>
-           </td> 
+          </div></td> 
         </tr>   	
      <?php } ?>
      </tbody>

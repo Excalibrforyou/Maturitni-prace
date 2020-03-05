@@ -14,12 +14,12 @@
      <tbody>
      <?php foreach ($zanr as $zanr1) { ?>
         <tr>
-          <td><?= $zanr1["nazev"] ?></td>
-          <td><?= $zanr1["popis"] ?></td>
-          <td>
+          <td><div class="bunka_tabulky"><?= $zanr1["nazev"] ?></td></div>
+          <td><div class="bunka_tabulky"><?= $zanr1["popis"] ?></td></div>
+          <td><div class="bunka_tabulky">
             <a href="editace-zanru/<?= $zanr1["id_zanru"] ?>">Upravit</a>
             <a href="zanr/<?= $zanr1["id_zanru"] ?>/odstranit">Odstranit</a>
-           </td> 
+           </div></td> 
         </tr>   	
      <?php } ?>  
      </tbody>

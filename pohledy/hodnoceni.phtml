@@ -15,17 +15,17 @@
      </tr>  
       </thead>
       <tbody>
-     <?php foreach ($hodnoceni as $hodnot) { ?>
+     <?php foreach ($hodnoceni as $hodnot) { ?>                                 
         <tr>
-          <td><?= $hodnot["hodnoceni"] ?></td>
-          <td><?= $hodnot["komentar"] ?></td>
-          <td><?= $hodnot["id_uzivatele"] ?></td>
-          <td><?= $hodnot["id_hry"] ?></td>
+          <td><div class="bunka_tabulky"><?= $hodnot["hodnoceni"]?></div></td>
+          <td><div class="bunka_tabulky"><?= $hodnot["komentar"]?></div></td>
+          <td><div class="bunka_tabulky"><?= $hodnot["id_uzivatele"]?></div></td>
+          <td><div class="bunka_tabulky"><?= $hodnot["id_hry"]?></div></td>
           
-          <td>
+          <td><div class="bunka_tabulky">
             <a href="editace-hodnoceni/<?= $hodnot["id_hod"] ?>">Upravit</a>
             <a href="hodnoceni/<?= $hodnot["id_hod"] ?>/odstranit">Odstranit</a>
-           </td> 
+           </div></td> 
         </tr>  
         </tbody> 	
      <?php } ?>

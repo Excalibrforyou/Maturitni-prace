@@ -25,11 +25,9 @@
           <td><?= $obr["id_obr"] ?></td>
           <td><?= $obr["nazev_obr"] ?></td>
           <td><?= $obr["typ"] ?></td>
-          <td><?= $obr["Jmeno"] ?></td>
-          <td>
+          <td><div class="bunka_tabulky"><?= $obr["Jmeno"] ?></div></td>
           
-          
-          
+          <td class="obrazek_administrace">                                                                                                                                         
             <a href="editace-obrazku/<?= $obr["id_obr"] ?>">Upravit</a>
             <a href="obrazek/<?= $obr["id_obr"] ?>/odstranit">Odstranit</a>
             <a href="<?=$obr["download"]?>" download>Stáhnout</a>
