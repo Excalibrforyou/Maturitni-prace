@@ -7,6 +7,8 @@ class HodnoceniKontroler extends Kontroler {
      }
   
     $spravceHodnoceni = new SpravceHodnoceni();
+    $spravceHer = new SpravceHer();
+    
     
     if (!empty($parametry[1]) && $parametry[1] == "odstranit")
     {

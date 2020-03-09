@@ -7,9 +7,9 @@
      <thead>
      <tr class = "hlavicky">
        <th>Náhled</th>
-       <th>ID obrázku</th>
-       <th>Název</th> 
-       <th>Typ</th>
+       <th id="upravitelne">ID obrázku</th>
+       <th  id="upravitelne">Název</th> 
+       <th  id="upravitelne">Typ</th>
        <th>Hra</th> 
        <th>Administrace</th>
      </tr>
@@ -21,13 +21,13 @@
    
     ?>
     <tr>
-          <td><a class="nahledEdit" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="150" width="150" alt=""></a></td>
-          <td><?= $obr["id_obr"] ?></td>
-          <td><?= $obr["nazev_obr"] ?></td>
-          <td><?= $obr["typ"] ?></td>
+          <td><a data-fancybox="gallery" class="nahledEdit" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="100" width="100" alt=""></a></td>
+          <td  id="upravitelne"><?= $obr["id_obr"] ?></td>
+          <td  id="upravitelne"><?= $obr["nazev_obr"] ?></td>
+          <td  id="upravitelne"><?= $obr["typ"] ?></td>
           <td><div class="bunka_tabulky"><?= $obr["Jmeno"] ?></div></td>
           
-          <td class="obrazek_administrace">                                                                                                                                         
+          <td class="obrazek_administrace" id="administrace">                                                                                                                                         
             <a href="editace-obrazku/<?= $obr["id_obr"] ?>">Upravit</a>
             <a href="obrazek/<?= $obr["id_obr"] ?>/odstranit">Odstranit</a>
             <a href="<?=$obr["download"]?>" download>Stáhnout</a>

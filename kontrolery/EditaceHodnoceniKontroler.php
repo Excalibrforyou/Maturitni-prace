@@ -9,11 +9,16 @@ class EditaceHodnoceniKontroler extends Kontroler {
   
     $spravceHodnoceni = new SpravceHodnoceni();
     $spravceHer = new SpravceHer();
-    
+    $spravceUzivatelu = new SpravceUzivatelu();    
     
     
     
     if (!empty($_POST)) {
+    if(empty($_POST["id_hod"])){
+       if($spravceHodnoceni->existujeHodnoceni($_POST["id_hry"],$_POST["id_uzivatele"])){
+             $this->presmeruj("chyba");
+       }
+      }
       $spravceHodnoceni->ulozHodnoceni($_POST);
       $this->presmeruj("hodnoceni");
     }
@@ -26,12 +31,17 @@ class EditaceHodnoceniKontroler extends Kontroler {
       $hodnoceni = $spravceHodnoceni->pripravPrazdnePoleHodnoceni();
     
     $hry=$spravceHer->vratVsechnyHry();
-    if(!empty($hodnoceni["id_hry"]))
-    $hodnoceni["Jmeno"]=$spravceHer->priradKIDNazevHry($hodnoceni["id_hry"]);
-     
-  
+    $uzivatele= $spravceUzivatelu->vratVsechnyUzivatele();
     
+    if(!empty($hodnoceni["id_hry"])){
+    $hodnoceni["Jmeno"]=$spravceHer->priradKIDNazevHry($hodnoceni["id_hry"]); 
+    }
+    if(!empty($hodnoceni["id_uzivatele"])){
+    $hodnoceni["Uzivatel"] = $spravceUzivatelu->priradKIDUzivatele($hodnoceni["id_uzivatele"]);  
+    }
     
+
+    $this->data["uzivatele"] = $uzivatele;
     $this->data["hry"] = $hry;
     $this->data["hodnoceni"] = $hodnoceni;
     $this->pohled = "editaceHodnoceni";

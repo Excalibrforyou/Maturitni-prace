@@ -27,10 +27,16 @@
    <div class="s25">
       <label for="popis">Popis</label>
    </div>
+     
    <div class="s75">
-      <input type="text" name="popis" id="popis"
-     value="<?= $zanr["popis"] ?>" required>
-   </div>
+ <textarea name="popis" id="obsah"><?= $zanr["popis"] ?></textarea>
+<script>
+CKEDITOR.replace( 'obsah', {
+} );
+</script>   
+</div>  
+     
+
    </div>
       
    <div class="radek">

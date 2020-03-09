@@ -11,36 +11,83 @@
   }
 ?>
 
- <form method="post">
+ <form method="post">                                                        
    <input type="hidden" name="id_hod"
      value="<?= $hodnoceni["id_hod"] ?>">
    <div class="radek">
     <div class="s25">
-      <label for="hodnoceni">%</label>
+      <label for="hodnoceni" ><span id="hodnoceniOut"></span>%</label>
     </div>
-<div class="s75">
-      <input type="text" name="hodnoceni" id="hodnoceni"
-     value="<?= $hodnoceni["hodnoceni"] ?>" required>
+<div class="s75">   
+  <input type="range" min="0" max="100" value="<?= $hodnoceni["hodnoceni"] ?>" name="hodnoceni" id="hodnoceni" required>   
 </div>
    </div>
    <div class="radek">
-    <div class="s25">
+    <div class="s25">                                                                        
       <label for="komentar">Recenze</label>
     </div>
-     <div class="s75">
-      <input type="text" name="komentar" id="komentar"
-     value="<?= $hodnoceni["komentar"] ?>" required>
-     </div>
+<div class="s75">
+ <textarea name="komentar" id="obsah"><?= $hodnoceni["komentar"] ?></textarea>
+<script>
+CKEDITOR.replace( 'obsah');
+</script>   
+     
+</div>
    </div>
-   <div class="radek">
-   <div class="s25">
-      <label for="id_uzivatele">Uzivatel</label>
+
+    
+      <?php
+  if (empty($hodnoceni["id_uzivatele"])) {
+   ?>
+       <div class="radek">
+           <div class="s25">
+              <label for="id_uzivatele">Uživatel</label>
+           </div>
+            <div class="s75" id="posunutiChosen">
+             <select class="chosen-select" name="id_uzivatele" data-placeholder="Vyber uživatele">
+            <?php
+               foreach($uzivatele as $uzivatel){
+
+            ?>
+                <option value = "<?= $uzivatel["ID_uzivatele"] ?>"><?= $uzivatel["jmeno"]." ".$uzivatel["prezdivka"]." ".$uzivatel["prijmeni"] ?></option>
+           <?php
+                 }
+            ?>
+            </select>
+            </div>
+
+
    </div>
-    <div class="s75">
-      <input type="text" name="id_uzivatele" id="id_uzivatele"
-     value="<?= $hodnoceni["id_uzivatele"] ?>" required>
-    </div>
+    <?php
+  } else  {
+  
+?>
+        <div class="radek">
+            <div class="s25">
+              <label for="id_uzivatele">Uživatel</label>
+            </div>
+           <div class="s75" id="posunutiChosen">
+             <select class="chosen-select" name="id_uzivatele" data-placeholder="Vyber uživatele">
+            <option value = "<?=$hodnoceni["Uzivatel"]["ID_uzivatele"] ?>"><?= $hodnoceni["Uzivatel"]["jmeno"]." ".$hodnoceni["Uzivatel"]["prezdivka"]." ".$hodnoceni["Uzivatel"]["prijmeni"] ?></option>
+            <?php
+               foreach($uzivatele as $uzivatel){
+               if($uzivatel["ID_uzivatele"]!=$hodnoceni["Uzivatel"]["ID_uzivatele"]){
+            ?>
+                <option value = "<?= $uzivatel["ID_uzivatele"] ?>"><?= $uzivatel["jmeno"]." ".$uzivatel["prezdivka"]." ".$uzivatel["prijmeni"] ?></option>
+           <?php
+                } }
+            ?>
+            </select>
+
+           </div>
+
    </div>
+
+<?php
+  }
+?>
+
+
 
       <?php
   if (empty($hodnoceni["id_hry"])) {
@@ -76,7 +123,7 @@
             <option value = "<?= $hodnoceni["id_hry"] ?>"><?= $hodnoceni["Jmeno"][0] ?></option>
             <?php
                foreach($hry as $hra){
-               if($hra["Jmeno"]!==$hodnoceni["Jmeno"][0]){
+               if($hra["Jmeno"]!=$hodnoceni["Jmeno"][0]){
             ?>
                 <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option>
            <?php
@@ -100,7 +147,15 @@
 
 
 </div>
+<script>
+var slider = document.getElementById("hodnoceni");
+var output = document.getElementById("hodnoceniOut");
+output.innerHTML = slider.value;
 
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
 
 <?php
 if (isset($_SESSION["uzivatel"])){

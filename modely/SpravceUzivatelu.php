@@ -298,7 +298,18 @@ class SpravceUzivatelu {
  
  } 
  } 
+ 
+ 
+    public function priradKIDUzivatele($idU){
+  return Db::dotazJeden("
+  SELECT * 
+  FROM uzivatel 
+  where ID_uzivatele = ?
+  ", array($idU));
   
+  
+  
+  } 
    
 } 
 ?>

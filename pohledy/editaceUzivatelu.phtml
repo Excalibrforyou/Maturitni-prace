@@ -83,21 +83,12 @@
      <?php
       if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
      ?>
-   
-   <div class="radek">
-<div class="s25">
-      <label for="heslo">Heslo</label>
-</div>
-      
+
      
       <?php
        if(!empty($uzivatel["ID_uzivatele"])){
       ?>
-<div class="s75">
-      <input type="password" name="heslo" id="heslo" disabled
-      value="<?= $uzivatel["heslo"] ?>">
-</div>
-</div>    
+  
     <div class="radek">                
     <a href="/zmenaHesla/<?= $uzivatel["ID_uzivatele"]?>" class="doplnkovyStylLinku">Změna hesla</a>
        

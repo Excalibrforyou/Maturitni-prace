@@ -36,30 +36,41 @@ class SpravceObrazku {
     ", array($idObrazku));
   }
   
-  public function ulozObrazek($udajeObrazku,$obrazek) {
+  public function ulozObrazek($udajeObrazku,$obrazek,$i,$id_hry) {
     $klice = array(
       "id_obr", "nazev_obr", "typ", "id_hry"
     );
-    
+
        // array_flip ... prohodí klíče a hodnoty v poli
        // array_intersect_key ... ponechá v prvním poli pouze prvky s klíči z druhého pole
     $udajeObrazkuDB = array_intersect_key($udajeObrazku, array_flip($klice)); 
 
-   
+      
 
     
     if (empty($udajeObrazku["id_obr"])){
+       if($i==-10 && $id_hry==-10){
        $udajeObrazkuDB["typ"] = $obrazek["obrazek"]["type"];
+       }
+       else{
+       $udajeObrazkuDB["typ"] = $obrazek["obrazek"]["type"][$i];
+       $udajeObrazkuDB["id_hry"] = $id_hry["id_hry"];
+       }
+
+
                       Db::vloz("obrazek", $udajeObrazkuDB);
-                         
+                      return true;   
 
       
        }
        
     else{ 
       Db::zmen("obrazek", $udajeObrazkuDB, 
-               "WHERE id_obr = ?", array($udajeObrazku["id_obr"]));  
-    }  
+               "WHERE id_obr = ?", array($udajeObrazku["id_obr"]));
+               return true;  
+    }
+    
+   return false;   
    
   }
   
@@ -124,6 +135,48 @@ class SpravceObrazku {
         
         }
    }
+   
+     public function uploadMultiple($obrazek,$idHry,$id_obrazku,$i){
+
+    $povoleneTypy = array("image/jpeg", "image/png", "image/gif"); 
+    $koncovka = array(
+    "image/jpeg"  => ".jpg",
+    "image/png" => ".png",
+    "image/gif" => ".gif"
+); 
+      
+      
+        $puvodniJmeno = $obrazek["obrazek"]["name"][$i];
+        $noveJmeno = $idHry["id_hry"]."-".$id_obrazku["id_obr"];
+        $typSouboru = $obrazek["obrazek"]["type"][$i];
+        $velikostSouboru = $obrazek["obrazek"]["size"][$i];
+        
+ 
+        //Ověří zda je soubor platného formátu
+        if(in_array($typSouboru, $povoleneTypy)){
+        
+        // prida za nove vytvorene jmeno koncovku podle typu souboru 
+         $noveJmeno = $noveJmeno.$koncovka[$obrazek["obrazek"]["type"][$i]];
+         
+ 
+            //Zjisti zde existuje soubor se stejnym jmenem
+            if(file_exists("Obrazky/Hry/" . $idHry["id_hry"] . "/". $noveJmeno)){
+               // echo $noveJmeno . " již existuje.";
+            } else{
+            if (!file_exists("Obrazky/Hry/" . $idHry["id_hry"])) {
+            mkdir("Obrazky/Hry/" . $idHry["id_hry"], 0777, true);
+            }
+                move_uploaded_file($obrazek["obrazek"]["tmp_name"][$i], "Obrazky/Hry/" . $idHry["id_hry"] . "/". $noveJmeno);
+              return  ("Obrazky/Hry/".$idHry["id_hry"]."/".$noveJmeno);  
+            }
+            
+        } else{
+            //echo "Špatný formát";
+        
+        }
+   }
+   
+   
    
   public function vratIDPoslednihoObrazku(){
   return Db::dotazJeden("
@@ -203,6 +256,21 @@ class SpravceObrazku {
     
   
   }
+   
+  public function vratObrazkyBezeJmenaKId($idHry){
+  
+        $obrazky = Db::dotazVsechny("
+        
+  SELECT * 
+  FROM obrazek 
+  WHERE nazev_obr IS NULL and id_hry = ?
+  
+    ", array($idHry));
+    return $obrazky;
+  
+  
+  } 
+   
    
                  
       

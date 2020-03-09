@@ -5,7 +5,7 @@
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   
+    
     <link rel="stylesheet" href="../styly/chosen/chosen.css" type="text/css">
         
     <link rel="stylesheet" href="../styly/chosen/chosen.min.css" type="text/css"> 
@@ -19,14 +19,16 @@
     <script src="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
-                
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        
           <script>
            $(document).ready(function(){ 
              $(".chosen-select").chosen({
               disable_search_threshold: 0,
               no_results_text: "Nenašel jsem: ",
               width: "95%"
-             });
+             }),
              $(".datatableObrazek").DataTable({
              "pageLength": 3,
              "lengthChange": false,
@@ -39,13 +41,13 @@
                       "last":       "Poslední",
                       "next":       "Další",
                       "previous":   "Předchozí"
-    }
-  }
+                            }
+                         }
     
        
              
              }
-             );
+             ),
            
              $("#datatable").DataTable({
              "lengthChange": false,
@@ -62,10 +64,17 @@
     }
   }
              
-             });
+             })
            });
            
+           
+
+           
+           
+           
            </script>
+
+   
 
                                       
   </head>

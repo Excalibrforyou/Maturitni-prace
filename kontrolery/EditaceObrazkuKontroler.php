@@ -10,9 +10,9 @@ class EditaceObrazkuKontroler extends Kontroler {
     $spravceHer = new SpravceHer();
 
     if (!empty($_POST)) {      
-      $spravceObrazku->ulozObrazek($_POST,$_FILES);   
+      $spravceObrazku->ulozObrazek($_POST,$_FILES,-10,-10);   
       $cesta = $spravceObrazku->upload($_FILES,$_POST["id_hry"],$spravceObrazku->vratIDPoslednihoObrazku());    
-      $b=$spravceObrazku->upravVelikost($cesta,150,150);
+      $spravceObrazku->upravVelikost($cesta,150,150);
       $this->presmeruj("obrazek");
     }
     

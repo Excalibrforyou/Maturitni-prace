@@ -7,16 +7,16 @@
      <thead>
      <tr class="hlavicky">
        <th>Název</th> 
-       <th>Popis</th>
-       <th></th> 
+       <th id="upravitelne">Popis</th>
+       <th>Administrace</th> 
       </tr>  
      </thead>
      <tbody>
      <?php foreach ($zanr as $zanr1) { ?>
         <tr>
           <td><div class="bunka_tabulky"><?= $zanr1["nazev"] ?></td></div>
-          <td><div class="bunka_tabulky"><?= $zanr1["popis"] ?></td></div>
-          <td><div class="bunka_tabulky">
+          <td id="upravitelne"><div class="bunka_tabulky"><?= $zanr1["popis"] ?></td></div>
+          <td><div class="bunka_tabulky" id="administrace">
             <a href="editace-zanru/<?= $zanr1["id_zanru"] ?>">Upravit</a>
             <a href="zanr/<?= $zanr1["id_zanru"] ?>/odstranit">Odstranit</a>
            </div></td> 

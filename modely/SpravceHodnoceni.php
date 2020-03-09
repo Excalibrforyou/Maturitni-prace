@@ -12,8 +12,8 @@ class SpravceHodnoceni {
 
   public function vratHodnoceni() {
     $hodnoceni = Db::dotazVsechny("
-      SELECT *
-      FROM hodnoceni
+      SELECT ho.*,h.Jmeno,u.prezdivka
+      FROM hodnoceni ho join hra h ON (ho.id_hry = h.id_hry) join uzivatel u on(ho.id_uzivatele=u.ID_uzivatele)  
     ");
     return $hodnoceni;
   }
