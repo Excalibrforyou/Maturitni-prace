@@ -60,6 +60,7 @@ class SpravceHodnoceni {
       SELECT u.prezdivka, ho.hodnoceni,ho.komentar,hr.Jmeno
       FROM hodnoceni ho join hra hr on(ho.id_hry=hr.id_hry) join uzivatel u on(ho.id_uzivatele=u.ID_uzivatele)
       WHERE ho.id_hry = ?
+      ORDER BY ho.id_hod DESC
     ", array($idHry));
   }
                      

@@ -8,7 +8,6 @@
      <tr class = "hlavicky">
        <th>Náhled</th>
        <th id="upravitelne">ID obrázku</th>
-       <th  id="upravitelne">Název</th> 
        <th  id="upravitelne">Typ</th>
        <th>Hra</th> 
        <th>Administrace</th>
@@ -23,12 +22,10 @@
     <tr>
           <td><a data-fancybox="gallery" class="nahledEdit" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="100" width="100" alt=""></a></td>
           <td  id="upravitelne"><?= $obr["id_obr"] ?></td>
-          <td  id="upravitelne"><?= $obr["nazev_obr"] ?></td>
           <td  id="upravitelne"><?= $obr["typ"] ?></td>
           <td><div class="bunka_tabulky"><?= $obr["Jmeno"] ?></div></td>
           
           <td class="obrazek_administrace" id="administrace">                                                                                                                                         
-            <a href="editace-obrazku/<?= $obr["id_obr"] ?>">Upravit</a>
             <a href="obrazek/<?= $obr["id_obr"] ?>/odstranit">Odstranit</a>
             <a href="<?=$obr["download"]?>" download>Stáhnout</a>
            </td> 

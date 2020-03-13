@@ -1,18 +1,7 @@
 <div class="adminEdit">
-<?php
-  if (empty($obrazek["id_obr"])) {
-?>
 
 <h1>Vložení nového obrázku</h1>
-<?php
-  } else {
-?> 
 
-<h1>Editace obrázku</h1>
-
- <?php
-  }
-?>
  <form method="post" enctype="multipart/form-data">
    <input type="hidden" name="id_obr" 
      value="<?= $obrazek["id_obr"] ?>">
@@ -24,7 +13,7 @@
 <div class="radek">
 
 <div class="s25">
-     <label for="file">Hra</label>
+     <label for="file">Obrazek</label>
 </div>
      
   <div class="s75">
@@ -32,22 +21,6 @@
   </div>
     
 </div>
-       <?php
-  } 
-?> 
-   <div class="radek">
-<div class="s25">
-      <label for="nazev_obr">Název</label>
-</div>
-<div class="s75">
-      <input type="text" name="nazev_obr" id="nazev_obr"
-     value="<?= $obrazek["nazev_obr"] ?>">
-</div>
-   </div>
-    
-   <?php
-  if (empty($obrazek["id_obr"])) {
-   ?>
        <div class="radek">
            <div class="s25">
               <label for="hra">Hra</label>

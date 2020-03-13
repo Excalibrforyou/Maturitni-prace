@@ -8,7 +8,6 @@ class EditaceHodnoceniUKontroler extends Kontroler {
     
     if(empty($_SESSION["uzivatel"])||$_SESSION["uzivatel"]["typ_uctu"]=="0"||empty($parametry[0])){
     $this->presmeruj("uvod");
-    $overeni = 0;
     }
     
         if (!empty($parametry[1]) && $parametry[1] == "odstranit")
@@ -26,9 +25,11 @@ class EditaceHodnoceniUKontroler extends Kontroler {
       $spravceHodnoceni->ulozHodnoceni($_POST);
       $this->presmeruj("nahledHry/".$_POST["id_hry"]);
     }
-    
+    if (!empty($parametry[0])){
     $data = $spravceHodnoceni->existujeHodnoceni($parametry[0],$_SESSION["uzivatel"]["ID_uzivatele"]);
-    
+    }
+     
+     
     if (!empty($data))
     {
       $hodnoceni=$data;

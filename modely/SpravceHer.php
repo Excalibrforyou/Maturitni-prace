@@ -43,6 +43,18 @@ class SpravceHer {
   }
   
   public function odstranHru($idHry) {
+  
+     $spravceObrazku = new SpravceObrazku();
+ 
+    $obrazky=$spravceObrazku->vratObrazkyKID($idHry);
+ 
+    foreach($obrazky as $obrazek){
+            $spravceObrazku->odstranObrazek($obrazek);  
+    }
+ 
+   rmdir("Obrazky/Hry/".$idHry."/zmenseny/");
+   rmdir("Obrazky/Hry/".$idHry."/");
+  
     Db::dotaz("
       DELETE FROM hra
       WHERE id_hry = ?

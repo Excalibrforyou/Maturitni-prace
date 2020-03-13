@@ -21,7 +21,41 @@
     <script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-        
+     
+                
+
+         <script>
+         $(document).ready(function() {
+    var max_fields = 10;
+    var wrapper = $(".container1");
+    var add_button = $(".add_form_field");
+
+    var x = 1;
+    $(add_button).click(function(e) {
+        e.preventDefault();
+        if (x < max_fields) {
+            
+            x++;
+            $(wrapper).append('<div class="radek"><div><div class="s25"> <label for="Videa">Video #'+x+'</label></div>'+'<div class="s75"><input type="text" name="link[] "></div></div></div></div>');
+        } else {
+            alert('Lze vložit maximálně 10 videí')
+        }
+    });
+
+    $(wrapper).on("click", ".delete", function(e) {
+    if(x>1){
+        e.preventDefault();
+        $('.radek').children().last().remove();
+        x--;
+    }
+    else 
+    return false;
+    })
+});
+</script>
+         
+
+
           <script>
            $(document).ready(function(){ 
              $(".chosen-select").chosen({
@@ -67,10 +101,7 @@
              })
            });
            
-           
-
-           
-           
+                  
            
            </script>
 
@@ -214,17 +245,6 @@
 
 
   </div>
-    
-     <?php
-     if(isset($zpravy)){
-     if(!empty($zpravy)){
-       foreach ($zpravy as $zprava) {  
-     ?>
-        echo "<script type='text/javascript'>alert('$zprava');</script>";
-      
-     <?php
-       }}}
-     ?>
      
         
   </header>  

@@ -161,15 +161,36 @@ CKEDITOR.replace( 'obsah', {
 
    <?php
    } 
-   ?>
+   ?> 
+    <div class="container1">
+      <div class="radek">
+    <div class="s25">
+      <label for="Videa">Videa</label>
+    </div>
+     
 
-  <div class="radek">
+     
+     <div class="s75">
+    <button class="add_form_field">Přidej video +
+    </button>
+    <a href="" class="delete">Odeber video -</a>
+    <div>
+    <input type="text" name="link[]" id="link">
+    </div>
+</div>      
+           
+     </div>
+   </div> 
+   
+   
+
+  <div class="radek1">
     <input type="submit" value="Uložit údaje hry">
   </div>
  </form>
 
 </div>
-
+  
 
 <?php
 if (isset($_SESSION["uzivatel"])){

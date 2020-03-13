@@ -47,7 +47,30 @@ class SpravceVidea {
     
   }
   
+    public function ulozVideoMultiple($link,$idhry) {
+    $klice = array(
+      "id_vid", "link", "id_hry"
+    );
+    $pole = array(
+    "id_vid" => NULL,
+    "link" => $link,
+    "id_hry" => $idhry
+    
+    );
+    
+    
+       // array_flip ... prohodí klíče a hodnoty v poli
+       // array_intersect_key ... ponechá v prvním poli pouze prvky s klíči z druhého pole
+    $udajeVideaDB = array_intersect_key($pole, array_flip($klice)); 
+    
+    if(!empty($link)){
+    if(empty($udajeVideaDB["id_vid"])){
+
+                      Db::vloz("video", $udajeVideaDB);
+       }
   
+    }
+    }
   
        
   public function odstranVideo($data){

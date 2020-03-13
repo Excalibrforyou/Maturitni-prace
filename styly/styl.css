@@ -460,8 +460,35 @@ padding-right: 30px;
       margin: 0 68px;
   }
 
+.delete, .add_form_field{
+  background-color: #f44336;
+  color: white;
+  padding: 0 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+border: 2px solid red;
+transition: 0.3s;	
+background: rgba(0, 0, 0, 0.6);
 
-.prihlaseni a:hover, .prihlaseni a:active, .registrace a:hover, .registrace a:active .adminEdit a:active, .adminEdit a:hover {
+}
+
+.add_form_field{
+  background-color: #f44336;
+  color: white;
+  padding: 0px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+border: 2px solid green;
+transition: 0.3s;	
+background: rgba(0, 0, 0, 0.6);
+font-size: 15px;
+
+}
+
+
+.prihlaseni a:hover, .prihlaseni a:active, .registrace a:hover, .registrace a:active, .adminEdit a:active, .adminEdit a:hover, .delete a:hover, .delete a:active ,.add_form_field button:hover,.add_form_field button:active{
   	background: rgba(255, 0, 0, 0.6);
 	color: black;
 }
@@ -735,7 +762,7 @@ color: white;
 
 .hraNahled {
   padding-top: 150px;
-  width: 75%;
+  width: 85%;
   margin: auto;
   top: 0;
   left: 0;
@@ -765,6 +792,7 @@ justify-content: center;
  }
 .hraNahled .shrnuti{
 padding: 60px 50px ;
+overflow-wrap: break-word;
 }  
    
 .hraNahled .NazevHry h2{

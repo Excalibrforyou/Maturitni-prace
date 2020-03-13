@@ -10,12 +10,13 @@ class EditaceHryKontroler extends Kontroler {
     $spravceZanrHra = new SpravceZanrHra();
     $spravceZanru = new SpravceZanru();    
     $spravceObrazku = new SpravceObrazku();
-    
+        $spravceVidea = new SpravceVidea();
     
     
         
     if (!empty($_POST)) {
-    
+       
+
       $spravceHer->ulozHru($_POST);
     
       if(!empty($_FILES)){
@@ -33,6 +34,7 @@ class EditaceHryKontroler extends Kontroler {
         }  
        }                                                 
       }
+      
     
     if(isset($_POST["zanr"]))    
     {
@@ -50,7 +52,20 @@ class EditaceHryKontroler extends Kontroler {
      } 
     } 
     } 
-      
+
+    if(isset($_POST["link"])){
+         if(!empty($_POST["link"])){
+         foreach($_POST["link"] as $video){
+         
+    if(preg_match("/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/", $video))      
+      $spravceVidea->ulozVideoMultiple($video,($spravceHer->vratIDPosledniHry())["id_hry"]);
+    }     
+         
+         }
+    
+    }
+    
+    
    $this->presmeruj("hry");
     }
 

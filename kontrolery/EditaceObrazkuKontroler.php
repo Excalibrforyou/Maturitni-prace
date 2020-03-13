@@ -18,7 +18,7 @@ class EditaceObrazkuKontroler extends Kontroler {
     
     if (!empty($parametry[0]))
     {
-      $obrazek = $spravceObrazku->vratObrazek($parametry[0]);
+          $this->presmeruj("editace-obrazku");
     }
     else
       $obrazek = $spravceObrazku->pripravPrazdnePoleObrazku();

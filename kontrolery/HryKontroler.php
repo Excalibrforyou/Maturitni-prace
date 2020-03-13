@@ -13,8 +13,10 @@ class HryKontroler extends Kontroler {
     $hrySZanry = array();
     
     if (!empty($parametry[1]) && $parametry[1] == "odstranit")
-    {
+    {     
       $spravceHer->odstranHru($parametry[0]);
+      
+      
       $this->presmeruj("hry");
     }
     

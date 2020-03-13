@@ -12,7 +12,7 @@ class EditaceVideaKontroler extends Kontroler {
     if(preg_match("/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/", $_POST["link"]))      
       $spravceVidea->ulozVideo($_POST);
     else
-      $this->presmeruj("editace-videa");
+      $this->presmeruj("chyba");
 
       $this->presmeruj("video");
     }

@@ -3,14 +3,13 @@ class SpravceObrazku {
   public function pripravPrazdnePoleObrazku() {
     return array(
       "id_obr" => "",
-      "nazev_obr" => "",
       "typ" => "",
       "id_hry" => ""
     );
   }
 
 
-  /* DODELAT OSETRENI PRI ODSTRANENI HRY ODSTRANIT VSECHNY OBRAZKY SE HROU SPOJENE!  */
+ 
   public function vratObrazky() {
     $obraz = Db::dotazVsechny("
     select *
@@ -19,13 +18,22 @@ class SpravceObrazku {
     return $obraz;
   }
   
+    public function vratObrazkyKID($idhry) {
+    $obraz = Db::dotazVsechny("
+    select *
+    from obrazek
+    where id_hry = ?
+    ", array($idhry));
+    return $obraz;
+  }
+  
 
   public function vratVsechnyObrazky() {
     $obraz = Db::dotazVsechny("
-      SELECT o.id_obr,o.nazev_obr,o.typ,o.id_hry,h.Jmeno
+      SELECT o.id_obr,o.typ,o.id_hry,h.Jmeno
       FROM obrazek o join hra h ON (o.id_hry = h.id_hry)
     ");
-    return $obraz;
+    return $obraz;                             
   }
   
   public function vratObrazek($idObrazku) {
@@ -38,7 +46,7 @@ class SpravceObrazku {
   
   public function ulozObrazek($udajeObrazku,$obrazek,$i,$id_hry) {
     $klice = array(
-      "id_obr", "nazev_obr", "typ", "id_hry"
+      "id_obr", "typ", "id_hry"
     );
 
        // array_flip ... prohodí klíče a hodnoty v poli
@@ -254,20 +262,6 @@ class SpravceObrazku {
    else return false;
    
     
-  
-  }
-   
-  public function vratObrazkyBezeJmenaKId($idHry){
-  
-        $obrazky = Db::dotazVsechny("
-        
-  SELECT * 
-  FROM obrazek 
-  WHERE nazev_obr IS NULL and id_hry = ?
-  
-    ", array($idHry));
-    return $obrazky;
-  
   
   } 
    
