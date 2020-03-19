@@ -8,7 +8,6 @@ class EditaceUzivateleKontroler extends Kontroler {
     if(!empty($_POST)){
     if($spravceUzivatelu->overEmail($_POST["email"])){
          $spravceUzivatelu->ulozUzivatele($_POST); 
-          $this->pridejZpravu("Upozorneni","Úspìšnì zmìnìno!");
      }
      
       $this->presmeruj("uzivatele");

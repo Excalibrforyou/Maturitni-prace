@@ -24,7 +24,7 @@ class SpravceZanrHra {
     $udajeZanruHry["id_zanru"]=$zanr;
 
 
-    $existujiciZanry = $this::vratVsechnyZanryHry($udajeZanruHry["id_hry"]); 
+    $existujiciZanry = $this->vratVsechnyZanryHry($udajeZanruHry["id_hry"]); 
 
 
     foreach ($existujiciZanry as $zanry){
@@ -33,7 +33,7 @@ class SpravceZanrHra {
 
  
     if($existuje){
-      $this::odstranZanrHru($zanr,$udajeZanruHry["id_hry"]);    
+      $this->odstranZanrHru($zanr,$udajeZanruHry["id_hry"]);    
     }
     else{                  
 
@@ -79,7 +79,7 @@ class SpravceZanrHra {
   
   public function vratVsechnyHryZanru($idZanru){
   
-          return Db::dotazVsechny("
+    return Db::dotazVsechny("
       SELECT *
       FROM zanrhra
       where id_zanru = ?

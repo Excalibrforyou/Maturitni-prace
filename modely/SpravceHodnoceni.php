@@ -3,7 +3,7 @@ class SpravceHodnoceni {
   public function pripravPrazdnePoleHodnoceni() {
     return array(
       "id_hod" => "",
-      "hodnoceni" => "",
+      "hodnoceni" => "0",
       "komentar" => "",
       "id_uzivatele" => "",
       "id_hry" => ""    

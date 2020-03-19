@@ -139,7 +139,7 @@ class SpravceObrazku {
             }
             
         } else{
-            //echo "Špatný formát";
+            return false;
         
         }
    }
@@ -179,7 +179,7 @@ class SpravceObrazku {
             }
             
         } else{
-            //echo "Špatný formát";
+            return false;
         
         }
    }
@@ -241,11 +241,9 @@ class SpravceObrazku {
    $zdroj = imagecreatefrompng($obrazek);
    $cil = imagecreatetruecolor($sir, $vys);
    imagecopyresampled($cil, $zdroj, 0, 0, 0, 0, $sir, $vys, $sirka, $vyska);
-   imagepng($cil,$cilObr);   
-      
-      
+   imagepng($cil,$cilObr);      
       } 
-     
+      
     if($data["typ"] == "image/gif"){
     
      $cilObr=$cilObr.$data["id_hry"]."-".$data["id_obr"].".gif"; 
@@ -255,14 +253,9 @@ class SpravceObrazku {
    $cil = imagecreatetruecolor($sir, $vys);
    imagecopyresampled($cil, $zdroj, 0, 0, 0, 0, $sir, $vys, $sirka, $vyska);
    imagegif($cil,$cilObr);  
-    
-    
-    }
-    
-   else return false;
    
-    
-  
+    }
+   else return false;
   } 
    
    

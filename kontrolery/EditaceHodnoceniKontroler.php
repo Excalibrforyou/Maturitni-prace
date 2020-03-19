@@ -19,7 +19,13 @@ class EditaceHodnoceniKontroler extends Kontroler {
              $this->presmeruj("chyba");
        }
       }
-      $spravceHodnoceni->ulozHodnoceni($_POST);
+      
+       if(empty($spravceHodnoceni->existujeHodnoceni($_POST["id_hry"],$_POST["id_uzivatele"]))||($spravceHodnoceni->existujeHodnoceni($_POST["id_hry"],$_POST["id_uzivatele"]))["id_hod"]==$_POST["id_hod"]){
+
+           $spravceHodnoceni->ulozHodnoceni($_POST);
+       }
+       else $this->presmeruj("chyba");
+  
       $this->presmeruj("hodnoceni");
     }
     

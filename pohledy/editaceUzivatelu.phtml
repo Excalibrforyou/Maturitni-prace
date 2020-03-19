@@ -80,28 +80,35 @@
      
    </div>
    
+   
+   
+   
      <?php
       if($_SESSION["uzivatel"]["typ_uctu"]=="A"){
+       if(empty($uzivatel["ID_uzivatele"])){
      ?>
+<div class="s25">
+      <label for="heslo">Heslo</label>
+</div>
+<div class="s75">
+<input type="password" name="heslo" id="heslo"
+value="<?= $uzivatel["heslo"] ?>">
+</div>
 
      
       <?php
-       if(!empty($uzivatel["ID_uzivatele"])){
+      }
+      if(!empty($uzivatel["ID_uzivatele"])){
       ?>
   
     <div class="radek">                
-    <a href="/zmenaHesla/<?= $uzivatel["ID_uzivatele"]?>" class="doplnkovyStylLinku">Změna hesla</a>
-       
+    <a href="/zmenaHesla/<?= $uzivatel["ID_uzivatele"]?>" class="doplnkovyStylLinku">Změna hesla</a>  
        <?php
        }else{
-       ?>
-       <div class="s75">
-      <input type="password" name="heslo" id="heslo"
-      value="<?= $uzivatel["heslo"] ?>">
-</div>
-</div> 
-       
-       <?php  } }else{
+         ?>
+        <div class="radek"> 
+         <?php
+       }}else{
        ?>
        
 
@@ -111,13 +118,12 @@
        <?php
          }
        ?>
-
    <input type="submit" value="Uložit údaje uživatele">
         </div>
- </form>
-     
-</div>     
 
+          
+ </form>
+</div>
 <?php
 if (isset($_SESSION["uzivatel"])){
 	

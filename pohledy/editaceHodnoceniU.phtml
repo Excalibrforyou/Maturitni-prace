@@ -16,20 +16,19 @@
      <input type="hidden" name="id_hod"
      value="<?= $hodnoceni["id_hod"] ?>">         
      
-     <input type="hidden" name="id_uzivatele" id="id_uzivatele"
-     value="<?= $_SESSION["uzivatel"]["ID_uzivatele"] ?>" required>   
+     <input type="hidden" name="id_uzivatele" id="id_uzivatele" value="<?= $_SESSION["uzivatel"]["ID_uzivatele"] ?>">   
      
 
 
      <div class="radek">
    <div class="s25">
-      <label for="id_hry">Hra</label>
+      <label>Hra</label>
    </div>
     <div class="s75">
-      <input type="text" name="id_hry" id="id_hry"
+      <input type="text" name="jmeno" id="jmeno"
      value="<?= $hodnoceni["Jmeno"]?>" readonly disabled>
      <input type="hidden" name="id_hry" id="id_hry"
-     value="<?= $hodnoceni["id_hry"]?>" required>
+     value="<?= $hodnoceni["id_hry"]?>">
     </div>
    </div>  
    <div class="radek">
@@ -37,7 +36,7 @@
       <label for="komentar">Recenze</label>
     </div>
      <div class="s75">
-      <textarea type="text" name="komentar" id="komentar" rows="4" cols="50"><?= $hodnoceni["komentar"] ?></textarea>
+      <textarea name="komentar" id="komentar" rows="4" cols="50"><?= $hodnoceni["komentar"] ?></textarea>
       
      </div>
    </div>
@@ -46,7 +45,7 @@
       <label for="hodnoceni" ><span id="hodnoceniOut"></span>%</label>
     </div>
 <div class="s75">   
-  <input type="range" min="0" max="100" value="<?= $hodnoceni["hodnoceni"] ?>" name="hodnoceni" id="hodnoceni" required>   
+  <input type="range" min="0" max="100" value="<?= $hodnoceni["hodnoceni"] ?>" name="hodnoceni" id="hodnoceni">   
 </div>
    </div>
   

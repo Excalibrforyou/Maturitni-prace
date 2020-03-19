@@ -121,7 +121,6 @@ class SpravceUzivatelu {
         $kod = $kod . $j; 
         $i++; 
     } 
-
     return $kod; 
 
 } 
@@ -268,18 +267,7 @@ class SpravceUzivatelu {
         
                 Db::zmen("uzivatel", $hesloZmena, 
                "WHERE ID_uzivatele = ?", array($data["ID_uzivatele"]));
-        
-        }
-        }  
-        
-        /*if($data["typ_uctu"]=="A"){
-        
-        
-                Db::zmen("uzivatel", $hesloZmena, 
-               "WHERE ID_uzivatele = ?", array($data["ID_uzivatele"]));
-        
-        
-        }  */
+        }}  
   }
   }
   
@@ -289,13 +277,7 @@ class SpravceUzivatelu {
         $hesloZmena["heslo"]=$this->vratHashHesla($noveHeslo);
                 
                         Db::zmen("uzivatel", $hesloZmena, 
-                        "WHERE ID_uzivatele = ?", array($data));
-        
-                           
-        
-        
-        
- 
+                        "WHERE ID_uzivatele = ?", array($data));     
  } 
  } 
  

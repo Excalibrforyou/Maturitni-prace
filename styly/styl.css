@@ -15,7 +15,7 @@ body {
 	background-repeat: no-repeat;
     background-attachment: fixed;
     justify-content: center;
-    align-items: center;  
+    align-items: center;     
 }
 main {
     font-family: "Roboto";
@@ -28,14 +28,14 @@ h1 {
 	margin: 10px;
 	font-size: 64px;
 	font-family: "Montserrat", sans-serif;
-}
+} 
 /*Stylovani headeru*/
 
 .header img {
 	height: 100px;
 	width: 150px;
 	margin-left: 10px;
-}
+}  
 .header {
 	height: 100px;
 	background: #393535;
@@ -91,7 +91,7 @@ background-color: #4CAF50;
 .dropdown-content {
 	display: none;
 	z-index: 1;
-	background-color: rgba(169, 169, 169, 0.5);
+	background-color: rgba(169, 169, 169, 0.8);
 	transition: 0.4s;
 }         
 .dropdown-content a {
@@ -226,6 +226,11 @@ padding: unset ;
 
 }
 
+li{
+list-style: none;
+
+}
+
 #rozsir{
 padding-left: 30px;
 padding-right: 30px;
@@ -304,7 +309,7 @@ padding-right: 30px;
 	}
 	.menu a {
 		display: block;
-		padding: 20px;
+		padding: 10px;
 	}
 	.schovej-btn:hover {
 		text-align: center;
@@ -316,10 +321,13 @@ padding-right: 30px;
     .overSvujMail{
     margin: 20px;
     }
-    #upravitelne{
+    .upravitelne{
     display: none;
     }
-    
+    li{
+    padding: 13px;
+    }
+
 }
 /*Konec stylovani headeru*/
 
@@ -502,12 +510,11 @@ font-size: 15px;
 
 #zaklad{
 
-      height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.2);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -528,12 +535,12 @@ font-size: 15px;
 /*stylovani admin pristupu */
 
 .admin {
-	display: flex;
-	padding: 30px;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-    width: 50%;
+  display: flex;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
   height: 50%;
   margin: auto;
   position: absolute;
@@ -543,7 +550,14 @@ font-size: 15px;
   right: 0;
   padding-top: 15em;
 }
+.admin a:hover,.admin a:active {
+	background-color: #87CEFA;
+	transition: 0.4s;
+}
+.admin td, th {
 
+	background-color: rgba(0, 0, 0, 0.3);
+}
 .admin a:link,.admin a:visited {
 	background-color: #4caf50;
 	color: white;
@@ -554,28 +568,18 @@ font-size: 15px;
     margin: 20px 0;
 }
 
+iframe{
+border: 0 ;
+}
+
 .admin table tbody tr td a.nahledEdit {
-
 background: none;
-
-
 }    
 .admin table tbody tr .obrazek_administrace{
  max-width: 100%;      
 }
-.admin a:hover,.admin a:active {
-	background-color: #87CEFA;
-	transition: 0.4s;
-}
-.admin td, th {
-
-	background-color: rgba(0, 0, 0, 0.3);
-}
-.admin table tbody tr td {
 
 
-
-}
 .admin tbody tr:nth-child(2n) {
 	background-color: rgba(204, 204, 204, 0.9);
 	color: black;
@@ -644,7 +648,7 @@ margin-top: 15px;
     text-decoration: none;
 	background-color: #4CAF50;
 	color: white;
-	padding: 12px 20px;
+	padding: 10px 20px;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
@@ -682,7 +686,7 @@ margin-top: 15px;
 	float: left;
 	width: 75%;
 	margin-top: 6px;
-}
+} 
 .adminEdit .radek:after {
 	content: "";
 	display: table;
@@ -770,7 +774,7 @@ color: white;
   right: 0;
   text-align: center;
   color: black;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.7);
  position: fixed;
  overflow: auto;
 
@@ -1005,7 +1009,8 @@ background-color: #000;
 .pagination .page-item.active .page-link:hover {
 background-color: #000;
 }  */
-  
+.dropdown-content a { color: black;}  
+
 .dataTables_wrapper .dataTables_paginate .paginate_button{
 color: white !important;
 }  
@@ -1023,7 +1028,7 @@ color: white !important;
   overflow: hidden;
 }
 
-#administrace{
+.administrace{
 min-width: 13em;
 }
 
@@ -1034,8 +1039,7 @@ background: white;
 
 @media screen and (max-width:700px){
 
-    .bunka_tabulky{
-    
+    .bunka_tabulky{   
     display: inline;
     min-width: unset;
     min-height: unset;
@@ -1044,7 +1048,7 @@ background: white;
      margin:2px;
     
     }
-    #upravitelne1{
+    .upravitelne1{
      display: none;
     }
     

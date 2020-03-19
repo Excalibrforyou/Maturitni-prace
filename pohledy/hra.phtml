@@ -7,11 +7,11 @@
      <table id="datatable">
      <thead>
      <tr class = "hlavicky">
-       <th>Jmeno</th>
-       <th id="upravitelne">Datum vydání</th>
-       <th id="upravitelne">Vyvojar</th>
-       <th id="upravitelne">Platforma</th>
-       <th id="upravitelne1">Žánry</th>
+       <th>Název</th>
+       <th class="upravitelne">Datum vydání</th>
+       <th class="upravitelne">Vývojář</th>
+       <th class="upravitelne">Platforma</th>
+       <th class="upravitelne1">Žánry</th>
        <th>Administrace</th>
      </tr>
      </thead>
@@ -19,10 +19,10 @@
      <?php foreach ($hry as $hra) { ?>
         <tr>
           <td><div class="bunka_tabulky"><?= $hra["Jmeno"] ?></div></td>
-          <td id="upravitelne"><div class="bunka_tabulky" ><?=  $hra["datum_vydani"] ?></div></td>
-          <td id="upravitelne"><div class="bunka_tabulky" ><?= $hra["vyvojar"] ?></div></td>
-          <td id="upravitelne"><div class="bunka_tabulky" ><?= $hra["platforma"] ?></div></td>
-         <td id="upravitelne1"><div class="bunka_tabulky">
+          <td class="upravitelne"><div class="bunka_tabulky" ><?=  $hra["datum_vydani"] ?></div></td>
+          <td class="upravitelne"><div class="bunka_tabulky" ><?= $hra["vyvojar"] ?></div></td>
+          <td class="upravitelne"><div class="bunka_tabulky" ><?= $hra["platforma"] ?></div></td>
+         <td class="upravitelne1"><div class="bunka_tabulky">
            <?php foreach ($hryy as $zanryProHru) {
             if($hra["id_hry"]==$zanryProHru["id_hry"]){
      ?>          
@@ -36,7 +36,7 @@
         } ?>
                
          </div></td>
-          <td><div class="bunka_tabulky" id="administrace">
+          <td><div class="bunka_tabulky administrace">
             <a href="editace-hry/<?= $hra["id_hry"] ?>">Upravit</a>
             <a href="hry/<?= $hra["id_hry"] ?>/odstranit">Odstranit</a>
            </div></td> 

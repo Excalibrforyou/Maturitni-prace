@@ -7,8 +7,8 @@
      <thead>
      <tr class = "hlavicky">
        <th>Náhled</th>
-       <th id="upravitelne">ID obrázku</th>
-       <th  id="upravitelne">Typ</th>
+       <th class="upravitelne">ID obrázku</th>
+       <th class="upravitelne">Typ</th>
        <th>Hra</th> 
        <th>Administrace</th>
      </tr>
@@ -21,13 +21,14 @@
     ?>
     <tr>
           <td><a data-fancybox="gallery" class="nahledEdit" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="100" width="100" alt=""></a></td>
-          <td  id="upravitelne"><?= $obr["id_obr"] ?></td>
-          <td  id="upravitelne"><?= $obr["typ"] ?></td>
-          <td><div class="bunka_tabulky"><?= $obr["Jmeno"] ?></div></td>
+          <td class="upravitelne"><?= $obr["id_obr"] ?></td>
+          <td class="upravitelne"><?= $obr["typ"] ?></td>
+          <td><div class="bunka_tabulky"><?= $obr["Jmeno"]?></div></td>
           
-          <td class="obrazek_administrace" id="administrace">                                                                                                                                         
+           <td><div class="bunka_tabulky administrace">                                                                                                                                   
             <a href="obrazek/<?= $obr["id_obr"] ?>/odstranit">Odstranit</a>
             <a href="<?=$obr["download"]?>" download>Stáhnout</a>
+            </div>
            </td> 
         </tr>   	
      <?php } ?>

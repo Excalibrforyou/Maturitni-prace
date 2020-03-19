@@ -23,7 +23,7 @@
 </div>
        <div class="radek">
            <div class="s25">
-              <label for="hra">Hra</label>
+              <label>Hra</label>
            </div>    
           <div class="s75" id="posunutiChosen">
              <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru"> 
@@ -31,7 +31,7 @@
                foreach($hry as $hra){
                
             ?>  
-                <option id="hra" value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
+                <option value = "<?= $hra["id_hry"] ?>"><?= $hra["Jmeno"] ?></option> 
            <?php
                  }
             ?>

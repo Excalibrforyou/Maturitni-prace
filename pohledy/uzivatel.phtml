@@ -7,22 +7,22 @@
      <table id="datatable">
      <thead>
      <tr class="hlavicky">
-       <th id="upravitelne">Jméno</th>
-       <th id="upravitelne">Příjmení</th>
+       <th class="upravitelne">Jméno</th>
+       <th class="upravitelne">Příjmení</th>
        <th>Přezdívka</th>
-       <th>Email</th>
+       <th class="upravitelne">Email</th>
        <th>Právo</th>                             
        <th>Administrace</th>
      </tr> 
      </thead> <tbody>
      <?php foreach ($uzivatel as $uzivatel1) { ?>
         <tr>
-          <td id="upravitelne"><div class="bunka_tabulky"><?= $uzivatel1["jmeno"] ?></div></td>
-          <td id="upravitelne"><div class="bunka_tabulky"><?= $uzivatel1["prijmeni"] ?></div></td>
+          <td class="upravitelne"><div class="bunka_tabulky"><?= $uzivatel1["jmeno"] ?></div></td>
+          <td class="upravitelne"><div class="bunka_tabulky"><?= $uzivatel1["prijmeni"] ?></div></td>
           <td><div class="bunka_tabulky"><?= $uzivatel1["prezdivka"] ?></div></td>
-          <td id="upravitelne"><div class="bunka_tabulky"><?= $uzivatel1["email"] ?></div></td>
+          <td class="upravitelne"><div class="bunka_tabulky"><?= $uzivatel1["email"] ?></div></td>
           <td><div class="bunka_tabulky"><?= $uzivatel1["typ_uctu"] ?></div></td>
-          <td><div class="bunka_tabulky" id="administrace">
+           <td><div class="bunka_tabulky administrace">
             <a href="editace-uzivatele/<?= $uzivatel1["ID_uzivatele"] ?>">Upravit</a>
             <a href="uzivatele/<?= $uzivatel1["ID_uzivatele"] ?>/odstranit">Odstranit</a>
            </div></td> 

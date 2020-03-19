@@ -8,8 +8,8 @@
      <thead>
      <tr class = "hlavicky">
        <th>%</th>
-       <th id="upravitelne">Recenze</th>
-       <th>Uzivatel</th>
+       <th class="upravitelne">Recenze</th>
+       <th>Uživatel</th>
        <th>Hra</th>  
        <th>Administrace</th>
      </tr>  
@@ -18,11 +18,11 @@
      <?php foreach ($hodnoceni as $hodnot) { ?>                                 
         <tr>
           <td><div class="bunka_tabulky"><?= $hodnot["hodnoceni"]?></div></td>
-          <td id="upravitelne"><div class="bunka_tabulky"><?= $hodnot["komentar"]?></div></td>
+          <td class="upravitelne"><div class="bunka_tabulky"><?= $hodnot["komentar"]?></div></td>
           <td><div class="bunka_tabulky"><?= $hodnot["prezdivka"]?></div></td>
           <td><div class="bunka_tabulky"><?= $hodnot["Jmeno"]?></div></td>
           
-          <td><div class="bunka_tabulky" id="administrace">
+         <td><div class="bunka_tabulky administrace">
             <a href="editace-hodnoceni/<?= $hodnot["id_hod"] ?>">Upravit</a>
             <a href="hodnoceni/<?= $hodnot["id_hod"] ?>/odstranit">Odstranit</a>
            </div></td> 

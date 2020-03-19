@@ -96,7 +96,7 @@
      
          
     
-    <a data-fancybox="gallery" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="150" width="150"></a>
+    <a data-fancybox="gallery" href="<?=$obr["download"]?>"><img src="<?=$obr["nahled"]?>" height="150" width="150" alt=""></a>
      </div> 
 
   </div>
@@ -120,7 +120,7 @@
       if ($hra["id_hry"]==$vid["id_hry"]) {	
      
      ?>
-    <iframe class="video" frameborder="0" allowfullscreen
+    <iframe class="video" allowfullscreen
      src="<?= $vid["link"] ?>">
     </iframe> 
       <?php

@@ -78,7 +78,8 @@ class Db {
 		return self::$spojeni->lastInsertId();
 	}
     
-   
+    //Spustí dotaz a vrátí veškeré data spojené s klíčovým slovem dodaným ve vstupu.
+    
     public static function likeDotaz($dotaz, $parametry = array()){
     
     $i = self::$spojeni->prepare($dotaz);

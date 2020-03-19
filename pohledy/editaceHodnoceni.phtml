@@ -19,12 +19,12 @@
       <label for="hodnoceni" ><span id="hodnoceniOut"></span>%</label>
     </div>
 <div class="s75">   
-  <input type="range" min="0" max="100" value="<?= $hodnoceni["hodnoceni"] ?>" name="hodnoceni" id="hodnoceni" required>   
+  <input type="range" min="0" max="100" value="<?= $hodnoceni["hodnoceni"] ?>" name="hodnoceni" id="hodnoceni">   
 </div>
    </div>
    <div class="radek">
     <div class="s25">                                                                        
-      <label for="komentar">Recenze</label>
+      <label>Recenze</label>
     </div>
 <div class="s75">
  <textarea name="komentar" id="obsah"><?= $hodnoceni["komentar"] ?></textarea>
@@ -41,7 +41,7 @@ CKEDITOR.replace( 'obsah');
    ?>
        <div class="radek">
            <div class="s25">
-              <label for="id_uzivatele">Uživatel</label>
+              <label>Uživatel</label>
            </div>
             <div class="s75" id="posunutiChosen">
              <select class="chosen-select" name="id_uzivatele" data-placeholder="Vyber uživatele">
@@ -94,7 +94,7 @@ CKEDITOR.replace( 'obsah');
    ?>
        <div class="radek">
            <div class="s25">
-              <label for="hra">Hra</label>
+              <label>Hra</label>
            </div>
             <div class="s75" id="posunutiChosen">
              <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru">
@@ -116,7 +116,7 @@ CKEDITOR.replace( 'obsah');
 ?>
         <div class="radek">
             <div class="s25">
-              <label for="hra">Hra</label>
+              <label>Hra</label>
             </div>
            <div class="s75" id="posunutiChosen">
              <select class="chosen-select" name="id_hry" data-placeholder="Vyber hru">

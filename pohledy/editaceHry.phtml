@@ -73,7 +73,7 @@
   </div>
 
            <div class="s75" id="posunutiChosen">
-              <select class="chosen-select" name="platforma" data-placeholder="Vyber platformu" required>
+              <select class="chosen-select" name="platforma" data-placeholder="Vyber platformu">
                 <?php
                  if (empty($hry["id_hry"])) {
                 ?>
@@ -152,20 +152,18 @@ CKEDITOR.replace( 'obsah', {
                 ?>
     <div class="radek">
     <div class="s25">
-      <label for="obrazky">Obrazky</label>
+      <label>Obrazky</label>
     </div>
      <div class="s75">
            <input type="file" name="obrazek[]" id="file" multiple>
      </div>
    </div>
 
-   <?php
-   } 
-   ?> 
+
     <div class="container1">
       <div class="radek">
     <div class="s25">
-      <label for="Videa">Videa</label>
+      <label>Videa</label>
     </div>
      
 
@@ -178,10 +176,12 @@ CKEDITOR.replace( 'obsah', {
     <input type="text" name="link[]" id="link">
     </div>
 </div>      
-           
+       
      </div>
    </div> 
-   
+        <?php
+   } 
+   ?>   
    
 
   <div class="radek1">

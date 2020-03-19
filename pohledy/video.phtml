@@ -5,9 +5,9 @@
      <table id="datatable">
      <thead>
      <tr class="hlavicky">
-       <th id="upravitelne">ID videa</th> 
+       <th class="upravitelne">ID videa</th> 
        <th>Link</th>
-       <th>Hra</th> 
+       <th class="upravitelne">Hra</th> 
        <th>Administrace</th>
      </tr> 
      </thead>
@@ -15,10 +15,10 @@
      
      <?php foreach ($video as $vid) { ?>
         <tr>
-          <td id="upravitelne"><div class="bunka_tabulky"><?= $vid["id_vid"] ?></div></td>
+          <td class="upravitelne"><div class="bunka_tabulky"><?= $vid["id_vid"] ?></div></td>
           <td><div class="bunka_tabulky"><a href="<?= $vid["link"] ?>"><?= $vid["link"] ?></a></div></td>
-          <td><div class="bunka_tabulky"><?= $vid["Jmeno"] ?></div></td>
-          <td><div class="bunka_tabulky" id="administrace">
+          <td class="upravitelne"><div class="bunka_tabulky"><?= $vid["Jmeno"] ?></div></td>
+          <td><div class="bunka_tabulky administrace">
             <a href="editace-videa/<?= $vid["id_vid"] ?>">Upravit</a>
             <a href="video/<?= $vid["id_vid"] ?>/odstranit">Odstranit</a>
           </div></td> 
